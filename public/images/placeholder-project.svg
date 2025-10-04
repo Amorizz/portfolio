@@ -1,0 +1,29 @@
+<svg width="400" height="250" viewBox="0 0 400 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="250" fill="#010204"/>
+  
+  <!-- Card background -->
+  <rect x="50" y="50" width="300" height="150" rx="8" fill="#080C10"/>
+  
+  <!-- Violet circles for space theme -->
+  <circle cx="200" cy="125" r="40" fill="#58A6FF" opacity="0.3"/>
+  <circle cx="160" cy="100" r="20" fill="#58A6FF" opacity="0.2"/>
+  <circle cx="240" cy="100" r="20" fill="#58A6FF" opacity="0.2"/>
+  <circle cx="160" cy="150" r="20" fill="#58A6FF" opacity="0.2"/>
+  <circle cx="240" cy="150" r="20" fill="#58A6FF" opacity="0.2"/>
+  
+  <!-- Project icon -->
+  <svg x="170" y="105" width="60" height="40" viewBox="0 0 60 40" fill="none">
+    <path d="M30 10C30 10 30 10 30 10L30 30L30 30L30 30L30 10Z" stroke="#58A6FF" stroke-width="2" fill="none"/>
+    <path d="M20 15L30 15L30 25L20 25L20 15Z" stroke="#58A6FF" stroke-width="2" fill="none"/>
+  </svg>
+  
+  <!-- Text placeholder -->
+  <rect x="80" y="180" width="120" height="8" rx="4" fill="#58A6FF" opacity="0.4"/>
+  <rect x="80" y="195" width="80" height="6" rx="3" fill="#58A6FF" opacity="0.3"/>
+  
+  <!-- Technology badges -->
+  <rect x="220" y="180" width="40" height="16" rx="8" fill="#58A6FF" opacity="0.2"/>
+  <rect x="270" y="180" width="35" height="16" rx="8" fill="#58A6FF" opacity="0.2"/>
+  <rect x="315" y="180" width="30" height="16" rx="8" fill="#58A6FF" opacity="0.2"/>
+</svg>

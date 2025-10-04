@@ -1,0 +1,37 @@
+[
+  {
+    "id": "passion-quote",
+    "quote": "The only way to do great work is to love what you do. If you haven't found it yet, keep looking. Don't settle.",
+    "author": "Steve Jobs",
+    "order": 1,
+    "enabled": true
+  },
+  {
+    "id": "innovation-quote",
+    "quote": "Innovation distinguishes between a leader and a follower. The way to get started is to quit talking and begin doing.",
+    "author": "Walt Disney",
+    "order": 2,
+    "enabled": true
+  },
+  {
+    "id": "persistence-quote",
+    "quote": "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+    "author": "Winston Churchill",
+    "order": 3,
+    "enabled": true
+  },
+  {
+    "id": "learning-quote",
+    "quote": "The capacity to learn is a gift; the ability to learn is a skill; the willingness to learn is a choice.",
+    "author": "Brian Herbert",
+    "order": 4,
+    "enabled": true
+  },
+  {
+    "id": "technology-quote",
+    "quote": "Technology is best when it brings people together. The future of technology is not about the technology itself, but about how it enables human connection.",
+    "author": "Matt Mullenweg",
+    "order": 5,
+    "enabled": true
+  }
+]

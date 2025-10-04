@@ -1,0 +1,58 @@
+import { ProjectGrid } from '@/components/sections/projects-grid';
+import { loadProjects } from '@/lib/data-loader';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Projects',
+  description: 'Explore my portfolio of projects showcasing my skills in web development, full-stack applications, and innovative solutions.',
+  openGraph: {
+    title: 'Projects | Amaud Portfolio',
+    description: 'Explore my portfolio of projects showcasing my skills in web development, full-stack applications, and innovative solutions.',
+  },
+};
+
+export default async function ProjectsPage() {
+  const projectsResult = await loadProjects();
+  const projects = projectsResult.data;
+
+  return (
+    <main className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        {/* Page Header */}
+        <div className="text-center mb-12">
+              <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
+            My Projects
+          </h1>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            A collection of projects that demonstrate my passion for creating innovative solutions 
+            and my expertise in modern web technologies.
+          </p>
+        </div>
+
+        {/* Projects Grid */}
+        <ProjectGrid 
+          projects={projects} 
+          featured={false}
+        />
+
+        {/* Call to Action */}
+        <div className="text-center mt-16">
+          <div className="bg-card rounded-2xl p-8 border border-border">
+            <h3 className="text-2xl font-semibold text-foreground mb-4">
+              Interested in working together?
+            </h3>
+            <p className="text-muted-foreground mb-6">
+              I'm always excited to take on new challenges and collaborate on innovative projects.
+            </p>
+            <a
+              href="/contact"
+              className="inline-flex items-center px-6 py-3 bg-accent text-accent-foreground font-semibold rounded-lg hover:bg-accent/90 transition-colors"
+            >
+              Get In Touch
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}

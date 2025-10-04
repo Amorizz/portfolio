@@ -1,0 +1,42 @@
+[
+  {
+    "platform": "linkedin",
+    "url": "https://linkedin.com/in/amaud",
+    "icon": "linkedin",
+    "label": "LinkedIn",
+    "order": 1,
+    "enabled": true
+  },
+  {
+    "platform": "github",
+    "url": "https://github.com/amaud",
+    "icon": "github",
+    "label": "GitHub",
+    "order": 2,
+    "enabled": true
+  },
+  {
+    "platform": "instagram",
+    "url": "https://instagram.com/amaud",
+    "icon": "instagram",
+    "label": "Instagram",
+    "order": 3,
+    "enabled": true
+  },
+  {
+    "platform": "twitter",
+    "url": "https://twitter.com/amaud",
+    "icon": "twitter",
+    "label": "Twitter",
+    "order": 4,
+    "enabled": true
+  },
+  {
+    "platform": "email",
+    "url": "mailto:contact@amaud.dev",
+    "icon": "mail",
+    "label": "Email",
+    "order": 5,
+    "enabled": true
+  }
+]
