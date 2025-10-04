@@ -1,10 +1,10 @@
 {
-  "name": "Amaud",
-  "title": "Full Stack Developer & Tech Enthusiast",
-  "bio": "Passionate developer with expertise in modern web technologies, dedicated to creating innovative solutions that make a difference. I combine technical excellence with creative problem-solving to build applications that users love.",
+  "name": "Amaury Dufrenot",
+  "title": "Network and Telecommunications Student",
+  "bio": "Passionate student with expertise in network and telecommunications, dedicated to creating innovative solutions that make a difference. I combine technical excellence with creative problem-solving to build applications that users love.",
   "avatar": "/images/avatar.jpg",
-  "avatarAlt": "Profile photo of Amaud - a passionate full-stack developer",
-  "location": "Your City, Country",
-  "email": "contact@amaud.dev",
-  "phone": "+1 (555) 123-4567"
+  "avatarAlt": "Profile photo of Amaury Dufrenot - a passionate full-stack developer",
+  "location": "Paris, France",
+  "email": "amaury.dufrenot@utt.fr",
+  "phone": "+33 6 44 19 68 50"
 }

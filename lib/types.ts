@@ -63,6 +63,7 @@ export interface HeroProps {
 }
 
 export interface NavbarProps {
+  personalInfo: PersonalInfo;
   className?: string;
 }
 

@@ -1,0 +1,43 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient definitions -->
+    <linearGradient id="building1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A855F7;stop-opacity:0.8" />
+    </linearGradient>
+    <linearGradient id="building2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6366F1;stop-opacity:0.9" />
+    </linearGradient>
+    <linearGradient id="building3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="growthLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#EF4444;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:0.4" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Building/Startup Icon with different colors -->
+  <rect x="4" y="12" width="6" height="16" rx="1" fill="url(#building1)"/>
+  <rect x="12" y="8" width="6" height="20" rx="1" fill="url(#building2)"/>
+  <rect x="20" y="6" width="6" height="22" rx="1" fill="url(#building3)"/>
+  
+  <!-- Network/Connection Lines with vibrant colors -->
+  <path d="M7 20L13 16" stroke="#EC4899" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+  <path d="M15 18L21 14" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+  <path d="M23 16L29 12" stroke="#EF4444" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+  
+  <!-- Network Nodes with vibrant colors -->
+  <circle cx="7" cy="20" r="1.5" fill="#EC4899" opacity="0.8"/>
+  <circle cx="13" cy="16" r="1.5" fill="#F59E0B" opacity="0.8"/>
+  <circle cx="15" cy="18" r="1.5" fill="#EF4444" opacity="0.8"/>
+  <circle cx="21" cy="14" r="1.5" fill="#8B5CF6" opacity="0.8"/>
+  <circle cx="23" cy="16" r="1.5" fill="#10B981" opacity="0.8"/>
+  <circle cx="29" cy="12" r="1.5" fill="#3B82F6" opacity="0.8"/>
+  
+  <!-- Startup Growth Indicator with gradient -->
+  <path d="M2 28L8 24L14 20L20 16L26 12L30 8" stroke="url(#growthLine)" stroke-width="2" stroke-linecap="round"/>
+</svg>

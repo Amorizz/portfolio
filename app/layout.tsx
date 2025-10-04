@@ -4,6 +4,7 @@ import './globals.css';
 import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
 import { SEO, APP_CONFIG } from '@/lib/constants';
+import { loadPersonalInfo, loadSocialLinks } from '@/lib/data-loader';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -67,11 +68,20 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  // Load data for layout
+  const [personalInfoResult, socialLinksResult] = await Promise.all([
+    loadPersonalInfo(),
+    loadSocialLinks(),
+  ]);
+
+  const personalInfo = personalInfoResult.data;
+  const socialLinks = socialLinksResult.data;
+
   return (
     <html lang="en" className={inter.variable}>
       <head>
@@ -80,20 +90,13 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} bg-background text-foreground antialiased`}>
         <div className="min-h-screen flex flex-col">
-          <Navbar />
+          <Navbar personalInfo={personalInfo} />
           <main className="flex-1">
             {children}
           </main>
           <Footer 
-            socialLinks={[]} 
-            personalInfo={{
-              name: 'Amaud',
-              title: 'Full Stack Developer',
-              bio: 'Passionate developer with expertise in modern web technologies',
-              avatar: '/images/avatar.jpg',
-              avatarAlt: 'Profile photo of Amaud',
-              email: 'contact@amaud.dev',
-            }}
+            socialLinks={socialLinks} 
+            personalInfo={personalInfo}
           />
         </div>
       </body>

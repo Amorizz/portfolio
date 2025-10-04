@@ -20,61 +20,51 @@ export function Footer({ socialLinks, personalInfo, className }: FooterProps) {
 
   return (
     <footer className={cn('bg-background border-t border-border', className)}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand Section */}
-          <div className="space-y-4">
-            <h3 className="text-xl font-semibold text-foreground">
+          <div className="flex flex-col items-start space-y-6">
+            <h3 className="text-2xl font-bold text-foreground">
               {personalInfo.name}
             </h3>
-            <p className="text-muted-foreground leading-relaxed">
-              {personalInfo.bio}
-            </p>
-            <div className="flex items-center gap-2 text-accent">
-              <Heart className="h-4 w-4" />
-              <span className="text-sm">Made with passion</span>
+            <div className="w-full flex justify-start">
+              <SocialLinks socialLinks={socialLinks} />
             </div>
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-4">
+          <div className="flex flex-col items-start space-y-6">
             <h4 className="text-lg font-semibold text-foreground">Quick Links</h4>
-            <nav className="space-y-2">
+            <nav className="flex flex-col space-y-3">
               <Link
                 href="/"
-                className="block text-muted-foreground hover:text-accent transition-colors"
+                className="text-sm text-muted-foreground hover:text-accent transition-colors duration-200"
               >
                 Home
               </Link>
               <Link
                 href="/about"
-                className="block text-muted-foreground hover:text-accent transition-colors"
+                className="text-sm text-muted-foreground hover:text-accent transition-colors duration-200"
               >
                 About
               </Link>
               <Link
                 href="/projects"
-                className="block text-muted-foreground hover:text-accent transition-colors"
+                className="text-sm text-muted-foreground hover:text-accent transition-colors duration-200"
               >
                 Projects
-              </Link>
-              <Link
-                href="/contact"
-                className="block text-muted-foreground hover:text-accent transition-colors"
-              >
-                Contact
               </Link>
             </nav>
           </div>
 
-          {/* Contact & Social */}
-          <div className="space-y-4">
+          {/* Contact */}
+          <div className="flex flex-col items-start space-y-6">
             <h4 className="text-lg font-semibold text-foreground">Connect</h4>
-            <div className="space-y-3">
+            <div className="flex flex-col space-y-3">
               {personalInfo.email && (
                 <a
                   href={`mailto:${personalInfo.email}`}
-                  className="block text-muted-foreground hover:text-accent transition-colors"
+                  className="text-sm text-muted-foreground hover:text-accent transition-colors duration-200"
                 >
                   {personalInfo.email}
                 </a>
@@ -82,26 +72,25 @@ export function Footer({ socialLinks, personalInfo, className }: FooterProps) {
               {personalInfo.phone && (
                 <a
                   href={`tel:${personalInfo.phone}`}
-                  className="block text-muted-foreground hover:text-accent transition-colors"
+                  className="text-sm text-muted-foreground hover:text-accent transition-colors duration-200"
                 >
                   {personalInfo.phone}
                 </a>
               )}
               {personalInfo.location && (
-                <p className="text-muted-foreground">
+                <p className="text-sm text-muted-foreground">
                   📍 {personalInfo.location}
                 </p>
               )}
             </div>
-            <SocialLinks socialLinks={socialLinks} />
           </div>
         </div>
 
-        <Separator className="my-8 bg-border" />
+        <Separator className="my-12 bg-border" />
 
         {/* Bottom Section */}
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-          <div className="text-muted-foreground text-sm">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
+          <div className="text-xs text-muted-foreground">
             © {currentYear} {personalInfo.name}. All rights reserved.
           </div>
           
@@ -110,7 +99,7 @@ export function Footer({ socialLinks, personalInfo, className }: FooterProps) {
               variant="ghost"
               size="sm"
               onClick={scrollToTop}
-              className="text-muted-foreground hover:text-accent hover:bg-secondary"
+              className="text-muted-foreground hover:text-accent hover:bg-secondary transition-colors duration-200"
               aria-label="Scroll to top"
             >
               <ArrowUp className="h-4 w-4" />

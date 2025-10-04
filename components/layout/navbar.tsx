@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -9,7 +10,7 @@ import { cn } from '@/lib/utils';
 import { NAVIGATION } from '@/lib/constants';
 import { NavbarProps } from '@/lib/types';
 
-export function Navbar({ className }: NavbarProps) {
+export function Navbar({ personalInfo, className }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
@@ -24,16 +25,22 @@ export function Navbar({ className }: NavbarProps) {
           <div className="flex-shrink-0">
             <Link 
               href="/" 
-              className="text-foreground hover:text-accent transition-colors duration-200 font-semibold text-xl"
+              className="text-violet-500 hover:text-violet-400 transition-colors duration-200"
               onClick={closeMenu}
             >
-              Amaud
+              <Image
+                src="/images/logo-icon.svg"
+                alt="Amaury Dufrenot Portfolio Logo"
+                width={32}
+                height={32}
+                className="w-8 h-8"
+              />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+            <div className="flex items-baseline space-x-6">
               {NAVIGATION.main.map((item) => {
                 const isActive = pathname === item.href;
                 return (
@@ -41,7 +48,7 @@ export function Navbar({ className }: NavbarProps) {
                     key={item.name}
                     href={item.href}
                     className={cn(
-                      'px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200',
+                      'px-3 py-1.5 rounded-md text-xs font-medium transition-colors duration-200',
                       isActive
                         ? 'text-accent bg-secondary'
                         : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
