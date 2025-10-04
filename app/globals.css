@@ -182,6 +182,16 @@
     outline: 2px solid #58A6FF;
     outline-offset: 2px;
   }
+
+  /* Subtle bounce animation for timeline dots */
+  @keyframes subtleBounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-2px);
+    }
+  }
 }
 
 @layer components {

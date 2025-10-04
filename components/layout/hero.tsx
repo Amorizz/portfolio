@@ -64,7 +64,7 @@ export function Hero({ personalInfo, socialLinks, className }: HeroProps) {
           {/* Know More About Me Button */}
           <div className="mb-6">
             <Link href="/about">
-              <Button variant="default" className="rounded-md hover:bg-accent hover:text-white">
+              <Button variant="default" className="rounded-md hover:bg-accent hover:text-white hover:cursor-pointer">
                 Know More About Me
               </Button>
             </Link>
