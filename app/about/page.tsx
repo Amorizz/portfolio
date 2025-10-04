@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Mail } from 'lucide-react';
-import { loadPersonalInfo, loadSocialLinks, getEnabledTimeline } from '@/lib/data-loader';
+import { loadPersonalInfo, loadSocialLinks, getEnabledTimeline, getEnabledAboutCards, getEnabledSkills } from '@/lib/data-loader';
+import { getLanguage } from '@/lib/get-language';
 import { SocialLinks } from '@/components/sections/social-links';
 import { Timeline } from '@/components/sections/timeline';
 import { Badge } from '@/components/ui/badge';
@@ -16,15 +17,22 @@ export const metadata: Metadata = {
 };
 
 export default async function AboutPage() {
-  const [personalInfoResult, socialLinksResult, timelineResult] = await Promise.all([
-    loadPersonalInfo(),
-    loadSocialLinks(),
-    getEnabledTimeline(),
+  // Get current language
+  const lang = await getLanguage();
+  
+  const [personalInfoResult, socialLinksResult, timelineResult, aboutCardsResult, skillsResult] = await Promise.all([
+    loadPersonalInfo(lang),
+    loadSocialLinks(lang),
+    getEnabledTimeline(lang),
+    getEnabledAboutCards(lang),
+    getEnabledSkills(lang),
   ]);
 
   const personalInfo = personalInfoResult.data;
   const socialLinks = socialLinksResult.data;
   const timeline = timelineResult.data;
+  const aboutCards = aboutCardsResult.data;
+  const skills = skillsResult.data;
 
   return (
     <main className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
@@ -102,6 +110,29 @@ export default async function AboutPage() {
           </div>
         </section>
 
+        {/* Who I Am */}
+        <section className="px-40">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+              Who I Am
+            </h2>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+              {aboutCards.map((card) => (
+                <div key={card.id} className="space-y-3">
+                  <div className="text-4xl mb-2">{card.icon}</div>
+                  <h3 className="text-lg font-semibold text-foreground">{card.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed text-justify">
+                    {card.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Skills & Expertise Section */}
         <section>
           <div className="text-center mb-12">
@@ -114,87 +145,20 @@ export default async function AboutPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Network & Systems */}
-            <div className="bg-card/30 border border-border rounded-xl p-6 hover:border-accent/50 transition-all">
-              <div className="text-3xl mb-3">🌐</div>
-              <h3 className="text-base font-semibold text-foreground mb-2">Network & Systems</h3>
-              <p className="text-xs text-muted-foreground mb-3">Academic studies + hands-on projects</p>
-              <div className="flex flex-wrap gap-1.5">
-                <Badge className="bg-violet-600/10 text-foreground hover:bg-violet-600/20 text-[10px]">TCP/IP</Badge>
-                <Badge className="bg-violet-600/10 text-foreground hover:bg-violet-600/20 text-[10px]">Linux</Badge>
-                <Badge className="bg-violet-600/10 text-foreground hover:bg-violet-600/20 text-[10px]">System Admin</Badge>
-                <Badge className="bg-violet-600/10 text-foreground hover:bg-violet-600/20 text-[10px]">Network Config</Badge>
-                <Badge className="bg-violet-600/10 text-foreground hover:bg-violet-600/20 text-[10px]">Cisco Packet Tracer</Badge>
-
+            {skills.map((skill) => (
+              <div key={skill.id} className="bg-card/30 border border-border rounded-xl p-6 hover:border-accent/50 transition-all">
+                <div className="text-3xl mb-3">{skill.icon}</div>
+                <h3 className="text-base font-semibold text-foreground mb-2">{skill.title}</h3>
+                <p className="text-xs text-muted-foreground mb-3">{skill.description}</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {skill.skills.map((item, index) => (
+                    <Badge key={index} className="bg-violet-600/10 text-foreground hover:bg-violet-600/20 text-[10px]">
+                      {item}
+                    </Badge>
+                  ))}
+                </div>
               </div>
-            </div>
-
-            {/* Cybersecurity */}
-            <div className="bg-card/30 border border-border rounded-xl p-6 hover:border-accent/50 transition-all">
-              <div className="text-3xl mb-3">🔐</div>
-              <h3 className="text-base font-semibold text-foreground mb-2">Cybersecurity</h3>
-              <p className="text-xs text-muted-foreground mb-3">Global Cybersecurity Knowledge</p>
-              <div className="flex flex-wrap gap-1.5">
-                <Badge className="bg-violet-600/10 text-foreground hover:bg-violet-600/20 text-[10px]">Web Security</Badge>
-                <Badge className="bg-violet-600/10 text-foreground hover:bg-violet-600/20 text-[10px]">CTF</Badge>
-                <Badge className="bg-violet-600/10 text-foreground hover:bg-violet-600/20 text-[10px]">Red Team</Badge>
-                <Badge className="bg-violet-600/10 text-foreground hover:bg-violet-600/20 text-[10px]">OSINT</Badge>
-
-              </div>
-            </div>
-
-            {/* AI & Neural Networks */}
-            <div className="bg-card/30 border border-border rounded-xl p-6 hover:border-accent/50 transition-all">
-              <div className="text-3xl mb-3">🤖</div>
-              <h3 className="text-base font-semibold text-foreground mb-2">AI</h3>
-              <p className="text-xs text-muted-foreground mb-3">Studies & hands-on experience</p>
-              <div className="flex flex-wrap gap-1.5">
-                <Badge className="bg-violet-600/10 text-foreground hover:bg-violet-600/20 text-[10px]">Neural Networks</Badge>
-                <Badge className="bg-violet-600/10 text-foreground hover:bg-violet-600/20 text-[10px]">Python ML</Badge>
-                <Badge className="bg-violet-600/10 text-foreground hover:bg-violet-600/20 text-[10px]">Hugging Face</Badge>
-                <Badge className="bg-violet-600/10 text-foreground hover:bg-violet-600/20 text-[10px]">Cursor AI</Badge>
-              </div>
-            </div>
-
-            {/* Programming & Web Dev */}
-            <div className="bg-card/30 border border-border rounded-xl p-6 hover:border-accent/50 transition-all">
-              <div className="text-3xl mb-3">💻</div>
-              <h3 className="text-base font-semibold text-foreground mb-2">Programming & Web Dev</h3>
-              <p className="text-xs text-muted-foreground mb-3">Still learning with AI assistance</p>
-              <div className="flex flex-wrap gap-1.5">
-                <Badge className="bg-violet-600/10 text-foreground hover:bg-violet-600/20 text-[10px]">Python</Badge>
-                <Badge className="bg-violet-600/10 text-foreground hover:bg-violet-600/20 text-[10px]">JavaScript/TypeScript</Badge>
-                <Badge className="bg-violet-600/10 text-foreground hover:bg-violet-600/20 text-[10px]">Next.js/React</Badge>
-                <Badge className="bg-violet-600/10 text-foreground hover:bg-violet-600/20 text-[10px]">HTML/CSS</Badge>
-                <Badge className="bg-violet-600/10 text-foreground hover:bg-violet-600/20 text-[10px]">Tailwind CSS</Badge>
-              </div>
-            </div>
-
-            {/* Backend & Deployment */}
-            <div className="bg-card/30 border border-border rounded-xl p-6 hover:border-accent/50 transition-all">
-              <div className="text-3xl mb-3">🗄️</div>
-              <h3 className="text-base font-semibold text-foreground mb-2">Database & Backend</h3>
-              <p className="text-xs text-muted-foreground mb-3">Building & deploying full-stack projects</p>
-              <div className="flex flex-wrap gap-1.5">
-                <Badge className="bg-violet-600/10 text-foreground hover:bg-violet-600/20 text-[10px]">Supabase</Badge>
-                <Badge className="bg-violet-600/10 text-foreground hover:bg-violet-600/20 text-[10px]">PostgreSQL</Badge>
-                <Badge className="bg-violet-600/10 text-foreground hover:bg-violet-600/20 text-[10px]">REST APIs</Badge>
-                <Badge className="bg-violet-600/10 text-foreground hover:bg-violet-600/20 text-[10px]">DNS/Domain Config</Badge>
-              </div>
-        </div>
-
-            {/* Tools & Workflow */}
-            <div className="bg-card/30 border border-border rounded-xl p-6 hover:border-accent/50 transition-all">
-              <div className="text-3xl mb-3">🛠️</div>
-              <h3 className="text-base font-semibold text-foreground mb-2">Dev Tools & Workflow</h3>
-              <p className="text-xs text-muted-foreground mb-3">Modern development environment</p>
-              <div className="flex flex-wrap gap-1.5">
-                <Badge className="bg-violet-600/10 text-foreground hover:bg-violet-600/20 text-[10px]">Git</Badge>
-                <Badge className="bg-violet-600/10 text-foreground hover:bg-violet-600/20 text-[10px]">Docker</Badge>
-                <Badge className="bg-violet-600/10 text-foreground hover:bg-violet-600/20 text-[10px]">VS Code</Badge>
-                <Badge className="bg-violet-600/10 text-foreground hover:bg-violet-600/20 text-[10px]">Figma</Badge>
-              </div>
-            </div>
+            ))}
           </div>
         </section>
 
@@ -210,78 +174,6 @@ export default async function AboutPage() {
           </div>
           
           <Timeline items={timeline} />
-        </section>
-
-        {/* Beyond the Code - Hobbies & Personality */}
-        <section>
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Beyond the Code
-            </h2>
-            <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
-              The person behind the developer
-            </p>
-          </div>
-
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* What Drives Me */}
-              <div className="bg-gradient-to-br from-accent/5 to-transparent border border-accent/20 rounded-xl p-6">
-                <div className="flex items-start gap-4">
-                  <span className="text-3xl">🚀</span>
-                  <div>
-                    <h3 className="text-base font-semibold text-foreground mb-2">What Drives Me</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      Passionate about solving complex problems and building solutions that make a real impact. 
-                      I believe in continuous learning and pushing boundaries.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Interests */}
-              <div className="bg-gradient-to-br from-accent/5 to-transparent border border-accent/20 rounded-xl p-6">
-                <div className="flex items-start gap-4">
-                  <span className="text-3xl">🎯</span>
-                  <div>
-                    <h3 className="text-base font-semibold text-foreground mb-2">Interests & Hobbies</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      Tech enthusiast, always exploring new technologies. Love traveling, experiencing different 
-                      cultures, and finding inspiration in new perspectives.
-                    </p>
-                  </div>
-                </div>
-            </div>
-
-              {/* Learning Philosophy */}
-              <div className="bg-gradient-to-br from-accent/5 to-transparent border border-accent/20 rounded-xl p-6">
-                <div className="flex items-start gap-4">
-                  <span className="text-3xl">📚</span>
-                  <div>
-                    <h3 className="text-base font-semibold text-foreground mb-2">Learning Philosophy</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      Believer in learning by doing. Whether it's a new framework or a challenging project, 
-                      I dive in hands-first and learn through experience.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Collaboration */}
-              <div className="bg-gradient-to-br from-accent/5 to-transparent border border-accent/20 rounded-xl p-6">
-                <div className="flex items-start gap-4">
-                  <span className="text-3xl">🤝</span>
-                  <div>
-                    <h3 className="text-base font-semibold text-foreground mb-2">Collaboration Style</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      Team player who values clear communication and shared goals. I thrive in environments 
-                      where ideas flow freely and innovation is encouraged.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </section>
       </div>
     </main>

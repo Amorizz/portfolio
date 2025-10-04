@@ -3,8 +3,10 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
+import { LanguageSwitcher } from '@/components/language-switcher';
 import { SEO, APP_CONFIG } from '@/lib/constants';
 import { loadPersonalInfo, loadSocialLinks } from '@/lib/data-loader';
+import { getLanguage } from '@/lib/get-language';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -73,17 +75,20 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Load data for layout
+  // Get current language
+  const lang = await getLanguage();
+  
+  // Load data for layout with current language
   const [personalInfoResult, socialLinksResult] = await Promise.all([
-    loadPersonalInfo(),
-    loadSocialLinks(),
+    loadPersonalInfo(lang),
+    loadSocialLinks(lang),
   ]);
 
   const personalInfo = personalInfoResult.data;
   const socialLinks = socialLinksResult.data;
 
   return (
-    <html lang="en" className={`${inter.variable} dark`}>
+    <html lang={lang} className={`${inter.variable} dark`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -98,6 +103,7 @@ export default async function RootLayout({
             socialLinks={socialLinks} 
             personalInfo={personalInfo}
           />
+          <LanguageSwitcher />
         </div>
       </body>
     </html>

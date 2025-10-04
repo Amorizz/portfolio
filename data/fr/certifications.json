@@ -1,0 +1,25 @@
+[
+  {
+    "id": "1",
+    "title": "Mon CV",
+    "description": "Curriculum Vitae complet avec expérience et éducation",
+    "type": "cv",
+    "icon": "📄",
+    "url": "/documents/cv-amaury-dufrenot.pdf",
+    "downloadable": true,
+    "order": 1,
+    "enabled": true
+  },
+  {
+    "id": "2",
+    "title": "Certification CCNA",
+    "description": "Cisco Certified Network Associate",
+    "type": "certification",
+    "icon": "🏆",
+    "url": "/documents/ccna-certification.pdf",
+    "downloadable": true,
+    "order": 2,
+    "enabled": true
+  }
+]
+

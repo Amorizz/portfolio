@@ -1,0 +1,27 @@
+[
+  {
+    "id": "1",
+    "icon": "🎯",
+    "title": "What Drives Me",
+    "description": "Passionate about learning every day. From cybersecurity to AI, I'm constantly exploring new technologies and pushing boundaries.",
+    "order": 1,
+    "enabled": true
+  },
+  {
+    "id": "2",
+    "icon": "🛠️",
+    "title": "What I Create",
+    "description": "Building things is my passion. Web apps, network projects, security tools — turning ideas into real solutions.",
+    "order": 2,
+    "enabled": true
+  },
+  {
+    "id": "3",
+    "icon": "⚡",
+    "title": "Beyond Tech",
+    "description": "Sports enthusiast who values balance. Studied in Shanghai, love traveling, and staying active keeps me energized.",
+    "order": 3,
+    "enabled": true
+  }
+]
+

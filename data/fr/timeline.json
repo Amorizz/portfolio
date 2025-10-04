@@ -1,0 +1,68 @@
+[
+  {
+    "id": "1",
+    "year": "2018",
+    "title": "Premiers pas en Programmation",
+    "description": "Python basique & mini projets",
+    "side": "left",
+    "enabled": true
+  },
+  {
+    "id": "2",
+    "year": "2022",
+    "title": "Baccalauréat Français",
+    "description": "Mathématiques et Physique",
+    "side": "right",
+    "enabled": true
+  },
+  {
+    "id": "3",
+    "year": "2023",
+    "title": "Admission Cycle Préparatoire UTT",
+    "description": "Réseaux et Télécommunications",
+    "side": "left",
+    "enabled": true
+  },
+  {
+    "id": "4",
+    "year": "2025",
+    "title": "Cycle Télécom Réseau à l'UTT",
+    "description": "Spécialisation en Réseaux",
+    "side": "right",
+    "enabled": true
+  },
+  {
+    "id": "5",
+    "year": "Fév - Juil 2025",
+    "title": "Étudiant en Échange à Shanghai",
+    "description": "Programme à l'Université de Shanghai",
+    "side": "left",
+    "enabled": true
+  },
+  {
+    "id": "6",
+    "year": "Août 2025",
+    "title": "Co-fondation PlayTennisEverywhere",
+    "description": "CTO & Co-fondateur",
+    "side": "right",
+    "enabled": true
+  },
+  {
+    "id": "7",
+    "year": "2026",
+    "title": "Certification CCNA",
+    "description": "Cisco Certified Network Associate",
+    "side": "left",
+    "enabled": true
+  },
+  {
+    "id": "8",
+    "year": "Automne 2026",
+    "title": "Recherche de Stage",
+    "description": "Ouvert aux opportunités",
+    "side": "right",
+    "enabled": true,
+    "isLast": true
+  }
+]
+

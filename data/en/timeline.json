@@ -1,0 +1,67 @@
+[
+  {
+    "id": "1",
+    "year": "2018",
+    "title": "First Steps in Programming",
+    "description": "Basic Python & mini projects",
+    "side": "left",
+    "enabled": true
+  },
+  {
+    "id": "2",
+    "year": "2022",
+    "title": "French Baccalauréat",
+    "description": "Mathematics and Physics",
+    "side": "right",
+    "enabled": true
+  },
+  {
+    "id": "3",
+    "year": "2023",
+    "title": "Admission to UTT Preparatory Cycle",
+    "description": "Network and Telecommunications",
+    "side": "left",
+    "enabled": true
+  },
+  {
+    "id": "4",
+    "year": "2025",
+    "title": "Telecom Network Cycle at UTT",
+    "description": "Specialization in Networks",
+    "side": "right",
+    "enabled": true
+  },
+  {
+    "id": "5",
+    "year": "Feb - Jul 2025",
+    "title": "Exchange Student in Shanghai",
+    "description": "Shanghai University program",
+    "side": "left",
+    "enabled": true
+  },
+  {
+    "id": "6",
+    "year": "Aug 2025",
+    "title": "Co-founding PlayTennisEverywhere",
+    "description": "CTO & Co-founder",
+    "side": "right",
+    "enabled": true
+  },
+  {
+    "id": "7",
+    "year": "2026",
+    "title": "CCNA Certification",
+    "description": "Cisco Certified Network Associate",
+    "side": "left",
+    "enabled": true
+  },
+  {
+    "id": "8",
+    "year": "Fall 2026",
+    "title": "Searching for Internship",
+    "description": "Open to opportunities",
+    "side": "right",
+    "enabled": true,
+    "isLast": true
+  }
+]

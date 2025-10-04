@@ -1,0 +1,27 @@
+[
+  {
+    "id": "1",
+    "icon": "🎯",
+    "title": "Ce qui me motive",
+    "description": "Passionné par l'apprentissage au quotidien. De la cybersécurité à l'IA, j'explore constamment de nouvelles technologies et repousse les limites.",
+    "order": 1,
+    "enabled": true
+  },
+  {
+    "id": "2",
+    "icon": "🛠️",
+    "title": "Ce que je crée",
+    "description": "Construire des choses est ma passion. Applications web, projets réseau, outils de sécurité — transformer des idées en solutions concrètes.",
+    "order": 2,
+    "enabled": true
+  },
+  {
+    "id": "3",
+    "icon": "⚡",
+    "title": "Au-delà de la Tech",
+    "description": "Passionné de sport qui valorise l'équilibre. J'ai étudié à Shanghai, j'aime voyager, et rester actif me donne de l'énergie.",
+    "order": 3,
+    "enabled": true
+  }
+]
+

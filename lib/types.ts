@@ -65,6 +65,25 @@ export interface Certification {
   enabled: boolean;
 }
 
+export interface Skill {
+  id: string;
+  icon: string;
+  title: string;
+  description: string;
+  skills: string[];
+  order: number;
+  enabled: boolean;
+}
+
+export interface AboutCard {
+  id: string;
+  icon: string;
+  title: string;
+  description: string;
+  order: number;
+  enabled: boolean;
+}
+
 // Utility types for component props
 export interface ProjectCardProps {
   project: Project;

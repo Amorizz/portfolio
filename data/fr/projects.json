@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1",
+    "title": "Portfolio Personnel",
+    "shortDescription": "Site web de portfolio moderne construit avec Next.js et Tailwind CSS",
+    "detailedDescription": "Un site web de portfolio entièrement responsive présentant mes projets, compétences et parcours professionnel. Construit avec les dernières technologies web et meilleures pratiques.",
+    "image": "/images/projects/placeholder-project.jpg",
+    "imageAlt": "Capture d'écran du site portfolio",
+    "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    "githubUrl": "https://github.com/yourusername/portfolio",
+    "liveUrl": "https://yourportfolio.com",
+    "featured": true,
+    "order": 1,
+    "createdAt": "2024-01-15",
+    "updatedAt": "2024-03-20"
+  }
+]
+

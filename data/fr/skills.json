@@ -1,0 +1,90 @@
+[
+  {
+    "id": "1",
+    "icon": "🌐",
+    "title": "Réseaux & Systèmes",
+    "description": "Études académiques + projets pratiques",
+    "skills": [
+      "TCP/IP",
+      "Linux",
+      "Administration Système",
+      "Configuration Réseau",
+      "Cisco Packet Tracer"
+    ],
+    "order": 1,
+    "enabled": true
+  },
+  {
+    "id": "2",
+    "icon": "🔐",
+    "title": "Cybersécurité",
+    "description": "Connaissances globales en cybersécurité",
+    "skills": [
+      "Sécurité Web",
+      "CTF",
+      "404CTF",
+      "Red Team",
+      "OSINT"
+    ],
+    "order": 2,
+    "enabled": true
+  },
+  {
+    "id": "3",
+    "icon": "🤖",
+    "title": "IA",
+    "description": "Études & expérience pratique",
+    "skills": [
+      "Réseaux de Neurones",
+      "Python ML",
+      "Hugging Face",
+      "Cursor AI"
+    ],
+    "order": 3,
+    "enabled": true
+  },
+  {
+    "id": "4",
+    "icon": "💻",
+    "title": "Programmation & Web Dev",
+    "description": "Toujours en apprentissage avec l'aide de l'IA",
+    "skills": [
+      "Python",
+      "JavaScript/TypeScript",
+      "Next.js/React",
+      "HTML/CSS",
+      "Tailwind CSS"
+    ],
+    "order": 4,
+    "enabled": true
+  },
+  {
+    "id": "5",
+    "icon": "🗄️",
+    "title": "Base de Données & Backend",
+    "description": "Construction & déploiement de projets full-stack",
+    "skills": [
+      "Supabase",
+      "PostgreSQL",
+      "REST APIs",
+      "DNS/Config Domaine"
+    ],
+    "order": 5,
+    "enabled": true
+  },
+  {
+    "id": "6",
+    "icon": "🛠️",
+    "title": "Outils & Workflow Dev",
+    "description": "Environnement de développement moderne",
+    "skills": [
+      "Git",
+      "Docker",
+      "VS Code",
+      "Figma"
+    ],
+    "order": 6,
+    "enabled": true
+  }
+]
+

@@ -1,0 +1,89 @@
+[
+  {
+    "id": "1",
+    "icon": "🌐",
+    "title": "Network & Systems",
+    "description": "Academic studies + hands-on projects",
+    "skills": [
+      "TCP/IP",
+      "Linux",
+      "System Admin",
+      "Network Config",
+      "Cisco Packet Tracer"
+    ],
+    "order": 1,
+    "enabled": true
+  },
+  {
+    "id": "2",
+    "icon": "🔐",
+    "title": "Cybersecurity",
+    "description": "Global Cybersecurity Knowledge",
+    "skills": [
+      "Web Security",
+      "CTF",
+      "Red Team",
+      "OSINT"
+    ],
+    "order": 2,
+    "enabled": true
+  },
+  {
+    "id": "3",
+    "icon": "🤖",
+    "title": "AI",
+    "description": "Studies & hands-on experience",
+    "skills": [
+      "Neural Networks",
+      "Python ML",
+      "Hugging Face",
+      "Cursor AI"
+    ],
+    "order": 3,
+    "enabled": true
+  },
+  {
+    "id": "4",
+    "icon": "💻",
+    "title": "Programming & Web Dev",
+    "description": "Still learning with AI assistance",
+    "skills": [
+      "Python",
+      "JavaScript/TypeScript",
+      "Next.js/React",
+      "HTML/CSS",
+      "Tailwind CSS"
+    ],
+    "order": 4,
+    "enabled": true
+  },
+  {
+    "id": "5",
+    "icon": "🗄️",
+    "title": "Database & Backend",
+    "description": "Building & deploying full-stack projects",
+    "skills": [
+      "Supabase",
+      "PostgreSQL",
+      "REST APIs",
+      "DNS/Domain Config"
+    ],
+    "order": 5,
+    "enabled": true
+  },
+  {
+    "id": "6",
+    "icon": "🛠️",
+    "title": "Dev Tools & Workflow",
+    "description": "Modern development environment",
+    "skills": [
+      "Git",
+      "Docker",
+      "VS Code",
+      "Figma"
+    ],
+    "order": 6,
+    "enabled": true
+  }
+]
+
