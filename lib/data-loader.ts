@@ -2,7 +2,7 @@
 
 import { promises as fs } from 'fs';
 import path from 'path';
-import { Project, PersonalInfo, SocialLink, VisionQuote, DataLoaderResult } from './types';
+import { Project, PersonalInfo, SocialLink, VisionQuote, TimelineItem, Certification, DataLoaderResult } from './types';
 
 const DATA_DIR = path.join(process.cwd(), 'data');
 
@@ -177,4 +177,49 @@ export function validateVisionQuote(quote: any): quote is VisionQuote {
     typeof quote.order === 'number' &&
     typeof quote.enabled === 'boolean'
   );
+}
+
+/**
+ * Load timeline items from timeline.json
+ */
+export async function loadTimeline(): Promise<DataLoaderResult<TimelineItem[]>> {
+  return loadJsonData<TimelineItem[]>('timeline.json');
+}
+
+/**
+ * Get enabled timeline items
+ */
+export async function getEnabledTimeline(): Promise<DataLoaderResult<TimelineItem[]>> {
+  const result = await loadTimeline();
+  
+  if (result.error) {
+    return result;
+  }
+  
+  const enabledItems = result.data.filter(item => item.enabled);
+  return { data: enabledItems };
+}
+
+/**
+ * Load certifications from certifications.json
+ */
+export async function loadCertifications(): Promise<DataLoaderResult<Certification[]>> {
+  return loadJsonData<Certification[]>('certifications.json');
+}
+
+/**
+ * Get enabled certifications sorted by order
+ */
+export async function getEnabledCertifications(): Promise<DataLoaderResult<Certification[]>> {
+  const result = await loadCertifications();
+  
+  if (result.error) {
+    return result;
+  }
+  
+  const enabledCerts = result.data
+    .filter(cert => cert.enabled)
+    .sort((a, b) => a.order - b.order);
+  
+  return { data: enabledCerts };
 }

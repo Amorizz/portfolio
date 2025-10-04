@@ -1,0 +1,43 @@
+[
+  {
+    "id": "1",
+    "year": "2025",
+    "title": "Network & Telecommunications Studies",
+    "description": "Currently pursuing advanced studies in network and telecommunications, focusing on innovative solutions and modern infrastructure.",
+    "side": "left",
+    "enabled": true
+  },
+  {
+    "id": "2",
+    "year": "2024",
+    "title": "Full Stack Development Portfolio",
+    "description": "Built a modern portfolio using Next.js 15, TypeScript, and Tailwind CSS to showcase projects and technical skills.",
+    "side": "right",
+    "enabled": true
+  },
+  {
+    "id": "3",
+    "year": "2023",
+    "title": "Web Development Mastery",
+    "description": "Deepened expertise in React, Node.js, and modern web technologies while building real-world applications.",
+    "side": "left",
+    "enabled": true
+  },
+  {
+    "id": "4",
+    "year": "2022",
+    "title": "University Admission",
+    "description": "Started journey in Network and Telecommunications at UTT, combining passion for technology with formal education.",
+    "side": "right",
+    "enabled": true
+  },
+  {
+    "id": "5",
+    "year": "2021",
+    "title": "First Steps in Programming",
+    "description": "Discovered passion for coding and started learning programming fundamentals, web development, and problem-solving.",
+    "side": "left",
+    "enabled": true
+  }
+]
+

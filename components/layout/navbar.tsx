@@ -25,7 +25,7 @@ export function Navbar({ personalInfo, className }: NavbarProps) {
           <div className="flex-shrink-0">
             <Link 
               href="/" 
-              className="text-violet-500 hover:text-violet-400 transition-colors duration-200"
+              className="text-accent hover:text-accent/80 transition-colors duration-200"
               onClick={closeMenu}
             >
               <Image

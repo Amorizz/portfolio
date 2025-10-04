@@ -9,6 +9,7 @@ import { getInitials, formatDate } from '@/lib/utils';
 import { HeroProps } from '@/lib/types';
 import { CONTENT } from '@/lib/constants';
 import { SocialLinks } from '@/components/sections/social-links';
+import Link from 'next/link';
 
 export function Hero({ personalInfo, socialLinks, className }: HeroProps) {
   return (
@@ -60,6 +61,14 @@ export function Hero({ personalInfo, socialLinks, className }: HeroProps) {
             <SocialLinks socialLinks={socialLinks} />
           </div>
 
+          {/* Know More About Me Button */}
+          <div className="mb-6">
+            <Link href="/about">
+              <Button variant="default" className="rounded-md hover:bg-accent hover:text-white">
+                Know More About Me
+              </Button>
+            </Link>
+          </div>
 
           {/* Contact Information */}
           <div className="pt-4 border-t border-border">

@@ -2,57 +2,57 @@
 
 :root {
   --radius: 0.5rem;
-  --background: 1 2 4; /* #010204 - ultra dark space */
-  --foreground: 240 246 252; /* #F0F6FC - obsidian text */
-  --card: 4 6 8; /* #040608 - ultra dark space secondary */
-  --card-foreground: 240 246 252; /* #F0F6FC - obsidian text */
-  --popover: 4 6 8; /* #040608 - ultra dark space secondary */
-  --popover-foreground: 240 246 252; /* #F0F6FC - obsidian text */
-  --primary: 88 166 255; /* #58A6FF - obsidian accent */
-  --primary-foreground: 1 2 4; /* #010204 - ultra dark space */
-  --secondary: 8 10 12; /* #080A0C - ultra dark space secondary */
-  --secondary-foreground: 240 246 252; /* #F0F6FC - obsidian text */
-  --muted: 8 10 12; /* #080A0C - ultra dark space secondary */
-  --muted-foreground: 139 148 158; /* #8B949E - obsidian muted */
-  --accent: 88 166 255; /* #58A6FF - obsidian accent */
-  --accent-foreground: 1 2 4; /* #010204 - ultra dark space */
-  --destructive: 248 81 73; /* #F85149 - obsidian error */
-  --destructive-foreground: 240 246 252; /* #F0F6FC - obsidian text */
-  --border: 12 14 16; /* #0C0E10 - ultra dark space border */
-  --input: 12 14 16; /* #0C0E10 - ultra dark space border */
-  --ring: 88 166 255; /* #58A6FF - obsidian accent */
-  --chart-1: 88 166 255; /* #58A6FF - obsidian accent */
-  --chart-2: 63 185 80; /* #3FB950 - obsidian success */
-  --chart-3: 210 153 34; /* #D29922 - obsidian warning */
-  --chart-4: 248 81 73; /* #F85149 - obsidian error */
-  --chart-5: 139 148 158; /* #8B949E - obsidian muted */
+  --background: 220 13% 1%; /* #010204 - ultra dark space */
+  --foreground: 0 0% 100%; /* #FFFFFF - pure white text */
+  --card: 220 13% 2%; /* #040608 - ultra dark space secondary */
+  --card-foreground: 0 0% 100%; /* #FFFFFF - pure white text */
+  --popover: 220 13% 2%; /* #040608 - ultra dark space secondary */
+  --popover-foreground: 0 0% 100%; /* #FFFFFF - pure white text */
+  --primary: 213 100% 67%; /* #58A6FF - obsidian accent */
+  --primary-foreground: 220 13% 1%; /* #010204 - ultra dark space */
+  --secondary: 220 11% 4%; /* #080A0C - ultra dark space secondary */
+  --secondary-foreground: 0 0% 100%; /* #FFFFFF - pure white text */
+  --muted: 220 11% 4%; /* #080A0C - ultra dark space secondary */
+  --muted-foreground: 215 14% 58%; /* #8B949E - obsidian muted */
+  --accent: 213 100% 67%; /* #58A6FF - obsidian accent */
+  --accent-foreground: 220 13% 1%; /* #010204 - ultra dark space */
+  --destructive: 4 90% 63%; /* #F85149 - obsidian error */
+  --destructive-foreground: 0 0% 100%; /* #FFFFFF - pure white text */
+  --border: 220 11% 5%; /* #0C0E10 - ultra dark space border */
+  --input: 220 11% 5%; /* #0C0E10 - ultra dark space border */
+  --ring: 213 100% 67%; /* #58A6FF - obsidian accent */
+  --chart-1: 213 100% 67%; /* #58A6FF - obsidian accent */
+  --chart-2: 139 61% 48%; /* #3FB950 - obsidian success */
+  --chart-3: 41 72% 48%; /* #D29922 - obsidian warning */
+  --chart-4: 4 90% 63%; /* #F85149 - obsidian error */
+  --chart-5: 215 14% 58%; /* #8B949E - obsidian muted */
 }
 
 .dark {
-  --background: 1 2 4; /* #010204 - ultra dark space */
-  --foreground: 240 246 252; /* #F0F6FC - obsidian text */
-  --card: 4 6 8; /* #040608 - ultra dark space secondary */
-  --card-foreground: 240 246 252; /* #F0F6FC - obsidian text */
-  --popover: 4 6 8; /* #040608 - ultra dark space secondary */
-  --popover-foreground: 240 246 252; /* #F0F6FC - obsidian text */
-  --primary: 88 166 255; /* #58A6FF - obsidian accent */
-  --primary-foreground: 1 2 4; /* #010204 - ultra dark space */
-  --secondary: 8 10 12; /* #080A0C - ultra dark space secondary */
-  --secondary-foreground: 240 246 252; /* #F0F6FC - obsidian text */
-  --muted: 8 10 12; /* #080A0C - ultra dark space secondary */
-  --muted-foreground: 139 148 158; /* #8B949E - obsidian muted */
-  --accent: 88 166 255; /* #58A6FF - obsidian accent */
-  --accent-foreground: 1 2 4; /* #010204 - ultra dark space */
-  --destructive: 248 81 73; /* #F85149 - obsidian error */
-  --destructive-foreground: 240 246 252; /* #F0F6FC - obsidian text */
-  --border: 12 14 16; /* #0C0E10 - ultra dark space border */
-  --input: 12 14 16; /* #0C0E10 - ultra dark space border */
-  --ring: 88 166 255; /* #58A6FF - obsidian accent */
-  --chart-1: 88 166 255; /* #58A6FF - obsidian accent */
-  --chart-2: 63 185 80; /* #3FB950 - obsidian success */
-  --chart-3: 210 153 34; /* #D29922 - obsidian warning */
-  --chart-4: 248 81 73; /* #F85149 - obsidian error */
-  --chart-5: 139 148 158; /* #8B949E - obsidian muted */
+  --background: 220 13% 1%; /* #010204 - ultra dark space */
+  --foreground: 0 0% 100%; /* #FFFFFF - pure white text */
+  --card: 220 13% 2%; /* #040608 - ultra dark space secondary */
+  --card-foreground: 0 0% 100%; /* #FFFFFF - pure white text */
+  --popover: 220 13% 2%; /* #040608 - ultra dark space secondary */
+  --popover-foreground: 0 0% 100%; /* #FFFFFF - pure white text */
+  --primary: 213 100% 67%; /* #58A6FF - obsidian accent */
+  --primary-foreground: 220 13% 1%; /* #010204 - ultra dark space */
+  --secondary: 220 11% 4%; /* #080A0C - ultra dark space secondary */
+  --secondary-foreground: 0 0% 100%; /* #FFFFFF - pure white text */
+  --muted: 220 11% 4%; /* #080A0C - ultra dark space secondary */
+  --muted-foreground: 215 14% 58%; /* #8B949E - obsidian muted */
+  --accent: 213 100% 67%; /* #58A6FF - obsidian accent */
+  --accent-foreground: 220 13% 1%; /* #010204 - ultra dark space */
+  --destructive: 4 90% 63%; /* #F85149 - obsidian error */
+  --destructive-foreground: 0 0% 100%; /* #FFFFFF - pure white text */
+  --border: 220 11% 5%; /* #0C0E10 - ultra dark space border */
+  --input: 220 11% 5%; /* #0C0E10 - ultra dark space border */
+  --ring: 213 100% 67%; /* #58A6FF - obsidian accent */
+  --chart-1: 213 100% 67%; /* #58A6FF - obsidian accent */
+  --chart-2: 139 61% 48%; /* #3FB950 - obsidian success */
+  --chart-3: 41 72% 48%; /* #D29922 - obsidian warning */
+  --chart-4: 4 90% 63%; /* #F85149 - obsidian error */
+  --chart-5: 215 14% 58%; /* #8B949E - obsidian muted */
 }
 
 @layer base {

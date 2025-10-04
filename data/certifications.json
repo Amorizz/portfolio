@@ -1,0 +1,36 @@
+[
+  {
+    "id": "1",
+    "title": "Curriculum Vitae",
+    "description": "Complete professional resume with experience, education, and skills",
+    "type": "cv",
+    "icon": "📄",
+    "url": "/files/cv.pdf",
+    "downloadable": true,
+    "order": 1,
+    "enabled": true
+  },
+  {
+    "id": "2",
+    "title": "AWS Certified Solutions Architect",
+    "description": "Amazon Web Services certification for cloud architecture and design",
+    "type": "certification",
+    "icon": "☁️",
+    "url": "/files/aws-cert.pdf",
+    "downloadable": true,
+    "order": 2,
+    "enabled": true
+  },
+  {
+    "id": "3",
+    "title": "React Advanced Certification",
+    "description": "Advanced React development patterns and best practices",
+    "type": "certification",
+    "icon": "⚛️",
+    "url": "/files/react-cert.pdf",
+    "downloadable": true,
+    "order": 3,
+    "enabled": true
+  }
+]
+

@@ -25,27 +25,10 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
 
   return (
     <Card className={cn(
-      'group bg-card border-border hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 max-w-sm h-full flex flex-col pt-0 overflow-clip',
+      'group bg-card border-border hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 max-w-sm h-full flex flex-col pt-10 overflow-clip',
       className
     )}>
-      {/* Project Image */}
-      <CardHeader className="p-0 pt-0">
-        <div className="relative overflow-hidden h-32">
-          <Image
-            src={project.image}
-            alt={project.imageAlt}
-            width={300}
-            height={200}
-            className="w-full h-full object-cover"
-            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-          />
-          {project.featured && (
-            <Badge className="absolute top-2 left-2 bg-accent text-accent-foreground text-xs px-2 py-1">
-              Featured
-            </Badge>
-          )}
-        </div>
-      </CardHeader>
+
 
       {/* Project Content */}
       <CardContent className="px-4 py-0 flex-1 flex flex-col">

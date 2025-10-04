@@ -37,3 +37,4 @@ For development, you can use placeholder images from services like:
   className="w-full h-64 object-cover"
 />
 ```
+

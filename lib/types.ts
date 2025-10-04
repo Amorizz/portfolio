@@ -44,6 +44,27 @@ export interface VisionQuote {
   enabled: boolean;
 }
 
+export interface TimelineItem {
+  id: string;
+  year: string;
+  title: string;
+  description: string;
+  side: 'left' | 'right';
+  enabled: boolean;
+}
+
+export interface Certification {
+  id: string;
+  title: string;
+  description: string;
+  type: 'cv' | 'certification' | 'portfolio';
+  icon: string;
+  url: string;
+  downloadable: boolean;
+  order: number;
+  enabled: boolean;
+}
+
 // Utility types for component props
 export interface ProjectCardProps {
   project: Project;

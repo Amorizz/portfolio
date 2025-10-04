@@ -89,16 +89,6 @@
 - [ ] T045 External link security with rel="noopener noreferrer"
 - [ ] T046 Mobile-first responsive design implementation
 
-## Phase 3.7: Polish & Testing
-- [ ] T047 [P] Unit tests for data loading utilities in tests/unit/data-loader.test.ts
-- [ ] T048 [P] Unit tests for utility functions in tests/unit/utils.test.ts
-- [ ] T049 [P] Performance tests for Lighthouse scores in tests/performance/lighthouse.test.ts
-- [ ] T050 [P] Visual regression tests for components in tests/visual/visual.test.ts
-- [ ] T051 [P] End-to-end tests for critical user flows in tests/e2e/user-flows.test.ts
-- [ ] T052 [P] Bundle size analysis and optimization
-- [ ] T053 [P] Documentation update with setup and deployment instructions
-- [ ] T054 [P] Final accessibility audit and fixes
-
 ## Dependencies
 - Setup tasks (T001-T006) before all other tasks
 - Tests (T007-T016) before implementation (T017-T046)
