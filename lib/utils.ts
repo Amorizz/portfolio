@@ -90,8 +90,6 @@ export function getSocialIcon(platform: string): string {
   const iconMap: Record<string, string> = {
     linkedin: 'linkedin',
     github: 'github',
-    instagram: 'instagram',
-    twitter: 'twitter',
     email: 'mail'
   };
   return iconMap[platform] || 'external-link';

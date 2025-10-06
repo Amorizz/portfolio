@@ -175,7 +175,7 @@ export function validateSocialLink(link: unknown): link is SocialLink {
     typeof link === 'object' &&
     link !== null &&
     typeof l.platform === 'string' &&
-    ['linkedin', 'github', 'instagram', 'twitter', 'email'].includes(l.platform) &&
+    ['linkedin', 'github', 'email'].includes(l.platform) &&
     typeof l.url === 'string' &&
     typeof l.icon === 'string' &&
     typeof l.label === 'string' &&

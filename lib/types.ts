@@ -28,7 +28,7 @@ export interface PersonalInfo {
 }
 
 export interface SocialLink {
-  platform: 'linkedin' | 'github' | 'instagram' | 'twitter' | 'email';
+  platform: 'linkedin' | 'github' | 'email';
   url: string;
   icon: string;
   label: string;

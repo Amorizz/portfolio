@@ -21,18 +21,11 @@ const GitHubIcon = () => (
   </svg>
 );
 
-const InstagramIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-  </svg>
-);
+
 
 const iconMap = {
   linkedin: LinkedInIcon,
-  github: GitHubIcon,
-  instagram: InstagramIcon
+  github: GitHubIcon
 };
 
 export function SocialLinks({ socialLinks, className }: SocialLinksProps) {
@@ -41,10 +34,10 @@ export function SocialLinks({ socialLinks, className }: SocialLinksProps) {
     return iconMap[iconName as keyof typeof iconMap] || null;
   };
 
-  // Filter to only show LinkedIn, GitHub, and Instagram with valid icons
+  // Filter to only show LinkedIn, GitHub  with valid icons
   const filteredSocialLinks = socialLinks.filter(link => {
     const platform = link.platform.toLowerCase();
-    return ['linkedin', 'github', 'instagram'].includes(platform) && 
+    return ['linkedin', 'github'].includes(platform) && 
            iconMap[platform as keyof typeof iconMap];
   });
 

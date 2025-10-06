@@ -33,7 +33,7 @@ import Image from 'next/image';
 // Avatar
 <Image
   src="/images/avatar.jpg"
-  alt="Profile photo of Amaud"
+  alt="Profile photo of USer"
   width={300}
   height={300}
   className="rounded-full"
@@ -57,5 +57,6 @@ For development, you can use placeholder images:
 - Avatar: https://ui-avatars.com/api/?name=yourname&size=300&background=58A6FF&color=0D1117
 - Project images: https://picsum.photos/1200/600
 - OG image: https://picsum.photos/1200/630
+
 
 

@@ -10,7 +10,7 @@
     "knowMoreAboutMe": "Know More About Me"
   },
   "home": {
-    "skillsTitle": "Skills & Expertise",
+    "skillsTitle": "Skills & Knowledge",
     "skillsSubtitle": "Learning by building — from academic foundations to real-world projects",
     "featuredProjectsTitle": "Featured Projects",
     "featuredProjectsSubtitle": "A showcase of my recent work, highlighting my passion for creating innovative solutions",
@@ -28,15 +28,15 @@
     "viewCV": "View CV",
     "contactMe": "Contact Me",
     "contactDescription": "Feel free to reach out for any opportunity or question.",
-    "skillsTitle": "Skills & Expertise",
+    "skillsTitle": "Skills & Knowledge",
     "skillsSubtitle": "Learning by building — from academic foundations to real-world projects",
     "myJourney": "My Journey",
     "myJourneySubtitle": "A roadmap of milestones, achievements, and the path that shaped my career",
-    "specializingIn": "Specializing in network and telecommunications, I combine technical excellence with creative problem-solving to build robust, scalable applications."
+    "specializingIn": "Student passionate about networks and cybersecurity. I love learning new technologies and building personal projects to explore what I discover."
   },
   "projects": {
     "title": "My Projects",
-    "subtitle": "A collection of projects that demonstrate my passion for creating innovative solutions and my expertise in modern web technologies.",
+    "subtitle": "A collection of projects that demonstrate my passion for creating innovative solutions and my knowledge of modern web technologies.",
     "backToProjects": "Back to Projects",
     "featured": "Featured",
     "viewSourceCode": "View Source Code",

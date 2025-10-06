@@ -33,21 +33,13 @@ export const OBSIDIAN_THEME: ThemeConfig = {
 export const APP_CONFIG = {
   name: 'Amaud Portfolio',
   description: 'Personal portfolio showcasing authentic personality, ambition, passion, and obsession',
-  url: 'https://amaud.dev', // Update with your actual domain
-  author: 'Amaud',
+  url: 'https://amaury-dufrenot.com', // Update with your actual domain
+  author: 'Amaury DUFRENOT',
   keywords: [
     'portfolio',
-    'developer',
-    'full-stack',
-    'web development',
-    'typescript',
-    'nextjs',
-    'react',
-    'tailwind',
   ],
   social: {
-    twitter: '@amaud', // Update with your Twitter handle
-    github: 'amaud',   // Update with your GitHub username
+    github: 'Amorizz'   // Update with your GitHub username
   },
 };
 
@@ -101,7 +93,7 @@ export const CONTENT = {
     avatarSize: 200,
   },
   social: {
-    platforms: ['linkedin', 'github', 'instagram', 'twitter', 'email'],
+    platforms: ['linkedin', 'github'],
     iconSize: 24,
   },
   quotes: {
@@ -114,18 +106,15 @@ export const CONTENT = {
  * SEO Configuration
  */
 export const SEO = {
-  defaultTitle: 'Amaud - Full Stack Developer',
-  titleTemplate: '%s | Amaud Portfolio',
+  defaultTitle: 'Amaury DUFRENOT',
+  titleTemplate: '%s | Portfolio',
   description: 'Personal portfolio showcasing authentic personality, ambition, passion, and obsession through modern web development',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    siteName: 'Amaud Portfolio',
+    siteName: 'Amaury DUFRENOT',
   },
-  twitter: {
-    cardType: 'summary_large_image',
-    handle: '@amaud',
-  },
+ 
   robots: {
     index: false,
     follow: false,
@@ -217,8 +206,6 @@ export const EXTERNAL_LINKS = {
   social: {
     linkedin: 'https://linkedin.com/in/',
     github: 'https://github.com/',
-    instagram: 'https://instagram.com/',
-    twitter: 'https://twitter.com/',
   },
 };
 

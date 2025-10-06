@@ -10,7 +10,7 @@
     "knowMoreAboutMe": "En savoir plus sur moi"
   },
   "home": {
-    "skillsTitle": "Compétences & Expertise",
+    "skillsTitle": "Compétences & Connaissances",
     "skillsSubtitle": "Apprendre en construisant — des fondations académiques aux projets réels",
     "featuredProjectsTitle": "Projets en Vedette",
     "featuredProjectsSubtitle": "Une vitrine de mon travail récent, mettant en valeur ma passion pour créer des solutions innovantes",
@@ -28,15 +28,15 @@
     "viewCV": "Voir le CV",
     "contactMe": "Me Contacter",
     "contactDescription": "N'hésitez pas à me contacter pour toute opportunité ou question.",
-    "skillsTitle": "Compétences & Expertise",
+    "skillsTitle": "Compétences & Connaissances",
     "skillsSubtitle": "Apprendre en construisant — des fondations académiques aux projets réels",
     "myJourney": "Mon Parcours",
     "myJourneySubtitle": "Une feuille de route des jalons, réalisations et le chemin qui a façonné ma carrière",
-    "specializingIn": "Spécialisé en réseaux et télécommunications, je combine l'excellence technique avec la résolution créative de problèmes pour construire des applications robustes et évolutives."
+    "specializingIn": "Étudiant passionné par les réseaux et la cybersécurité. J'adore apprendre de nouvelles technologies et construire des projets personnels pour explorer ce que je découvre."
   },
   "projects": {
     "title": "Mes Projets",
-    "subtitle": "Une collection de projets qui démontrent ma passion pour créer des solutions innovantes et mon expertise dans les technologies web modernes.",
+    "subtitle": "Une collection de projets qui démontrent ma passion pour créer des solutions innovantes et mes connaissances dans les technologies web modernes.",
     "backToProjects": "Retour aux Projets",
     "featured": "En Vedette",
     "viewSourceCode": "Voir le Code Source",

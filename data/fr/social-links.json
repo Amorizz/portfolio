@@ -15,22 +15,8 @@
     "order": 2,
     "enabled": true
   },
-  {
-    "platform": "instagram",
-    "url": "https://instagram.com/amaud",
-    "icon": "instagram",
-    "label": "Instagram",
-    "order": 3,
-    "enabled": true
-  },
-  {
-    "platform": "twitter",
-    "url": "https://twitter.com/amaud",
-    "icon": "twitter",
-    "label": "Twitter",
-    "order": 4,
-    "enabled": true
-  },
+  
+
   {
     "platform": "email",
     "url": "mailto:contact@amaud.dev",
