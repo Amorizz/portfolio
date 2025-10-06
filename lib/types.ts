@@ -51,6 +51,7 @@ export interface TimelineItem {
   description: string;
   side: 'left' | 'right';
   enabled: boolean;
+  isLast?: boolean;
 }
 
 export interface Certification {
@@ -101,6 +102,7 @@ export interface ProjectGridProps {
 export interface HeroProps {
   personalInfo: PersonalInfo;
   socialLinks: SocialLink[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   t?: any;
   className?: string;
 }

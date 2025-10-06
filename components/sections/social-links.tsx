@@ -48,17 +48,6 @@ export function SocialLinks({ socialLinks, className }: SocialLinksProps) {
            iconMap[platform as keyof typeof iconMap];
   });
 
-  const handleClick = (url: string, platform: string) => {
-    // Track social link clicks for analytics
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'click', {
-        event_category: 'social',
-        event_label: platform,
-        value: url,
-      });
-    }
-  };
-
   // Determine if a link is external based on the platform - make this consistent
   const isExternalLink = (platform: string) => {
     return platform !== 'email';

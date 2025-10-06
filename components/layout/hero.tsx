@@ -1,13 +1,10 @@
 'use client';
 
-import Image from 'next/image';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
-import { getInitials, formatDate } from '@/lib/utils';
+import { getInitials } from '@/lib/utils';
 import { HeroProps } from '@/lib/types';
-import { CONTENT } from '@/lib/constants';
 import { SocialLinks } from '@/components/sections/social-links';
 import Link from 'next/link';
 

@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { ProjectCard } from '@/components/project/project-card';
 import { cn } from '@/lib/utils';
 import { ProjectGridProps } from '@/lib/types';
@@ -46,12 +47,12 @@ export function ProjectGrid({ projects, featured = false, lang, className }: Pro
       {/* Show More Button (if not showing all projects) */}
       {featured && projects.length > sortedProjects.length && (
         <div className="text-center mt-8">
-          <a
+          <Link
             href="/projects"
             className="inline-flex items-center px-6 py-3 border border-accent text-accent hover:bg-accent hover:text-accent-foreground transition-colors duration-200 rounded-lg font-medium"
           >
             {t.viewAllProjects}
-          </a>
+          </Link>
         </div>
       )}
     </div>

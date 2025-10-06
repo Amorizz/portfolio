@@ -1,11 +1,8 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, ExternalLink, Github, Calendar, Tag } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { ArrowLeft, ExternalLink, Github, Calendar } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
 import { getProjectById, loadProjects, loadTranslations } from '@/lib/data-loader';
 import { getLanguage } from '@/lib/get-language';
 import { formatDate, formatTechnologies } from '@/lib/utils';

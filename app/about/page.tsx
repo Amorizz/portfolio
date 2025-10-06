@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Mail, Phone, MapPin, FileText, Download } from 'lucide-react';
+import { Mail, Phone, MapPin, FileText } from 'lucide-react';
 import { loadPersonalInfo, loadSocialLinks, getEnabledTimeline, getEnabledAboutCards, getEnabledSkills, loadTranslations } from '@/lib/data-loader';
 import { getLanguage } from '@/lib/get-language';
 import { SocialLinks } from '@/components/sections/social-links';

@@ -1,14 +1,15 @@
 'use client';
 
+/// <reference types="@/lib/types.d.ts" />
+
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { ExternalLink, Github, Calendar } from 'lucide-react';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
-import { formatDate, formatTechnologies, generateImageAlt } from '@/lib/utils';
+import { formatDate, formatTechnologies } from '@/lib/utils';
 import { ProjectCardProps } from '@/lib/types';
 import { EXTERNAL_LINKS } from '@/lib/constants';
 
@@ -21,16 +22,6 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
   }, []);
 
   const viewText = lang === 'fr' ? 'Voir' : 'View';
-  const handleProjectClick = () => {
-    // Track project views for analytics
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'view_item', {
-        event_category: 'project',
-        event_label: project.title,
-        value: project.id,
-      });
-    }
-  };
 
   return (
     <Card className={cn(
@@ -86,7 +77,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
           size="sm"
           className="flex-1 bg-accent hover:bg-violet-600/30 hover: text-accent-foreground text-xs h-7 transition-colors border border-violet-500/30 hover:border-none"
         >
-          <Link href={`/projects/${project.id}`} onClick={handleProjectClick}>
+          <Link href={`/projects/${project.id}`}>
             {viewText}
           </Link>
         </Button>

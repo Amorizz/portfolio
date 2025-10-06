@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Download, Mail, Phone, Globe, Github, Linkedin, MapPin } from 'lucide-react';
 import { useReactToPrint } from 'react-to-print';

@@ -2,13 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Heart, ArrowUp } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
 import { FooterProps } from '@/lib/types';
 import { SocialLinks } from '@/components/sections/social-links';
-import { APP_CONFIG } from '@/lib/constants';
 import { getNavigation } from '@/lib/get-navigation';
 
 export function Footer({ socialLinks, personalInfo, className }: FooterProps) {

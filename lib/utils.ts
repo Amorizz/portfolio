@@ -128,6 +128,7 @@ export function generateMetaDescription(text: string, maxLength: number = 160): 
 /**
  * Debounce function for search/filter inputs
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function debounce<T extends (...args: any[]) => any>(
   func: T,
   wait: number

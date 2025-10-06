@@ -14,7 +14,7 @@ export function Timeline({ items, className }: TimelineProps) {
   const reversedItems = [...items].reverse();
   
   // Calculate total animation duration based on number of non-last items
-  const nonLastItems = reversedItems.filter((item: any) => !item.isLast);
+  const nonLastItems = reversedItems.filter((item) => !item.isLast);
   const totalDuration = nonLastItems.length * 0.5;
   
   return (
@@ -27,7 +27,7 @@ export function Timeline({ items, className }: TimelineProps) {
         <div className="space-y-12">
           {reversedItems.map((item, index) => {
             const isLeft = index % 2 === 0;
-            const isLast = (item as any).isLast === true;
+            const isLast = item.isLast === true;
             
             // For the last item, show it centered with arrow pointing up
             if (isLast) {

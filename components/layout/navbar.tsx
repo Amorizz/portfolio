@@ -10,7 +10,7 @@ import { cn } from '@/lib/utils';
 import { getNavigation } from '@/lib/get-navigation';
 import { NavbarProps } from '@/lib/types';
 
-export function Navbar({ personalInfo, className }: NavbarProps) {
+export function Navbar({ className }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [lang, setLang] = useState<'en' | 'fr'>('en');
   const pathname = usePathname();

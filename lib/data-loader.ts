@@ -6,16 +6,6 @@ import { Project, PersonalInfo, SocialLink, VisionQuote, TimelineItem, Certifica
 
 const DATA_DIR = path.join(process.cwd(), 'data');
 
-/**
- * Get current language from localStorage (client-side) or default to 'en'
- */
-function getLanguage(): 'en' | 'fr' {
-  if (typeof window !== 'undefined') {
-    const saved = localStorage.getItem('preferred-language');
-    return (saved === 'fr' ? 'fr' : 'en');
-  }
-  return 'en';
-}
 
 /**
  * Generic function to load JSON data from files with language support
@@ -36,7 +26,7 @@ async function loadJsonData<T>(filename: string, lang?: 'en' | 'fr'): Promise<Da
         const fileContents = await fs.readFile(fallbackPath, 'utf8');
         const data = JSON.parse(fileContents) as T;
         return { data };
-      } catch (fallbackError) {
+      } catch {
         return { 
           data: {} as T, 
           error: `Failed to load ${filename}: ${error instanceof Error ? error.message : 'Unknown error'}` 
@@ -139,69 +129,73 @@ export async function getEnabledVisionQuotes(lang?: 'en' | 'fr'): Promise<DataLo
 /**
  * Validate project data structure
  */
-export function validateProject(project: any): project is Project {
+export function validateProject(project: unknown): project is Project {
+  const p = project as Record<string, unknown>;
   return (
     typeof project === 'object' &&
     project !== null &&
-    typeof project.id === 'string' &&
-    typeof project.title === 'string' &&
-    typeof project.shortDescription === 'string' &&
-    typeof project.detailedDescription === 'string' &&
-    typeof project.image === 'string' &&
-    typeof project.imageAlt === 'string' &&
-    Array.isArray(project.technologies) &&
-    typeof project.githubUrl === 'string' &&
-    typeof project.featured === 'boolean' &&
-    typeof project.order === 'number' &&
-    typeof project.createdAt === 'string' &&
-    typeof project.updatedAt === 'string'
+    typeof p.id === 'string' &&
+    typeof p.title === 'string' &&
+    typeof p.shortDescription === 'string' &&
+    typeof p.detailedDescription === 'string' &&
+    typeof p.image === 'string' &&
+    typeof p.imageAlt === 'string' &&
+    Array.isArray(p.technologies) &&
+    typeof p.githubUrl === 'string' &&
+    typeof p.featured === 'boolean' &&
+    typeof p.order === 'number' &&
+    typeof p.createdAt === 'string' &&
+    typeof p.updatedAt === 'string'
   );
 }
 
 /**
  * Validate personal info data structure
  */
-export function validatePersonalInfo(info: any): info is PersonalInfo {
+export function validatePersonalInfo(info: unknown): info is PersonalInfo {
+  const i = info as Record<string, unknown>;
   return (
     typeof info === 'object' &&
     info !== null &&
-    typeof info.name === 'string' &&
-    typeof info.title === 'string' &&
-    typeof info.bio === 'string' &&
-    typeof info.avatar === 'string' &&
-    typeof info.avatarAlt === 'string' &&
-    typeof info.email === 'string'
+    typeof i.name === 'string' &&
+    typeof i.title === 'string' &&
+    typeof i.bio === 'string' &&
+    typeof i.avatar === 'string' &&
+    typeof i.avatarAlt === 'string' &&
+    typeof i.email === 'string'
   );
 }
 
 /**
  * Validate social link data structure
  */
-export function validateSocialLink(link: any): link is SocialLink {
+export function validateSocialLink(link: unknown): link is SocialLink {
+  const l = link as Record<string, unknown>;
   return (
     typeof link === 'object' &&
     link !== null &&
-    typeof link.platform === 'string' &&
-    ['linkedin', 'github', 'instagram', 'twitter', 'email'].includes(link.platform) &&
-    typeof link.url === 'string' &&
-    typeof link.icon === 'string' &&
-    typeof link.label === 'string' &&
-    typeof link.order === 'number' &&
-    typeof link.enabled === 'boolean'
+    typeof l.platform === 'string' &&
+    ['linkedin', 'github', 'instagram', 'twitter', 'email'].includes(l.platform) &&
+    typeof l.url === 'string' &&
+    typeof l.icon === 'string' &&
+    typeof l.label === 'string' &&
+    typeof l.order === 'number' &&
+    typeof l.enabled === 'boolean'
   );
 }
 
 /**
  * Validate vision quote data structure
  */
-export function validateVisionQuote(quote: any): quote is VisionQuote {
+export function validateVisionQuote(quote: unknown): quote is VisionQuote {
+  const q = quote as Record<string, unknown>;
   return (
     typeof quote === 'object' &&
     quote !== null &&
-    typeof quote.id === 'string' &&
-    typeof quote.quote === 'string' &&
-    typeof quote.order === 'number' &&
-    typeof quote.enabled === 'boolean'
+    typeof q.id === 'string' &&
+    typeof q.quote === 'string' &&
+    typeof q.order === 'number' &&
+    typeof q.enabled === 'boolean'
   );
 }
 
@@ -301,6 +295,8 @@ export async function getEnabledAboutCards(lang?: 'en' | 'fr'): Promise<DataLoad
 /**
  * Load translations from translations.json
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function loadTranslations(lang?: 'en' | 'fr'): Promise<DataLoaderResult<any>> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return loadJsonData<any>('translations.json', lang);
 }

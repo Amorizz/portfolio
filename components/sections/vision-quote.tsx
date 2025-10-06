@@ -16,7 +16,7 @@ export function VisionQuote({ quote, className }: VisionQuoteProps) {
 
           {/* Quote Text */}
           <blockquote className="text-xl sm:text-2xl lg:text-3xl font-medium text-card-foreground leading-relaxed mb-6">
-            "{quote.quote}"
+            &ldquo;{quote.quote}&rdquo;
           </blockquote>
 
           {/* Quote Author */}
