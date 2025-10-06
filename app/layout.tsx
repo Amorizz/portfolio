@@ -47,14 +47,18 @@ export const metadata: Metadata = {
     images: ['/images/og-image.jpg'],
   },
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
+    noarchive: true,
+    nosnippet: true,
+    noimageindex: true,
+    nocache: true,
     googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      index: false,
+      follow: false,
+      noarchive: true,
+      nosnippet: true,
+      noimageindex: true,
     },
   },
   manifest: '/manifest.json',
@@ -90,6 +94,11 @@ export default async function RootLayout({
   return (
     <html lang={lang} className={`${inter.variable} dark`}>
       <head>
+        <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, nocache" />
+        <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+        <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+        <meta name="slurp" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+        <meta name="duckduckbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
