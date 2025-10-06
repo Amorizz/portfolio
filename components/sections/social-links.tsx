@@ -66,7 +66,6 @@ export function SocialLinks({ socialLinks, className }: SocialLinksProps) {
             variant="ghost"
             size="sm"
             className="group h-12 w-12 rounded-full bg-muted/30 hover:bg-accent/20 text-muted-foreground hover:text-accent transition-all duration-200 space-hover border border-border/50"
-            onClick={() => handleClick(link.url, link.platform)}
           >
             <a
               href={link.url}
