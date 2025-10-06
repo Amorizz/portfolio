@@ -1,7 +1,7 @@
 [
   {
     "platform": "linkedin",
-    "url": "https://linkedin.com/in/amaud",
+    "url": "https://linkedin.com/in/amaury-dufrenot",
     "icon": "linkedin",
     "label": "LinkedIn",
     "order": 1,
@@ -9,7 +9,7 @@
   },
   {
     "platform": "github",
-    "url": "https://github.com/amaud",
+    "url": "https://github.com/Amorizz",
     "icon": "github",
     "label": "GitHub",
     "order": 2,
