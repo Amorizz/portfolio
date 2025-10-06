@@ -11,15 +11,15 @@
     "id": "2",
     "icon": "🛠️",
     "title": "Ce que je crée",
-    "description": "Construire des choses est ma passion. Applications web, projets réseau, outils de sécurité — transformer des idées en solutions concrètes.",
+    "description": "J'adore créer de petit projets. Applications web, projets réseau, outils de sécurité. Tout comme le coté sécurité avec la participation à quelques CTF",
     "order": 2,
     "enabled": true
   },
   {
     "id": "3",
     "icon": "⚡",
-    "title": "Au-delà de la Tech",
-    "description": "Passionné de sport qui valorise l'équilibre. J'ai étudié à Shanghai, j'aime voyager, et rester actif me donne de l'énergie.",
+    "title": "Mes intérêts",
+    "description": "Passionné de sport (Tennis particulièrement). J'ai étudié à Shanghai, j'aime voyager, et rester actif me donne de l'énergie. Entrepreneuriat, innovation, IA ... des sujets qui me fascinent tout les jours",
     "order": 3,
     "enabled": true
   }
