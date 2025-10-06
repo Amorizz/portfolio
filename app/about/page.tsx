@@ -75,9 +75,6 @@ export default async function AboutPage() {
             {/* Bio */}
             <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
               <p>{personalInfo.bio}</p>
-              <p>
-                {t.about.specializingIn}
-              </p>
             </div>
 
             {/* Contact Details - Row */}

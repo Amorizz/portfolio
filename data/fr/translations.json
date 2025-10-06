@@ -12,7 +12,7 @@
   "home": {
     "skillsTitle": "Compétences & Connaissances",
     "skillsSubtitle": "Apprendre en construisant — des fondations académiques aux projets réels",
-    "featuredProjectsTitle": "Projets en Vedette",
+    "featuredProjectsTitle": "Mes projets",
     "featuredProjectsSubtitle": "Une vitrine de mon travail récent, mettant en valeur ma passion pour créer des solutions innovantes",
     "viewAllProjects": "Voir tous les projets →",
     "credentialsTitle": "Diplômes & Documents",
@@ -38,7 +38,7 @@
     "title": "Mes Projets",
     "subtitle": "Une collection de projets qui démontrent ma passion pour créer des solutions innovantes et mes connaissances dans les technologies web modernes.",
     "backToProjects": "Retour aux Projets",
-    "featured": "En Vedette",
+    "featured": "",
     "viewSourceCode": "Voir le Code Source",
     "liveDemo": "Démo en Direct",
     "about": "À propos",

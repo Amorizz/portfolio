@@ -16,7 +16,7 @@ export function ProjectGrid({ projects, featured = false, lang, className }: Pro
 
   // Translations
   const t = {
-    noFeaturedProjects: lang === 'fr' ? 'Aucun projet en vedette disponible.' : 'No featured projects available.',
+    noFeaturedProjects: lang === 'fr' ? 'Aucun projet disponible.' : 'No featured projects available.',
     noProjects: lang === 'fr' ? 'Aucun projet disponible.' : 'No projects available.',
     viewAllProjects: lang === 'fr' ? 'Voir Tous les Projets' : 'View All Projects',
   };

@@ -3,7 +3,7 @@
     "id": "play-tennis-everywhere",
     "title": "Play Tennis Everywhere",
     "shortDescription": "AI-powered tennis partner matching platform connecting players based on availability, location, and skill level.",
-    "detailedDescription": "Play Tennis Everywhere is a social tennis platform that revolutionizes how tennis players find partners. As CTO and co-founder, I led the technical development of this comprehensive matching system that uses AI algorithms to connect players based on multiple criteria including skill level, location, availability, and preferences.\n\nThe platform addresses a common frustration in the tennis community: the difficulty of finding compatible partners, especially when traveling. Our intelligent matching system analyzes user criteria to propose the most compatible partners, making tennis accessible anywhere.\n\nKey features include AI-powered partner matching based on skill level and location, availability-based scheduling with calendar integration, profile browsing with detailed player information, integrated messaging system for coordination, travel mode for finding partners while on vacation, and personalized recommendations for skill progression. The waitlist launched in June 2025 with exclusive benefits for early adopters including beta access, extended free access, and influence on feature development.",
+    "detailedDescription": "Play Tennis Everywhere is a social tennis platform that revolutionizes how tennis players find partners. As CTO and co-founder, I led the technical development of this comprehensive matching system that uses AI algorithms to connect players based on multiple criteria including skill level, location, availability, and preferences.\n\nThe platform addresses a common frustration in the tennis community: the difficulty of finding compatible partners, especially when traveling. Our intelligent matching system analyzes user criteria to propose the most compatible partners, making tennis accessible anywhere.\n\nKey features include AI-powered partner matching based on skill level and location, availability-based scheduling with calendar integration, profile browsing with detailed player information, integrated messaging system for coordination, travel mode for finding partners while on vacation, and personalized recommendations for skill progression. The waitlist launched in August 2025 with exclusive benefits for early adopters including beta access, extended free access, and influence on feature development.",
     "image": "/images/projects/play-tennis-everywhere.png",
     "imageAlt": "Play Tennis Everywhere interface showing partner matching and scheduling features",
     "technologies": ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "Resend", "AI Matching Algorithm"],
@@ -11,14 +11,14 @@
     "liveUrl": "https://play-tennis-everywhere.com",
     "featured": true,
     "order": 1,
-    "createdAt": "2025-06-01T00:00:00Z",
+    "createdAt": "2025-08-01T00:00:00Z",
     "updatedAt": "2025-10-04T00:00:00Z"
   },
   {
     "id": "fall-corp",
     "title": "Fall Corp",
     "shortDescription": "A comprehensive platform connecting startups with investors and helping founders build complete teams through talent matching.",
-    "detailedDescription": "VentureNexus (initially called Fall Corp) was developed during an innovation program study exchange in Shanghai in June 2025. This project was built using agile methodology in a team environment, addressing two major challenges in the entrepreneurial ecosystem: connecting startups with suitable investors and helping founders build complete teams.\n\nThe platform serves three user types: founders looking to build teams and secure funding, professionals (designers, developers, marketers) seeking startup opportunities, and investors searching for qualified deals. It features an advanced matching algorithm that connects founders with professionals based on required skills and investors with startups based on investment criteria.\n\nKey features include detailed startup profiles with pitch decks and metrics, talent marketplace with skill-based filtering, secure encrypted messaging system, project categorization by sector and development stage, investor verification and accreditation system, document sharing capabilities, and comprehensive search filters for all user types. The platform uses a sophisticated matching algorithm to suggest optimal connections between all parties, creating a complete ecosystem for startup success. Note: The live version is no longer functional due to resource costs.",
+    "detailedDescription": "VentureNexus (initially called Fall Corp) was developed during an innovation program study exchange in Shanghai starting April 2025. This project was built using agile methodology in a team environment, addressing two major challenges in the entrepreneurial ecosystem: connecting startups with suitable investors and helping founders build complete teams.\n\nThe platform serves three user types: founders looking to build teams and secure funding, professionals (designers, developers, marketers) seeking startup opportunities, and investors searching for qualified deals. It features an advanced matching algorithm that connects founders with professionals based on required skills and investors with startups based on investment criteria.\n\nKey features include detailed startup profiles with pitch decks and metrics, talent marketplace with skill-based filtering, secure encrypted messaging system, project categorization by sector and development stage, investor verification and accreditation system, document sharing capabilities, and comprehensive search filters for all user types. The platform uses a sophisticated matching algorithm to suggest optimal connections between all parties, creating a complete ecosystem for startup success. Note: The live version is no longer functional due to resource costs.",
     "image": "/images/projects/fall-corp.png",
     "imageAlt": "VentureNexus platform showing startup matching and team building interface",
     "technologies": ["TypeScript", "Supabase", "Tailwind CSS", "Lovable Platform"],
@@ -26,7 +26,7 @@
     "liveUrl": "https://fall-corp.lovable.app/",
     "featured": true,
     "order": 2,
-    "createdAt": "2025-06-01T00:00:00Z",
+    "createdAt": "2025-04-01T00:00:00Z",
     "updatedAt": "2025-06-30T00:00:00Z"
   },
   {
