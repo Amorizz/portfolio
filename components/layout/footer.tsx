@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Heart, ArrowUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -8,8 +9,23 @@ import { cn } from '@/lib/utils';
 import { FooterProps } from '@/lib/types';
 import { SocialLinks } from '@/components/sections/social-links';
 import { APP_CONFIG } from '@/lib/constants';
+import { getNavigation } from '@/lib/get-navigation';
 
 export function Footer({ socialLinks, personalInfo, className }: FooterProps) {
+  const [lang, setLang] = useState<'en' | 'fr'>('en');
+
+  useEffect(() => {
+    const saved = localStorage.getItem('preferred-language');
+    setLang((saved === 'fr' ? 'fr' : 'en'));
+  }, []);
+
+  const navigation = getNavigation(lang);
+
+  const t = {
+    quickLinks: lang === 'fr' ? 'Liens Rapides' : 'Quick Links',
+    connect: lang === 'fr' ? 'Connexion' : 'Connect',
+    allRightsReserved: lang === 'fr' ? 'Tous droits réservés.' : 'All rights reserved.',
+  };
   const scrollToTop = () => {
     if (typeof window !== 'undefined') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -34,32 +50,23 @@ export function Footer({ socialLinks, personalInfo, className }: FooterProps) {
 
           {/* Quick Links */}
           <div className="flex flex-col items-start space-y-6">
-            <h4 className="text-lg font-semibold text-foreground">Quick Links</h4>
+            <h4 className="text-lg font-semibold text-foreground">{t.quickLinks}</h4>
             <nav className="flex flex-col space-y-3">
-              <Link
-                href="/"
-                className="text-sm text-muted-foreground hover:text-accent transition-colors duration-200"
-              >
-                Home
-              </Link>
-              <Link
-                href="/about"
-                className="text-sm text-muted-foreground hover:text-accent transition-colors duration-200"
-              >
-                About
-              </Link>
-              <Link
-                href="/projects"
-                className="text-sm text-muted-foreground hover:text-accent transition-colors duration-200"
-              >
-                Projects
-              </Link>
+              {navigation.main.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-sm text-muted-foreground hover:text-accent transition-colors duration-200"
+                >
+                  {item.name}
+                </Link>
+              ))}
             </nav>
           </div>
 
           {/* Contact */}
           <div className="flex flex-col items-start space-y-6">
-            <h4 className="text-lg font-semibold text-foreground">Connect</h4>
+            <h4 className="text-lg font-semibold text-foreground">{t.connect}</h4>
             <div className="flex flex-col space-y-3">
               {personalInfo.email && (
                 <a
@@ -91,7 +98,7 @@ export function Footer({ socialLinks, personalInfo, className }: FooterProps) {
         {/* Bottom Section */}
         <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
           <div className="text-xs text-muted-foreground">
-            © {currentYear} {personalInfo.name}. All rights reserved.
+            © {currentYear} {personalInfo.name}. {t.allRightsReserved}
           </div>
           
           <div className="flex items-center gap-4">

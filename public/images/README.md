@@ -54,7 +54,8 @@ import Image from 'next/image';
 ## Placeholder Images
 
 For development, you can use placeholder images:
-- Avatar: https://ui-avatars.com/api/?name=Amaud&size=300&background=58A6FF&color=0D1117
+- Avatar: https://ui-avatars.com/api/?name=yourname&size=300&background=58A6FF&color=0D1117
 - Project images: https://picsum.photos/1200/600
 - OG image: https://picsum.photos/1200/630
+
 

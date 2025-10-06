@@ -2,24 +2,49 @@
   {
     "id": "1",
     "title": "Mon CV",
-    "description": "Curriculum Vitae complet avec expérience et éducation",
+    "description": "Curriculum Vitae complet avec expérience, formation et compétences",
     "type": "cv",
     "icon": "📄",
-    "url": "/documents/cv-amaury-dufrenot.pdf",
-    "downloadable": true,
+    "url": "/cv",
+    "downloadable": false,
+    "status": "active",
     "order": 1,
     "enabled": true
   },
   {
     "id": "2",
-    "title": "Certification CCNA",
-    "description": "Cisco Certified Network Associate",
+    "title": "Baccalauréat Mention Bien",
+    "description": "Spécialité Mathématiques et Physique",
     "type": "certification",
-    "icon": "🏆",
-    "url": "/documents/ccna-certification.pdf",
-    "downloadable": true,
+    "icon": "🎓",
+    "url": "",
+    "downloadable": false,
+    "status": "completed",
     "order": 2,
+    "enabled": true
+  },
+  {
+    "id": "3",
+    "title": "CCNA - Cisco",
+    "description": "Cisco Certified Network Associate - Certification en réseaux et télécommunications",
+    "type": "certification",
+    "icon": "🌐",
+    "url": "",
+    "downloadable": false,
+    "status": "in-progress",
+    "order": 3,
+    "enabled": true
+  },
+  {
+    "id": "4",
+    "title": "Dual Diploma",
+    "description": "Diplôme français et américain - High School Diploma & Baccalauréat",
+    "type": "certification",
+    "icon": "🌍",
+    "url": "",
+    "downloadable": false,
+    "status": "completed",
+    "order": 4,
     "enabled": true
   }
 ]
-

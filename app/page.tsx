@@ -3,7 +3,7 @@ import { ProjectGrid } from '@/components/sections/projects-grid';
 import { VisionQuote } from '@/components/sections/vision-quote';
 import { CertificationsStack } from '@/components/sections/certifications-stack';
 import { Badge } from '@/components/ui/badge';
-import { loadPersonalInfo, loadSocialLinks, getFeaturedProjects, getEnabledVisionQuotes, getEnabledCertifications, getEnabledSkills } from '@/lib/data-loader';
+import { loadPersonalInfo, loadSocialLinks, getFeaturedProjects, getEnabledVisionQuotes, getEnabledCertifications, getEnabledSkills, loadTranslations } from '@/lib/data-loader';
 import { getLanguage } from '@/lib/get-language';
 import Link from 'next/link';
 
@@ -12,13 +12,14 @@ export default async function Home() {
   const lang = await getLanguage();
   
   // Load data for homepage
-  const [personalInfoResult, socialLinksResult, featuredProjectsResult, visionQuotesResult, certificationsResult, skillsResult] = await Promise.all([
+  const [personalInfoResult, socialLinksResult, featuredProjectsResult, visionQuotesResult, certificationsResult, skillsResult, translationsResult] = await Promise.all([
     loadPersonalInfo(lang),
     loadSocialLinks(lang),
     getFeaturedProjects(lang),
     getEnabledVisionQuotes(lang),
     getEnabledCertifications(lang),
     getEnabledSkills(lang),
+    loadTranslations(lang),
   ]);
 
   const personalInfo = personalInfoResult.data;
@@ -27,6 +28,7 @@ export default async function Home() {
   const visionQuotes = visionQuotesResult.data;
   const certifications = certificationsResult.data;
   const skills = skillsResult.data;
+  const t = translationsResult.data;
 
   // Get the first enabled vision quote
   const visionQuote = visionQuotes.length > 0 ? visionQuotes[0] : null;
@@ -37,6 +39,7 @@ export default async function Home() {
       <Hero
         personalInfo={personalInfo}
         socialLinks={socialLinks}
+        t={t}
       />
 
       {/* Skills & Expertise Section */}
@@ -44,10 +47,10 @@ export default async function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Skills & Expertise
+              {t.home.skillsTitle}
             </h2>
             <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
-              Learning by building — from academic foundations to real-world projects
+              {t.home.skillsSubtitle}
             </p>
           </div>
 
@@ -75,10 +78,10 @@ export default async function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Featured Projects
+              {t.home.featuredProjectsTitle}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A showcase of my recent work, highlighting my passion for creating innovative solutions
+              {t.home.featuredProjectsSubtitle}
             </p>
 
           </div>
@@ -86,13 +89,14 @@ export default async function Home() {
           <ProjectGrid
             projects={featuredProjects}
             featured={true}
+            lang={lang}
           />
           <div className="mt-13 text-center">
             <Link
               href="/projects"
               className="text-md hover:text-accent hover:underline transition-colors text-accent"
             >
-              <strong>View all projects &rarr;</strong>
+              <strong>{t.home.viewAllProjects}</strong>
             </Link>
           </div>
         </div>
@@ -104,10 +108,10 @@ export default async function Home() {
           <div className="max-w-7xl mx-auto overflow-visible">
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-                Credentials & Documents
+                {t.home.credentialsTitle}
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Explore my professional certifications, CV, and portfolio documents
+                {t.home.credentialsSubtitle}
               </p>
             </div>
 

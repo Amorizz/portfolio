@@ -11,7 +11,7 @@ import { CONTENT } from '@/lib/constants';
 import { SocialLinks } from '@/components/sections/social-links';
 import Link from 'next/link';
 
-export function Hero({ personalInfo, socialLinks, className }: HeroProps) {
+export function Hero({ personalInfo, socialLinks, t, className }: HeroProps) {
   return (
     <section className={cn('relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 hero-circles', className)}>
       {/* Third violet circle */}
@@ -65,7 +65,7 @@ export function Hero({ personalInfo, socialLinks, className }: HeroProps) {
           <div className="mb-6">
             <Link href="/about">
               <Button variant="default" className="rounded-md hover:bg-accent hover:text-white hover:cursor-pointer">
-                Know More About Me
+                {t?.hero?.knowMoreAboutMe || 'Know More About Me'}
               </Button>
             </Link>
           </div>

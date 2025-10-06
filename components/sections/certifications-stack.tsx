@@ -1,11 +1,13 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { Download, ExternalLink } from 'lucide-react';
+import { Download, ExternalLink, CheckCircle, Clock, FileText } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { Certification } from '@/lib/types';
+import Link from 'next/link';
 
 interface CertificationsStackProps {
   certifications: Certification[];
@@ -15,7 +17,14 @@ interface CertificationsStackProps {
 export function CertificationsStack({ certifications, className }: CertificationsStackProps) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [lang, setLang] = useState<'en' | 'fr'>('en');
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Get language from localStorage
+  useEffect(() => {
+    const saved = localStorage.getItem('preferred-language');
+    setLang((saved === 'fr' ? 'fr' : 'en'));
+  }, []);
   
   const totalCards = certifications.length;
 
@@ -83,6 +92,55 @@ export function CertificationsStack({ certifications, className }: Certification
     }
   };
 
+  // Translations
+  const t = {
+    completed: lang === 'fr' ? 'Terminé' : 'Completed',
+    inProgress: lang === 'fr' ? 'En Cours' : 'In Progress',
+    active: lang === 'fr' ? 'Actif' : 'Active',
+    items: lang === 'fr' ? 'Éléments' : 'Items',
+    cv: 'CV',
+    certificate: lang === 'fr' ? 'Certificat' : 'Certificate',
+    portfolio: 'Portfolio',
+    allDocuments: lang === 'fr' ? 'Tous Mes Documents' : 'All My Documents',
+    exploreDocuments: lang === 'fr' 
+      ? `Explorez mes certifications professionnelles, CV, portfolio et diplômes - ${totalCards} documents disponibles`
+      : `Explore my professional certifications, CV, portfolio, and credentials - ${totalCards} documents available`,
+    viewAll: lang === 'fr' ? 'Voir Tout' : 'View All',
+    viewCV: lang === 'fr' ? 'Voir le CV' : 'View CV',
+    download: lang === 'fr' ? 'Télécharger' : 'Download',
+    viewCertificate: lang === 'fr' ? 'Voir le Certificat' : 'View Certificate',
+  };
+
+  const getStatusBadge = (status?: string) => {
+    if (!status) return null;
+    
+    switch (status) {
+      case 'completed':
+        return (
+          <Badge className="bg-green-600/20 text-green-600 hover:bg-green-600/30 border-green-600/30">
+            <CheckCircle className="w-3 h-3 mr-1" />
+            {t.completed}
+          </Badge>
+        );
+      case 'in-progress':
+        return (
+          <Badge className="bg-orange-600/20 text-orange-600 hover:bg-orange-600/30 border-orange-600/30">
+            <Clock className="w-3 h-3 mr-1" />
+            {t.inProgress}
+          </Badge>
+        );
+      case 'active':
+        return (
+          <Badge className="bg-blue-600/20 text-blue-600 hover:bg-blue-600/30 border-blue-600/30">
+            <FileText className="w-3 h-3 mr-1" />
+            {t.active}
+          </Badge>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className={cn('relative py-12', className)}>
       {/* Container for stacked cards */}
@@ -104,28 +162,7 @@ export function CertificationsStack({ certifications, className }: Certification
             const isHovered = hoveredIndex === index;
             const isFirstCard = index === 0;
             
-            return (
-              <div
-                key={cert.id}
-                className={cn(
-                  'transition-all duration-500 ease-out',
-                  isExpanded ? 'relative' : 'absolute'
-                )}
-                style={{
-                  transform: position.transform,
-                  zIndex: position.zIndex,
-                  left: position.left,
-                  marginLeft: position.marginLeft,
-                  opacity: position.opacity,
-                }}
-                onMouseEnter={() => handleMouseEnterCard(index)}
-              >
-                <a
-                  href={cert.url}
-                  target={cert.downloadable ? '_blank' : '_self'}
-                  rel={cert.downloadable ? 'noopener noreferrer' : undefined}
-                  className="block"
-                >
+            const renderCard = () => (
                   <Card 
                     className={cn(
                       'w-[280px] h-[350px] overflow-hidden bg-black',
@@ -148,7 +185,7 @@ export function CertificationsStack({ certifications, className }: Certification
                         {!isExpanded && isFirstCard ? '📚' : cert.icon}
                       </div>
                       
-                      {/* Type Badge */}
+                      {/* Type Badge - Top Right */}
                       {(isExpanded || isFirstCard) && (
                         <div className="absolute top-3 right-3">
                           <Badge 
@@ -159,10 +196,17 @@ export function CertificationsStack({ certifications, className }: Certification
                             )}
                           >
                             {!isExpanded && isFirstCard 
-                              ? `${totalCards} Items` 
-                              : cert.type === 'cv' ? 'CV' : cert.type === 'certification' ? 'Certificate' : 'Portfolio'
+                              ? `${totalCards} ${t.items}` 
+                              : cert.type === 'cv' ? t.cv : cert.type === 'certification' ? t.certificate : t.portfolio
                             }
                           </Badge>
+                        </div>
+                      )}
+                      
+                      {/* Status Badge - Top Left (only for in-progress) */}
+                      {isExpanded && cert.status === 'in-progress' && (
+                        <div className="absolute top-3 left-3">
+                          {getStatusBadge(cert.status)}
                         </div>
                       )}
                     </CardHeader>
@@ -174,38 +218,54 @@ export function CertificationsStack({ certifications, className }: Certification
                           'text-xl transition-colors',
                           isHovered ? 'text-accent' : 'text-foreground'
                         )}>
-                          {!isExpanded && isFirstCard ? 'All My Documents' : cert.title}
+                          {!isExpanded && isFirstCard ? t.allDocuments : cert.title}
                         </CardTitle>
                         <CardDescription className="text-sm leading-relaxed line-clamp-3">
                           {!isExpanded && isFirstCard 
-                            ? `Explore my professional certifications, CV, portfolio, and credentials - ${totalCards} documents available`
+                            ? t.exploreDocuments
                             : cert.description
                           }
                         </CardDescription>
                       </div>
 
                       {/* Action Button */}
-                      <div className={cn(
-                        'flex items-center gap-2 text-sm font-medium transition-colors',
-                        isHovered ? 'text-accent' : 'text-muted-foreground'
-                      )}>
-                        {!isExpanded && isFirstCard ? (
-                          <>
-                            <ExternalLink className="w-4 h-4" />
-                            <span>View All</span>
-                          </>
-                        ) : cert.downloadable ? (
-                          <>
-                            <Download className="w-4 h-4" />
-                            <span>Download</span>
-                          </>
-                        ) : (
-                          <>
-                            <ExternalLink className="w-4 h-4" />
-                            <span>View</span>
-                          </>
-                        )}
-                      </div>
+                      {cert.url && (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className={cn(
+                            'w-full transition-all',
+                            isHovered && 'border-accent text-accent hover:bg-accent/10'
+                          )}
+                          onClick={(e) => {
+                            if (!cert.url) {
+                              e.preventDefault();
+                            }
+                          }}
+                        >
+                          {!isExpanded && isFirstCard ? (
+                            <>
+                              <ExternalLink className="w-4 h-4 mr-2" />
+                              <span>{t.viewAll}</span>
+                            </>
+                          ) : cert.type === 'cv' ? (
+                            <>
+                              <FileText className="w-4 h-4 mr-2" />
+                              <span>{t.viewCV}</span>
+                            </>
+                          ) : cert.downloadable ? (
+                            <>
+                              <Download className="w-4 h-4 mr-2" />
+                              <span>{t.download}</span>
+                            </>
+                          ) : (
+                            <>
+                              <ExternalLink className="w-4 h-4 mr-2" />
+                              <span>{t.viewCertificate}</span>
+                            </>
+                          )}
+                        </Button>
+                      )}
 
                       {/* Decorative Corner */}
                       <div className={cn(
@@ -216,7 +276,44 @@ export function CertificationsStack({ certifications, className }: Certification
                       )} />
                     </CardContent>
                   </Card>
-                </a>
+            );
+
+            return (
+              <div
+                key={cert.id}
+                className={cn(
+                  'transition-all duration-500 ease-out',
+                  isExpanded ? 'relative' : 'absolute'
+                )}
+                style={{
+                  transform: position.transform,
+                  zIndex: position.zIndex,
+                  left: position.left,
+                  marginLeft: position.marginLeft,
+                  opacity: position.opacity,
+                }}
+                onMouseEnter={() => handleMouseEnterCard(index)}
+              >
+                {cert.url ? (
+                  cert.type === 'cv' ? (
+                    <Link href={cert.url} className={cn("block", "cursor-pointer")}>
+                      {renderCard()}
+                    </Link>
+                  ) : (
+                    <a 
+                      href={cert.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className={cn("block", "cursor-pointer")}
+                    >
+                      {renderCard()}
+                    </a>
+                  )
+                ) : (
+                  <div className="block">
+                    {renderCard()}
+                  </div>
+                )}
               </div>
             );
           })}

@@ -1,11 +1,10 @@
 {
   "name": "Amaury Dufrenot",
   "title": "Étudiant en Réseaux & Télécommunications",
-  "bio": "Passionné par la cybersécurité, l'IA et la création de solutions innovantes. Toujours en train d'apprendre et de construire de nouvelles choses.",
-  "avatar": "/images/profile.jpg",
-  "avatarAlt": "Photo de profil d'Amaury Dufrenot",
-  "location": "France",
-  "email": "amaury.dufrenot@example.com",
-  "phone": "+33 6 12 34 56 78"
+  "bio": "Étudiant passionné avec une expertise en réseaux et télécommunications, dédié à créer des solutions innovantes qui font la différence. Je combine l'excellence technique avec la résolution créative de problèmes pour créer des applications que les utilisateurs adorent.",
+  "avatar": "/images/IMG_3840.png",
+  "avatarAlt": "Photo de profil d'Amaury Dufrenot - un étudiant passionné en réseaux et télécommunications",
+  "location": "Paris, France",
+  "email": "amaury.dufrenot@utt.fr",
+  "phone": "+33 6 44 19 68 50"
 }
-

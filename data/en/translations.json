@@ -1,0 +1,88 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "openMenu": "Open main menu",
+    "closeMenu": "Close main menu"
+  },
+  "hero": {
+    "knowMoreAboutMe": "Know More About Me"
+  },
+  "home": {
+    "skillsTitle": "Skills & Expertise",
+    "skillsSubtitle": "Learning by building — from academic foundations to real-world projects",
+    "featuredProjectsTitle": "Featured Projects",
+    "featuredProjectsSubtitle": "A showcase of my recent work, highlighting my passion for creating innovative solutions",
+    "viewAllProjects": "View all projects →",
+    "credentialsTitle": "Credentials & Documents",
+    "credentialsSubtitle": "Explore my professional certifications, CV, and portfolio documents"
+  },
+  "about": {
+    "title": "About",
+    "whoIAm": "Who I Am",
+    "workTogether": "Let's Work Together",
+    "workTogetherSubtitle": "Interested in my profile? Check out my CV or get in touch directly.",
+    "myResume": "My Resume",
+    "resumeDescription": "Explore my complete background, skills, and experience.",
+    "viewCV": "View CV",
+    "contactMe": "Contact Me",
+    "contactDescription": "Feel free to reach out for any opportunity or question.",
+    "skillsTitle": "Skills & Expertise",
+    "skillsSubtitle": "Learning by building — from academic foundations to real-world projects",
+    "myJourney": "My Journey",
+    "myJourneySubtitle": "A roadmap of milestones, achievements, and the path that shaped my career",
+    "specializingIn": "Specializing in network and telecommunications, I combine technical excellence with creative problem-solving to build robust, scalable applications."
+  },
+  "projects": {
+    "title": "My Projects",
+    "subtitle": "A collection of projects that demonstrate my passion for creating innovative solutions and my expertise in modern web technologies.",
+    "backToProjects": "Back to Projects",
+    "featured": "Featured",
+    "viewSourceCode": "View Source Code",
+    "liveDemo": "Live Demo",
+    "about": "About",
+    "technologies": "Technologies",
+    "viewAllProjects": "View All Projects",
+    "view": "View"
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "connect": "Connect",
+    "allRightsReserved": "All rights reserved."
+  },
+  "common": {
+    "downloadCV": "Download CV",
+    "contact": "Contact",
+    "technicalSkills": "Technical Skills",
+    "softSkills": "Soft Skills",
+    "languages": "Languages",
+    "interests": "Interests",
+    "profile": "Profile",
+    "experience": "Experience",
+    "education": "Education",
+    "keyProjects": "Key Projects",
+    "certifications": "Certifications",
+    "present": "Present",
+    "currentlyWorking": "Currently Working",
+    "workerInternship": "Worker Internship",
+    "internshipDescription": "Teamwork on sites, compliance with instructions. Internship bonus for quality work.",
+    "availabilityFooter": "Available for 6-month internship • September 2026 • National and international mobility • Driving license"
+  },
+  "certifications": {
+    "completed": "Completed",
+    "inProgress": "In Progress",
+    "active": "Active",
+    "items": "Items",
+    "cv": "CV",
+    "certificate": "Certificate",
+    "portfolio": "Portfolio",
+    "allDocuments": "All My Documents",
+    "exploreDocuments": "Explore my professional certifications, CV, portfolio, and credentials - {count} documents available",
+    "viewAll": "View All",
+    "viewCV": "View CV",
+    "download": "Download",
+    "viewCertificate": "View Certificate"
+  }
+}
+

@@ -1,24 +1,32 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { NAVIGATION } from '@/lib/constants';
+import { getNavigation } from '@/lib/get-navigation';
 import { NavbarProps } from '@/lib/types';
 
 export function Navbar({ personalInfo, className }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [lang, setLang] = useState<'en' | 'fr'>('en');
   const pathname = usePathname();
+
+  useEffect(() => {
+    const saved = localStorage.getItem('preferred-language');
+    setLang((saved === 'fr' ? 'fr' : 'en'));
+  }, []);
+
+  const NAVIGATION = getNavigation(lang);
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <nav className={cn('bg-background', className)}>
+    <nav className={cn('relative bg-transparent', className)}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo/Brand */}
@@ -29,11 +37,11 @@ export function Navbar({ personalInfo, className }: NavbarProps) {
               onClick={closeMenu}
             >
               <Image
-                src="/images/logo-icon.svg"
-                alt="Amaury Dufrenot Portfolio Logo"
-                width={32}
-                height={32}
-                className="w-8 h-8"
+                src="/images/logo.png"
+                alt="Amaury Dufrenot Portfolio logo"
+                width={50}
+                height={50}
+                className="w-25 h-25"
               />
             </Link>
           </div>

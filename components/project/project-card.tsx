@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ExternalLink, Github, Calendar } from 'lucide-react';
@@ -12,6 +13,14 @@ import { ProjectCardProps } from '@/lib/types';
 import { EXTERNAL_LINKS } from '@/lib/constants';
 
 export function ProjectCard({ project, className }: ProjectCardProps) {
+  const [lang, setLang] = useState<'en' | 'fr'>('en');
+
+  useEffect(() => {
+    const saved = localStorage.getItem('preferred-language');
+    setLang((saved === 'fr' ? 'fr' : 'en'));
+  }, []);
+
+  const viewText = lang === 'fr' ? 'Voir' : 'View';
   const handleProjectClick = () => {
     // Track project views for analytics
     if (typeof window !== 'undefined' && (window as any).gtag) {
@@ -78,7 +87,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
           className="flex-1 bg-accent hover:bg-violet-600/30 hover: text-accent-foreground text-xs h-7 transition-colors border border-violet-500/30 hover:border-none"
         >
           <Link href={`/projects/${project.id}`} onClick={handleProjectClick}>
-            View
+            {viewText}
           </Link>
         </Button>
 

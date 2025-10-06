@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { getProjectById, loadProjects } from '@/lib/data-loader';
+import { getProjectById, loadProjects, loadTranslations } from '@/lib/data-loader';
 import { getLanguage } from '@/lib/get-language';
 import { formatDate, formatTechnologies } from '@/lib/utils';
 import { EXTERNAL_LINKS } from '@/lib/constants';
@@ -61,13 +61,17 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const lang = await getLanguage();
-  const projectResult = await getProjectById(params.slug, lang);
+  const [projectResult, translationsResult] = await Promise.all([
+    getProjectById(params.slug, lang),
+    loadTranslations(lang),
+  ]);
   
   if (!projectResult.data) {
     notFound();
   }
 
   const project = projectResult.data;
+  const t = translationsResult.data;
 
   return (
     <main className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
@@ -78,7 +82,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
         >
           <ArrowLeft className="h-4 w-4" />
-          Back to Projects
+          {t.projects.backToProjects}
         </Link>
 
         {/* Project Header */}
@@ -95,7 +99,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
             {project.featured && (
               <Badge className="bg-accent/20 text-accent border-accent/30">
-                Featured
+                {t.projects.featured}
               </Badge>
             )}
             <span className="flex items-center gap-1.5">
@@ -127,11 +131,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             href={project.githubUrl}
             target={EXTERNAL_LINKS.security.target}
             rel={EXTERNAL_LINKS.security.rel}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-foreground text-background text-sm font-medium rounded-md hover:bg-foreground/90 transition-colors"
-          >
-            <Github className="h-4 w-4" />
-            View Source Code
-          </a>
+              className="inline-flex items-center gap-2 px-4 py-2 bg-foreground text-background text-sm font-medium rounded-md hover:bg-foreground/90 transition-colors"
+            >
+              <Github className="h-4 w-4" />
+              {t.projects.viewSourceCode}
+            </a>
 
           {project.liveUrl && (
             <a
@@ -141,14 +145,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               className="inline-flex items-center gap-2 px-4 py-2 border border-border text-foreground text-sm font-medium rounded-md hover:bg-accent/10 hover:border-accent/50 transition-colors"
             >
               <ExternalLink className="h-4 w-4" />
-              Live Demo
+              {t.projects.liveDemo}
             </a>
           )}
         </div>
 
         {/* Project Description */}
         <div className="mb-10">
-          <h2 className="text-xl font-semibold text-foreground mb-4">About</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-4">{t.projects.about}</h2>
           <div className="text-muted-foreground leading-relaxed space-y-3 whitespace-pre-line">
             {project.detailedDescription}
           </div>
@@ -156,7 +160,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         {/* Technologies */}
         <div className="mb-10">
-          <h2 className="text-xl font-semibold text-foreground mb-4">Technologies</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-4">{t.projects.technologies}</h2>
           <div className="flex flex-wrap gap-2">
             {formatTechnologies(project.technologies).map((tech) => (
               <span
@@ -178,7 +182,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             href="/projects"
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors"
           >
-            ← View All Projects
+            ← {t.projects.viewAllProjects}
           </Link>
         </div>
       </div>

@@ -1,10 +1,12 @@
 import Image from 'next/image';
-import { Mail } from 'lucide-react';
-import { loadPersonalInfo, loadSocialLinks, getEnabledTimeline, getEnabledAboutCards, getEnabledSkills } from '@/lib/data-loader';
+import Link from 'next/link';
+import { Mail, Phone, MapPin, FileText, Download } from 'lucide-react';
+import { loadPersonalInfo, loadSocialLinks, getEnabledTimeline, getEnabledAboutCards, getEnabledSkills, loadTranslations } from '@/lib/data-loader';
 import { getLanguage } from '@/lib/get-language';
 import { SocialLinks } from '@/components/sections/social-links';
 import { Timeline } from '@/components/sections/timeline';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -20,12 +22,13 @@ export default async function AboutPage() {
   // Get current language
   const lang = await getLanguage();
   
-  const [personalInfoResult, socialLinksResult, timelineResult, aboutCardsResult, skillsResult] = await Promise.all([
+  const [personalInfoResult, socialLinksResult, timelineResult, aboutCardsResult, skillsResult, translationsResult] = await Promise.all([
     loadPersonalInfo(lang),
     loadSocialLinks(lang),
     getEnabledTimeline(lang),
     getEnabledAboutCards(lang),
     getEnabledSkills(lang),
+    loadTranslations(lang),
   ]);
 
   const personalInfo = personalInfoResult.data;
@@ -33,13 +36,14 @@ export default async function AboutPage() {
   const timeline = timelineResult.data;
   const aboutCards = aboutCardsResult.data;
   const skills = skillsResult.data;
+  const t = translationsResult.data;
 
   return (
     <main className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto space-y-24">
         
         {/* Profile Section - Image Left, Info Right */}
-        <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center justify-center">
           {/* Profile Image - Left */}
           <div className="flex justify-center lg:justify-start">
             <div className="relative w-full max-w-sm">
@@ -72,8 +76,7 @@ export default async function AboutPage() {
             <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
               <p>{personalInfo.bio}</p>
               <p>
-                Specializing in network and telecommunications, I combine technical excellence with 
-                creative problem-solving to build robust, scalable applications.
+                {t.about.specializingIn}
               </p>
             </div>
 
@@ -114,7 +117,7 @@ export default async function AboutPage() {
         <section className="px-40">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Who I Am
+              {t.about.whoIAm}
             </h2>
           </div>
 
@@ -133,14 +136,94 @@ export default async function AboutPage() {
           </div>
         </section>
 
+        {/* Call to Action - CV & Contact */}
+        <section className="relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/5 rounded-3xl"></div>
+          
+          <div className="relative max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+                {t.about.workTogether}
+              </h2>
+              <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+                {t.about.workTogetherSubtitle}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* CV Card */}
+              <div className="bg-card border border-border rounded-2xl p-8 hover:border-accent/50 transition-all group">
+                <div className="flex flex-col items-center text-center space-y-4">
+                  <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <FileText className="w-8 h-8 text-accent" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">
+                      {t.about.myResume}
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      {t.about.resumeDescription}
+                    </p>
+                  </div>
+                  <div className="flex flex-col sm:flex-row gap-3 w-full">
+                    <Button asChild className="flex-1">
+                      <Link href="/cv">
+                        <FileText className="mr-2 h-4 w-4" />
+                        {t.about.viewCV}
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Contact Card */}
+              <div className="bg-card border border-border rounded-2xl p-8 hover:border-accent/50 transition-all group">
+                <div className="flex flex-col items-center text-center space-y-4">
+                  <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Mail className="w-8 h-8 text-accent" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">
+                      {t.about.contactMe}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      {t.about.contactDescription}
+                    </p>
+                  </div>
+                  <div className="space-y-3 w-full text-left">
+                    <a 
+                      href={`mailto:${personalInfo.email}`}
+                      className="flex items-center gap-3 text-sm text-muted-foreground hover:text-accent transition-colors"
+                    >
+                      <Mail className="h-4 w-4 flex-shrink-0" />
+                      <span className="truncate">{personalInfo.email}</span>
+                    </a>
+                    <a 
+                      href={`tel:${personalInfo.phone}`}
+                      className="flex items-center gap-3 text-sm text-muted-foreground hover:text-accent transition-colors"
+                    >
+                      <Phone className="h-4 w-4 flex-shrink-0" />
+                      <span>{personalInfo.phone}</span>
+                    </a>
+                    <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                      <MapPin className="h-4 w-4 flex-shrink-0" />
+                      <span>{personalInfo.location}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Skills & Expertise Section */}
         <section>
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Skills & Expertise
+              {t.about.skillsTitle}
             </h2>
             <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
-              Learning by building — from academic foundations to real-world projects
+              {t.about.skillsSubtitle}
             </p>
           </div>
 
@@ -166,10 +249,10 @@ export default async function AboutPage() {
         <section>
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              My Journey
+              {t.about.myJourney}
             </h2>
             <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
-              A roadmap of milestones, achievements, and the path that shaped my career
+              {t.about.myJourneySubtitle}
             </p>
           </div>
           

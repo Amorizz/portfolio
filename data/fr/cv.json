@@ -1,0 +1,550 @@
+{
+  "personalInfo": {
+    "fullName": "Amaury Dufrenot",
+    "title": "Stage Assistant Ingénieur — Réseaux & Télécommunications",
+    "tagline": "CTO & Co-fondateur | Ingénierie Réseau | Cybersécurité & Dev",
+    "location": "Paris, France",
+    "email": "amaury.dufrenot@utt.fr",
+    "phone": "+33 6 44 19 68 50",
+    "website": "https://amaury-dufrenot.com",
+    "linkedin": "https://linkedin.com/in/amaury-dufrenot",
+    "github": "https://github.com/Amorizz",
+    "avatar": "/images/avatar.jpg",
+    "dateOfBirth": "2003",
+    "nationality": "Française",
+    "languages": [
+      {
+        "name": "Français",
+        "level": "Langue maternelle"
+      },
+      {
+        "name": "Anglais",
+        "level": "Courant (C1)"
+      },
+      {
+        "name": "Espagnol",
+        "level": "Intermédiaire (B1)"
+      },
+      {
+        "name": "Chinois",
+        "level": "Débutant (A2)"
+      }
+    ]
+  },
+
+  "professionalSummary": "Étudiant BAC+4 en Réseaux & Télécommunications à l'Université de Technologie de Troyes, je suis très interessé par les réseaux, l'IA et la cybersecurité. Je recherche un stage pour septembre 2026 en infrastructure réseau et sécurité.",
+  
+  "education": [
+    {
+      "id": "1",
+      "institution": "UTSEUS | Shanghai University",
+      "degree": "Semestre d'échange en Chine",
+      "specialization": "Innovation & Entrepreneuriat",
+      "startDate": "2025-02",
+      "endDate": "2025-07",
+      "current": false,
+      "location": "Shanghai, Chine",
+      "description": "Semestre d'échange à Shanghai centré sur l'innovation.",
+      "achievements": [
+        "Conception et développement d'applications en équipe",
+        "Application des méthodes Agile/Scrum",
+        "Immersion linguistique et culturelle"
+      ],
+      "courses": [
+        "Innovation & entrepreneuriat",
+        "Gestion de projet Agile",
+        "Culture d'entreprise chinoise",
+        "Mandarin"
+      ]
+    },
+    {
+      "id": "2",
+      "institution": "Université de Technologie de Troyes (UTT)",
+      "degree": "Diplôme d'Ingénieur — Réseaux & Télécommunications",
+      "specialization": "Cycle préparatoire - Cycle Ingenieur en Réseaux et Télécommunications",
+      "startDate": "2023-09",
+      "endDate": "2028-06",
+      "current": true,
+      "location": "Troyes, France",
+      "description": "",
+      "achievements": [],
+      "courses": [
+        "Réseaux TCP/IP avancés",
+        "Sécurité réseau & cryptographie",
+        "Administration système (Linux)",
+        "Architecture cloud",
+        "Génie logiciel",
+        "Bases de données",
+        "IA & machine learning (fondamentaux)"
+      ]
+    },
+    {
+      "id": "3",
+      "institution": "Lycée Sophie Barat",
+      "degree": "Baccalauréat Scientifique",
+      "specialization": "Mention Bien - Spécialité Mathématiques et Physique",
+      "startDate": "2020-09",
+      "endDate": "2022-06",
+      "current": false,
+      "location": "Île-de-France, France",
+      "description": "",
+      "achievements": [],
+      "courses": []
+    }
+  ],
+
+  "experience": [
+    {
+      "id": "1",
+      "company": "PlayTennisEverywhere",
+      "position": "CTO & Co-fondateur",
+      "employmentType": "Temps plein",
+      "startDate": "2025-08",
+      "endDate": null,
+      "current": true,
+      "location": "Paris, France",
+      "website": "https://play-tennis-everywhere.com",
+      "description": "Developement de la plateforme play-tennis-everywhere.com",
+      "responsibilities": [
+        "Conception et développement full-stack (Next.js, TypeScript) et API (Supabase/PostgreSQL).",
+        "Architecture des données et définition des schémas évolutifs pour montée en charge.",
+        "Conception et implémentation de l'algorithme de matching IA multi-critères.",
+        "Mise en place des systèmes d'authentification, messagerie et notifications."
+      ],
+      "achievements": [
+        "Mise en place du backend, frontend, base de données, déploiement.",
+        "Conception d'une UI/UX responsive optimisée pour mobile."
+      ],
+      "technologies": [
+        "Next.js",
+        "TypeScript",
+        "React",
+        "Supabase",
+        "PostgreSQL",
+        "Tailwind CSS",
+        "Resend API",
+        "Vercel"
+      ]
+    },
+    {
+      "id": "3",
+      "company": "Club Cybersécurité — UTT",
+      "position": "Membre actif",
+      "employmentType": "Activité extra-scolaire",
+      "startDate": "2023-09",
+      "endDate": null,
+      "current": true,
+      "location": "Troyes, France",
+      "website": null,
+      "description": "Participation régulière : entraînements CTF, ateliers pratiques et sessions de retours d’expérience en sécurité offensive et défensive.",
+      "responsibilities": [
+        "Compétitions CTF (recherche de vulnérabilités, exploitation, forensics).",
+        "Ateliers pratiques sur Burp Suite, Wireshark, Kali Linux et outils OSINT."
+      ],
+      "achievements": [
+        "Participation à plusieurs CTF nationaux et exercices pratiques."
+      ],
+      "technologies": [
+        "Kali Linux",
+        "Metasploit",
+        "Burp Suite",
+        "Wireshark",
+        "Outils OSINT",
+        "Scripting Python"
+      ]
+    }
+  ],
+
+  "projects": [
+    {
+      "id": "play-tennis-everywhere",
+      "name": "Play Tennis Everywhere",
+      "role": "CTO & Co-fondateur",
+      "startDate": "2025-08",
+      "endDate": null,
+      "current": true,
+      "shortDescription": "Platforme de matching de partenaires de tennis alimentée par IA.",
+      "description": "Plateforme sociale qui met en relation des joueurs via un algorithme de matching prenant en compte niveau, localisation et disponibilité. Focus sur scalabilité, sécurité et expérience mobile.",
+      "url": "https://play-tennis-everywhere.com",
+      "github": null,
+      "image": "/images/projects/play-tennis-everywhere.png",
+      "technologies": [
+        "Next.js",
+        "TypeScript",
+        "Supabase",
+        "PostgreSQL",
+        "Tailwind CSS",
+        "Resend",
+        "Matching IA",
+        "Vercel"
+      ],
+      "features": [
+        "Matching IA multi-critères",
+        "Planification & intégration calendrier",
+        "Messagerie temps réel",
+        "Mode voyage pour utilisateurs en déplacement",
+        "Recommandations personnalisées",
+        "Automatisation emails & liste d’attente"
+      ]
+    },
+    {
+      "id": "ai-video-translator",
+      "name": "IA Traducteur Vidéos",
+      "role": "",
+      "startDate": "2025-03",
+      "endDate": "2025-06",
+      "current": false,
+      "shortDescription": "IA de traduction de vidéos YouTube du chinois vers le français.",
+      "description": "Développement d'un système de traduction automatique de vidéos YouTube du chinois vers le français. Projet réalisé durant le semestre d'échange en Chine pour apprendre la création de réseaux de neurones et l'utilisation de bibliothèques IA Python.",
+      "url": null,
+      "github": null,
+      "image": null,
+      "technologies": [
+        "Python",
+        "Hugging Face",
+        "Neural Networks",
+        "Librairies sklearn"
+      ],
+      "features": [
+        "Traduction automatique chinois vers français",
+        "Traitement de vidéos YouTube",
+        "Création et entraînement de réseaux de neurones",
+        "Utilisation de bibliothèques Python pour l'IA",
+        "Intégration des modèles Hugging Face"
+      ]
+    },
+    {
+      "id": "tiny-habits",
+      "name": "Tiny Habits",
+      "role": "",
+      "startDate": "2025-03",
+      "endDate": "2025-06",
+      "current": false,
+      "shortDescription": "Application de gestion budgétaire basée sur les micro-habitudes.",
+      "description": "Application mobile orientée changement de comportement financier par micro-habitudes. Pitchée devant investisseurs et lauréate d’un prix d’opportunité business.",
+      "url": null,
+      "github": null,
+      "image": null,
+      "technologies": [
+        "Mobile app",
+        "Pitch",
+        "Prix d'opportunité business"
+      ],
+      "features": [
+        "Gamification de l’épargne",
+        "Suivi comportemental",
+        "Objectifs financiers progressifs"
+      ]
+    },
+    {
+      "id": "portfolio-website",
+      "name": "Site Portfolio",
+      "role": "Développeur Solo",
+      "startDate": "2025-10",
+      "endDate": "2025-10",
+      "current": false,
+      "shortDescription": "Portfolio personnel open-source construit avec Next.js 15.",
+      "description": "Template moderne mettant en avant projets techniques, optimisé SEO et performances, accessible en FR/EN.",
+      "url": "https://amaury-dufrenot.com",
+      "github": "https://github.com/Amorizz/portfolio",
+      "image": "/images/projects/portfolio-website.png",
+      "technologies": [
+        "Next.js 15",
+        "TypeScript",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "Vercel"
+      ],
+      "features": [
+        "Design responsive",
+        "Optimisation performance et SEO",
+        "Thème sombre + animations fluides",
+        "Accessibilité (WCAG) et code open-source"
+      ]
+    },
+    {
+      "id": "pocket-imperium",
+      "name": "Jeu Pocket Imperium",
+      "role": "Développeur Solo",
+      "startDate": "2024-04",
+      "endDate": "2024-06",
+      "current": false,
+      "shortDescription": "Adaptation Java d’un jeu de plateau stratégique.",
+      "description": "Implémentation Java avec interface GUI et console, mécaniques multijoueur et architecture orientée objet.",
+      "url": null,
+      "github": "https://github.com/Amorizz/pocket-imperium",
+      "image": "/images/projects/pocket-imperium.png",
+      "technologies": [
+        "Java",
+        "Swing/AWT"
+      ],
+      "features": [
+        "Interface GUI + console",
+        "Gameplay tour par tour",
+        "Support multi-joueurs"
+      ]
+    }
+  ],
+
+  "skills": {
+    "technical": [
+      {
+        "category": "Réseau & Systèmes",
+        "icon": "🌐",
+        "skills": [
+          {
+            "name": "TCP/IP",
+            "level": "Intermédiaire",
+            "yearsOfExperience": 2
+          },
+          {
+            "name": "Admin Linux",
+            "level": "Intermédiaire",
+            "yearsOfExperience": 2
+          },
+          {
+            "name": "Config réseau",
+            "level": "Intermédiaire",
+            "yearsOfExperience": 2
+          },
+          {
+            "name": "Cisco Packet Tracer",
+            "level": "Intermédiaire",
+            "yearsOfExperience": 2
+          }
+        ]
+      },
+      {
+        "category": "Cybersécurité",
+        "icon": "🔐",
+        "skills": [
+          {
+            "name": "Vulnérabilités Web",
+            "level": "Intermédiaire",
+            "yearsOfExperience": 2
+          },
+          {
+            "name": "CTF",
+            "level": "Intermédiaire",
+            "yearsOfExperience": 2
+          },
+          {
+            "name": "OSINT",
+            "level": "Intermédiaire",
+            "yearsOfExperience": 2
+          }
+        ]
+      },
+      {
+        "category": "Développement",
+        "icon": "💻",
+        "skills": [
+          {
+            "name": "Python",
+            "level": "Intermédiaire",
+            "yearsOfExperience": 2
+          },
+          {
+            "name": "JavaScript",
+            "level": "Intermédiaire",
+            "yearsOfExperience": 1
+          },
+          {
+            "name": "HTML/CSS",
+            "level": "Intermédiaire",
+            "yearsOfExperience": 2
+          },
+          {
+            "name": "Java",
+            "level": "Débutant",
+            "yearsOfExperience": 1
+          },
+          {
+            "name": "SQL",
+            "level": "Débutant",
+            "yearsOfExperience": 1
+          },
+          {
+            "name": "Git",
+            "level": "Intermédiaire",
+            "yearsOfExperience": 2
+          },
+          {
+            "name": "Machine Learning",
+            "level": "Débutant",
+            "yearsOfExperience": 1
+          }
+        ]
+      }
+    ],
+    "softSkills": [
+      {
+        "name": "Autonome",
+        "icon": "🎯"
+      },
+      {
+        "name": "Curieux",
+        "icon": "🔍"
+      },
+      {
+        "name": "Passioné",
+        "icon": "🔥"
+      },
+      {
+        "name": "Travail en équipe",
+        "icon": "🤝"
+      }
+    ],
+    "soft": [
+      {
+        "name": "Résolution de problèmes",
+        "description": "Approche analytique et structurée pour diagnostiquer et corriger incidents techniques."
+      },
+      {
+        "name": "Travail en équipe",
+        "description": "Communication claire et collaboration efficace avec équipes pluridisciplinaires."
+      },
+      {
+        "name": "Auto-apprentissage",
+        "description": "Montée en compétence rapide sur nouvelles technologies et protocoles."
+      },
+      {
+        "name": "Gestion de projet",
+        "description": "Pratique Agile / Scrum : priorisation, découpage et livraison itérative."
+      },
+      {
+        "name": "Esprit d'entrepreneur",
+        "description": "Orientation produit et sens des priorités entre technique et valeur utilisateur."
+      },
+      {
+        "name": "Communication technique",
+        "description": "Savoir expliquer des sujets complexes de façon claire aux non-techniques."
+      },
+      {
+        "name": "Adaptabilité",
+        "description": "Opère efficacement dans environnements changeants et contraintes fortes."
+      }
+    ]
+  },
+
+  "certifications": [
+    {
+      "id": "1",
+      "name": "CCNA — Cisco Certified Network Associate",
+      "issuer": "Cisco",
+      "issueDate": "2026-06",
+      "expiryDate": "2029-06",
+      "credentialId": null,
+      "url": null,
+      "status": "En cours",
+      "description": "Certification en cours : fondamentaux du réseau (connectivité IP, routage, sécurité et automation) — préparation active pour validation."
+    },
+    {
+      "id": "2",
+      "name": "Dual Diploma - High School Diploma",
+      "issuer": "Programme Dual Diploma",
+      "issueDate": "2022-06",
+      "expiryDate": null,
+      "credentialId": null,
+      "url": null,
+      "status": "Obtenu",
+      "description": "Diplôme américain de fin d'études secondaires obtenu en parallèle du baccalauréat français."
+    },
+    {
+      "id": "3",
+      "name": "Permis B",
+      "issuer": "Préfecture",
+      "issueDate": "2022",
+      "expiryDate": null,
+      "credentialId": null,
+      "url": null,
+      "status": "Obtenu",
+      "description": "Permis de conduire catégorie B."
+    },
+    {
+      "id": "4",
+      "name": "Baccalauréat Mention Bien",
+      "issuer": "Lycée Sophie Barat",
+      "issueDate": "2022-06",
+      "expiryDate": null,
+      "credentialId": null,
+      "url": null,
+      "status": "Obtenu",
+      "description": "Spécialités Mathématiques et Physique"
+    }
+  ],
+
+  "achievements": [
+    {
+      "id": "1",
+      "title": "Co-fondation de PlayTennisEverywhere",
+      "date": "2025-08",
+      "description": "CTO d’une startup SaaS — MVP lancé en 3 mois et 500+ inscriptions sur la liste d’attente."
+    },
+    {
+      "id": "2",
+      "title": "Étudiant d’échange — Shanghai University",
+      "date": "2025-02",
+      "description": "Sélection pour un semestre international axé innovation, gestion agile et travail en équipe multiculturelle."
+    },
+    {
+      "id": "3",
+      "title": "Participation régulière à des CTF",
+      "date": "2023-2025",
+      "description": "Renforcement des compétences techniques en sécurité offensive, analyse et reverse engineering."
+    },
+    {
+      "id": "4",
+      "title": "Contributeur open source",
+      "date": "2025",
+      "description": "Publication d’un template portfolio open source mettant en valeur projets et bonnes pratiques front & back."
+    }
+  ],
+
+  "interests": [
+    {
+      "name": "Tennis — 15 ans en compétition, meilleur classement 15/4",
+      "icon": "",
+      "description": ""
+    },
+    {
+      "name": "Musique — 10 ans de batterie au conservatoire",
+      "icon": "",
+      "description": ""
+      
+    },
+    {
+      "name": "Entrepreneuriat et Innovation",
+      "icon": "",
+      "description": ""
+    },  
+    {
+      "name": "Voyages & découverte de cultures à travers le monde",
+      "icon": "",
+      "description": ""
+    }
+  ],
+
+  "careerObjective": "Recherche un stage ingénieur Réseaux / Télécom (6 mois) en grand groupe à partir de septembre 2026. Mon objectif : rejoindre une équipe d’infrastructure ou d’exploitation pour contribuer à la fiabilité, la sécurisation et l’automatisation des réseaux, tout en apportant une capacité à produire rapidement des solutions opérationnelles.",
+  
+  "availability": {
+    "internshipStart": "2026-09",
+    "internshipDuration": "6 mois",
+    "preferredLocations": [
+      "Paris",
+      "International (Europe, Asie, Amérique du Nord)"
+    ],
+    "willingToRelocate": true,
+    "remoteWork": "Ouvert aux postes hybrides / télétravail partiel"
+  },
+
+  "references": [
+    {
+      "name": "Disponibles sur demande",
+      "relationship": "",
+      "company": "",
+      "email": "",
+      "phone": ""
+    }
+  ]
+}

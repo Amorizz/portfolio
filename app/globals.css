@@ -26,6 +26,7 @@
   --chart-3: 41 72% 48%; /* #D29922 - obsidian warning */
   --chart-4: 4 90% 63%; /* #F85149 - obsidian error */
   --chart-5: 215 14% 58%; /* #8B949E - obsidian muted */
+  --background-transparent: transparent;
 }
 
 .dark {
@@ -53,6 +54,7 @@
   --chart-3: 41 72% 48%; /* #D29922 - obsidian warning */
   --chart-4: 4 90% 63%; /* #F85149 - obsidian error */
   --chart-5: 215 14% 58%; /* #8B949E - obsidian muted */
+  --background-transparent: transparent;
 }
 
 @layer base {
@@ -191,6 +193,32 @@
     50% {
       transform: translateY(-2px);
     }
+  }
+}
+
+/* Print styles for CV */
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .print\:hidden {
+    display: none !important;
+  }
+  
+  #cv-content {
+    width: 210mm !important;
+    height: 297mm !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    page-break-after: avoid;
+    page-break-inside: avoid;
   }
 }
 

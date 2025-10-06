@@ -61,6 +61,7 @@ export interface Certification {
   icon: string;
   url: string;
   downloadable: boolean;
+  status?: 'completed' | 'in-progress' | 'active';
   order: number;
   enabled: boolean;
 }
@@ -93,12 +94,14 @@ export interface ProjectCardProps {
 export interface ProjectGridProps {
   projects: Project[];
   featured?: boolean;
+  lang?: string;
   className?: string;
 }
 
 export interface HeroProps {
   personalInfo: PersonalInfo;
   socialLinks: SocialLink[];
+  t?: any;
   className?: string;
 }
 

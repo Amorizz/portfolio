@@ -1,0 +1,88 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "about": "À propos",
+    "projects": "Projets",
+    "openMenu": "Ouvrir le menu principal",
+    "closeMenu": "Fermer le menu principal"
+  },
+  "hero": {
+    "knowMoreAboutMe": "En savoir plus sur moi"
+  },
+  "home": {
+    "skillsTitle": "Compétences & Expertise",
+    "skillsSubtitle": "Apprendre en construisant — des fondations académiques aux projets réels",
+    "featuredProjectsTitle": "Projets en Vedette",
+    "featuredProjectsSubtitle": "Une vitrine de mon travail récent, mettant en valeur ma passion pour créer des solutions innovantes",
+    "viewAllProjects": "Voir tous les projets →",
+    "credentialsTitle": "Diplômes & Documents",
+    "credentialsSubtitle": "Explorez mes certifications professionnelles, CV et documents de portfolio"
+  },
+  "about": {
+    "title": "À propos",
+    "whoIAm": "Qui je suis",
+    "workTogether": "Travaillons Ensemble",
+    "workTogetherSubtitle": "Intéressé par mon profil ? Consultez mon CV ou contactez-moi directement.",
+    "myResume": "Mon CV",
+    "resumeDescription": "Découvrez mon parcours complet, mes compétences et mon expérience.",
+    "viewCV": "Voir le CV",
+    "contactMe": "Me Contacter",
+    "contactDescription": "N'hésitez pas à me contacter pour toute opportunité ou question.",
+    "skillsTitle": "Compétences & Expertise",
+    "skillsSubtitle": "Apprendre en construisant — des fondations académiques aux projets réels",
+    "myJourney": "Mon Parcours",
+    "myJourneySubtitle": "Une feuille de route des jalons, réalisations et le chemin qui a façonné ma carrière",
+    "specializingIn": "Spécialisé en réseaux et télécommunications, je combine l'excellence technique avec la résolution créative de problèmes pour construire des applications robustes et évolutives."
+  },
+  "projects": {
+    "title": "Mes Projets",
+    "subtitle": "Une collection de projets qui démontrent ma passion pour créer des solutions innovantes et mon expertise dans les technologies web modernes.",
+    "backToProjects": "Retour aux Projets",
+    "featured": "En Vedette",
+    "viewSourceCode": "Voir le Code Source",
+    "liveDemo": "Démo en Direct",
+    "about": "À propos",
+    "technologies": "Technologies",
+    "viewAllProjects": "Voir Tous les Projets",
+    "view": "Voir"
+  },
+  "footer": {
+    "quickLinks": "Liens Rapides",
+    "connect": "Connexion",
+    "allRightsReserved": "Tous droits réservés."
+  },
+  "common": {
+    "downloadCV": "Télécharger le CV",
+    "contact": "Contact",
+    "technicalSkills": "Compétences Techniques",
+    "softSkills": "Qualités",
+    "languages": "Langues",
+    "interests": "Centres d'Intérêt",
+    "profile": "Profil",
+    "experience": "Expérience",
+    "education": "Formation",
+    "keyProjects": "Projets Clés",
+    "certifications": "Certifications",
+    "present": "Présent",
+    "currentlyWorking": "En cours",
+    "workerInternship": "Stage Ouvrier",
+    "internshipDescription": "Travail en équipe sur chantiers, respect des consignes et délais. Prime de stage pour qualité du travail.",
+    "availabilityFooter": "Disponible pour stage de 6 mois • Septembre 2026 • Mobilité nationale et internationale • Permis B"
+  },
+  "certifications": {
+    "completed": "Terminé",
+    "inProgress": "En Cours",
+    "active": "Actif",
+    "items": "Éléments",
+    "cv": "CV",
+    "certificate": "Certificat",
+    "portfolio": "Portfolio",
+    "allDocuments": "Tous Mes Documents",
+    "exploreDocuments": "Explorez mes certifications professionnelles, CV, portfolio et diplômes - {count} documents disponibles",
+    "viewAll": "Voir Tout",
+    "viewCV": "Voir le CV",
+    "download": "Télécharger",
+    "viewCertificate": "Voir le Certificat"
+  }
+}
+

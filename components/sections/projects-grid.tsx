@@ -4,7 +4,7 @@ import { ProjectCard } from '@/components/project/project-card';
 import { cn } from '@/lib/utils';
 import { ProjectGridProps } from '@/lib/types';
 
-export function ProjectGrid({ projects, featured = false, className }: ProjectGridProps) {
+export function ProjectGrid({ projects, featured = false, lang, className }: ProjectGridProps) {
   // Filter projects based on featured status
   const filteredProjects = featured 
     ? projects.filter(project => project.featured)
@@ -13,11 +13,18 @@ export function ProjectGrid({ projects, featured = false, className }: ProjectGr
   // Sort projects by order
   const sortedProjects = filteredProjects.sort((a, b) => a.order - b.order);
 
+  // Translations
+  const t = {
+    noFeaturedProjects: lang === 'fr' ? 'Aucun projet en vedette disponible.' : 'No featured projects available.',
+    noProjects: lang === 'fr' ? 'Aucun projet disponible.' : 'No projects available.',
+    viewAllProjects: lang === 'fr' ? 'Voir Tous les Projets' : 'View All Projects',
+  };
+
   if (sortedProjects.length === 0) {
     return (
       <div className={cn('text-center py-12', className)}>
         <p className="text-muted-foreground text-lg">
-          {featured ? 'No featured projects available.' : 'No projects available.'}
+          {featured ? t.noFeaturedProjects : t.noProjects}
         </p>
       </div>
     );
@@ -43,7 +50,7 @@ export function ProjectGrid({ projects, featured = false, className }: ProjectGr
             href="/projects"
             className="inline-flex items-center px-6 py-3 border border-accent text-accent hover:bg-accent hover:text-accent-foreground transition-colors duration-200 rounded-lg font-medium"
           >
-            View All Projects
+            {t.viewAllProjects}
           </a>
         </div>
       )}

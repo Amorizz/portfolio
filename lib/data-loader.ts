@@ -297,3 +297,10 @@ export async function getEnabledAboutCards(lang?: 'en' | 'fr'): Promise<DataLoad
   
   return { data: enabledCards };
 }
+
+/**
+ * Load translations from translations.json
+ */
+export async function loadTranslations(lang?: 'en' | 'fr'): Promise<DataLoaderResult<any>> {
+  return loadJsonData<any>('translations.json', lang);
+}
