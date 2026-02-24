@@ -1,7 +1,7 @@
 import { ThemeConfig } from './types';
 
 /**
- * Forge & Forest Theme — creativity, ambition, warmth, nature
+ * Forge & Forest Theme: creativity, ambition, warmth, nature
  */
 export const THEME: ThemeConfig = {
   colors: {

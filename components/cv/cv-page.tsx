@@ -126,8 +126,8 @@ export default function CVPage({ cvData, lang, pdfMode = false }: CVPageProps) {
     present: lang === 'fr' ? 'Présent' : 'Present',
     download: lang === 'fr' ? 'Télécharger le CV' : 'Download CV',
     availability: lang === 'fr'
-      ? 'Disponible pour stage — Été 2026 — Mobilité nationale et internationale — Permis B'
-      : 'Available for internship — Summer 2026 — National & international mobility — Driving license',
+      ? 'Disponible pour stage | Été 2026 | Mobilité nationale et internationale | Permis B'
+      : 'Available for internship | Summer 2026 | National & international mobility | Driving license',
   };
 
   const projectPriority: Record<string, number> = {
@@ -146,22 +146,23 @@ export default function CVPage({ cvData, lang, pdfMode = false }: CVPageProps) {
 
   const highlightProjectKeywords = (text: string) => {
     const keywords = [
+      'Outstanding Business Potential', 'Best Public Speaking',
       'distance euclidienne', 'Euclidean distance',
-      'vecteur', 'vector', 'vectorisation', 'vectorization',
-      'client-serveur', 'client-server', 'netcat',
-      'Whisper', 'M2M100', 'Mistral 7B', 'llama.cpp', '300+',
-      'Bash', 'Java', 'Python', 'Next.js', 'TypeScript', 'PostgreSQL',
-      'FastAPI', 'Streamlit', 'Swing', 'Supabase', 'OpenAI',
-      'drag-and-drop', 'SEO', 'CI/CD',
-      'Best Public Speaking', 'Outstanding Business Potential',
+      'vector-based', 'vectoriel', 'client-serveur', 'client-server',
+      'drag-and-drop', 'Mistral 7B', 'llama.cpp',
+      'PostgreSQL', 'TypeScript', 'Streamlit', 'Supabase',
+      'Next.js', 'FastAPI', 'Whisper', 'M2M100', 'OpenAI',
+      'netcat', 'Python', 'Bash', 'Java', 'Swing',
+      'TCP', 'SEO', '700+', '300+',
     ];
 
     const escaped = keywords.map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
-    const regex = new RegExp(`(${escaped.join('|')})`, 'gi');
+    const regex = new RegExp(`(${escaped.join('|')})`, 'g');
     const parts = text.split(regex);
 
+    const keywordsLower = keywords.map((k) => k.toLowerCase());
     return parts.map((part, index) => {
-      const isKeyword = keywords.some((k) => k.toLowerCase() === part.toLowerCase());
+      const isKeyword = keywordsLower.includes(part.toLowerCase());
       return isKeyword
         ? <strong key={`kw-${index}`} className="font-semibold text-[#111827]">{part}</strong>
         : <span key={`tx-${index}`}>{part}</span>;
@@ -273,7 +274,7 @@ export default function CVPage({ cvData, lang, pdfMode = false }: CVPageProps) {
                   {cvData.certifications.map((cert, i) => (
                     <div key={i} className="text-[9.5px]">
                       <p className="font-semibold text-white leading-snug">{cert.name}</p>
-                      <p style={{ color: '#cdd4b8' }}>{cert.issuer} — {cert.status}</p>
+                      <p style={{ color: '#cdd4b8' }}>{cert.issuer} | {cert.status}</p>
                     </div>
                   ))}
                 </div>
@@ -328,7 +329,7 @@ export default function CVPage({ cvData, lang, pdfMode = false }: CVPageProps) {
                   {cvData.experience.map((exp, i) => (
                     <div key={i}>
                       <div className="flex justify-between items-baseline">
-                        <h3 className="text-[11px] font-bold" style={{ color: '#111827' }}>{exp.position}</h3>
+                        <h3 className="text-[11px] font-bold min-w-0 break-words" style={{ color: '#111827' }}>{exp.position}</h3>
                         <span className="text-[9px] shrink-0 ml-2" style={{ color: '#6b7280' }}>
                           {formatDate(exp.startDate)} – {exp.current ? t.present : formatDate(exp.endDate!)}
                         </span>
@@ -364,13 +365,13 @@ export default function CVPage({ cvData, lang, pdfMode = false }: CVPageProps) {
                   {cvData.education.map((edu, i) => (
                     <div key={i}>
                       <div className="flex justify-between items-baseline">
-                        <h3 className="text-[11px] font-bold" style={{ color: '#111827' }}>{edu.degree}</h3>
+                        <h3 className="text-[11px] font-bold min-w-0 break-words" style={{ color: '#111827' }}>{edu.degree}</h3>
                         <span className="text-[9px] shrink-0 ml-2" style={{ color: '#6b7280' }}>
                           {edu.startDate ? `${formatDate(edu.startDate)} – ${edu.current ? t.present : formatDate(edu.endDate)}` : formatDate(edu.endDate)}
                         </span>
                       </div>
                       <p className="text-[10.5px] font-semibold" style={{ color: '#92400e' }}>
-                        {edu.institution} — {edu.location}
+                        {edu.institution} | {edu.location}
                       </p>
                       {edu.specialization && (
                         <p className="text-[10px] leading-[1.45]" style={{ color: '#374151', marginTop: '2px' }}>{edu.specialization}</p>
@@ -395,9 +396,9 @@ export default function CVPage({ cvData, lang, pdfMode = false }: CVPageProps) {
                   {sortedProjects.map((project, i) => (
                     <div key={i}>
                       <div className="flex justify-between items-baseline">
-                        <h3 className="text-[11px] font-bold" style={{ color: '#92400e' }}>
+                        <h3 className="text-[11px] font-bold min-w-0 break-words" style={{ color: '#92400e' }}>
                           {project.name}
-                          {project.role && <span className="font-normal" style={{ color: '#6b7280' }}> — {project.role}</span>}
+                          {project.role && <span className="font-normal" style={{ color: '#6b7280' }}> | {project.role}</span>}
                         </h3>
                         <span className="text-[9px] shrink-0 ml-2" style={{ color: '#6b7280' }}>
                           {formatDate(project.startDate)} – {project.current ? t.present : formatDate(project.endDate!)}

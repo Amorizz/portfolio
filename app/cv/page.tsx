@@ -6,7 +6,7 @@ import CVPage from '@/components/cv/cv-page';
 
 export const metadata: Metadata = {
   title: 'Curriculum Vitae | Amaury Dufrenot',
-  description: 'CV of Amaury Dufrenot — Network & Telecom Engineering Student, CTO & Co-founder, Startup Builder',
+  description: 'CV of Amaury Dufrenot | Network & Telecom Engineering Student, CTO & Co-founder, Startup Builder',
 };
 
 async function loadCVData(lang: string) {

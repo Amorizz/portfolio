@@ -1,8 +1,8 @@
 {
   "personalInfo": {
     "fullName": "Amaury Dufrenot",
-    "title": "Network & Telecommunications Student",
-    "tagline": "Engineering Internship | Summer 2026",
+    "title": "Networks & Telecommunications Engineering Student",
+    "tagline": "Infrastructure · Backend · Systems | Internship Summer 2026",
     "location": "Paris, France",
     "phone": "+33 6 44 19 68 50",
     "email": "amaury.dufrenot@utt.fr",
@@ -19,12 +19,12 @@
       { "name": "Chinese", "level": "Basic (A2)" }
     ]
   },
-  "professionalSummary": "4th-year student at UTT in Networks & Telecommunications. Passionate about entrepreneurship and new technologies. I enjoy designing and building end-to-end solutions. I am seeking a 6-month internship for summer 2026 to develop my skills in infrastructure, development, and deployment.",
+  "professionalSummary": "4th-year engineering student at UTT in Networks & Telecommunications. Passionate about entrepreneurship and new technologies. Enjoys designing and building end-to-end solutions. Seeking a 6-month internship for summer 2026 to develop skills in infrastructure, development, and deployment.",
   "education": [
     {
       "id": "1",
       "institution": "Universite de Technologie de Troyes (UTT)",
-      "degree": "Engineering Degree — Networks & Telecommunications (in progress)",
+      "degree": "Engineering Degree, Networks & Telecommunications (in progress)",
       "specialization": "",
       "startDate": "2023-09",
       "endDate": "2028-06",
@@ -37,7 +37,7 @@
     {
       "id": "2",
       "institution": "UTSEUS | Shanghai University",
-      "degree": "Exchange Semester — Innovation & Entrepreneurship",
+      "degree": "Exchange Semester, Innovation & Entrepreneurship",
       "specialization": "",
       "startDate": "2025-02",
       "endDate": "2025-07",
@@ -64,7 +64,7 @@
   "experience": [
     {
       "id": "1",
-      "company": "Novad (Startup)",
+      "company": "Novad",
       "position": "Founder",
       "employmentType": "Full-time",
       "startDate": "2025-12",
@@ -72,14 +72,14 @@
       "current": true,
       "location": "Paris, France",
       "website": "https://novad.app",
-      "description": "SaaS platform that recommends cities based on user preferences. Users answer questions that are converted into a vector. Each city is also represented as a vector. The algorithm computes Euclidean distance to find the best-matching cities among 300+ destinations.",
+      "description": "City recommendation SaaS platform matching user profiles to 300+ destinations using vector-based scoring.",
       "responsibilities": [],
       "achievements": [
-        "Built and shipped the full product from idea to production: frontend, backend, database, and deployment",
-        "Developed the matching algorithm: vectorization of user answers and city attributes, Euclidean distance scoring",
-        "Built an SEO content engine generating country guides, city profiles, and data-driven rankings"
+        "Designed and deployed a full-stack SaaS platform end-to-end: database schema, API layer, frontend, and production infrastructure (Next.js, PostgreSQL, Vercel)",
+        "Implemented a vector-based recommendation engine scoring 300+ cities against user profiles using Euclidean distance computation",
+        "Built a programmatic SEO engine generating 700+ structured content pages (city guides, country directories, data-driven rankings)"
       ],
-      "technologies": ["Next.js", "TypeScript", "PostgreSQL", "Vercel", "CI/CD", "SEO"]
+      "technologies": ["Next.js", "TypeScript", "PostgreSQL", "Vercel", "SEO"]
     },
     {
       "id": "2",
@@ -91,7 +91,7 @@
       "current": false,
       "location": "Ile-de-France, France",
       "website": null,
-      "description": "On-site teamwork under tight deadlines. Awarded internship bonus for quality and reliability.",
+      "description": "On-site team operations under tight deadlines. Awarded internship bonus for quality and reliability of work.",
       "responsibilities": [],
       "achievements": [],
       "technologies": []
@@ -105,8 +105,8 @@
       "startDate": "2024-09",
       "endDate": "2025-01",
       "current": false,
-      "shortDescription": "Archive server and virtual shell built in Bash. Client-server architecture via netcat for managing file archives over the network. The server handles upload, download, and listing. The virtual shell lets you browse an archive like a real file system (ls, cd, cat, mkdir, rm).",
-      "technologies": ["Bash", "Netcat", "Linux", "Shell Scripting", "Client-Server"],
+      "shortDescription": "Implemented a TCP-based archive server handling LIST, GET, and PUT commands with sequential request queuing and operation logging via netcat. Developed a virtual shell client (vsh) enabling interactive archive navigation without extraction: ls, cd, cat, mkdir, rm with full path resolution. Designed a custom archive format with header-based metadata indexing for efficient random access to file contents.",
+      "technologies": ["Bash", "Netcat", "TCP", "Linux", "Shell Scripting", "Client-Server"],
       "features": []
     },
     {
@@ -116,7 +116,7 @@
       "startDate": "2025-01",
       "endDate": "2025-03",
       "current": false,
-      "shortDescription": "Video transcription and subtitle translation pipeline. Speech-to-text with Whisper, English-to-French translation with M2M100, and subtitle enhancement with a local Mistral 7B model via llama.cpp. Streamlit frontend and FastAPI backend.",
+      "shortDescription": "Architected a multi-service pipeline with FastAPI backend exposing REST endpoints and Streamlit frontend for file management. Integrated three ML models in a single workflow: Whisper (speech-to-text), M2M100 (EN→FR translation), and Mistral 7B (subtitle refinement via llama.cpp). Built subtitle post-processing module for SRT cleanup, segment splitting, and AI-enhanced phrasing.",
       "technologies": ["Python", "FastAPI", "Whisper", "M2M100", "Mistral 7B", "PyTorch"],
       "features": []
     },
@@ -127,8 +127,8 @@
       "startDate": "2024-04",
       "endDate": "2024-06",
       "current": false,
-      "shortDescription": "Digital version of the Pocket Imperium strategy board game in Java. Space conquest game for 2-4 players with simultaneous command selection, fleet management, and combat system. Swing GUI and console interface.",
-      "technologies": ["Java", "Swing/AWT", "OOP", "Object-Oriented Design"],
+      "shortDescription": "Developed a multiplayer strategy game engine in Java supporting 2-4 concurrent players with simultaneous command processing, state management, and a dual-interface system (Swing GUI + console). Implemented game logic for fleet movement, territory control, and combat resolution.",
+      "technologies": ["Java", "Swing/AWT", "OOP", "State Management"],
       "features": []
     },
     {
@@ -138,7 +138,7 @@
       "startDate": "2025-08",
       "endDate": null,
       "current": true,
-      "shortDescription": "Tennis player matching platform based on skill level, location, and availability. Smart matching, built-in messaging, and travel mode. Under active development.",
+      "shortDescription": "MVP in active development. Designing a real-time player matching platform with PostgreSQL database, Supabase backend (auth, storage, real-time subscriptions), and automated deployment via Vercel. Multi-criteria matching algorithm based on skill level, geolocation, and availability.",
       "technologies": ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Vercel"],
       "features": []
     },
@@ -149,7 +149,7 @@
       "startDate": "2025-04",
       "endDate": "2025-06",
       "current": false,
-      "shortDescription": "Finance tracking app for students with a customizable drag-and-drop dashboard, budget tracking by category, and AI-powered auto-categorization. Won Best Public Speaking and Outstanding Business Potential awards in Shanghai.",
+      "shortDescription": "Built a finance tracking app with drag-and-drop dashboard, per-category budget tracking, and OpenAI-powered transaction auto-categorization. Awarded Best Public Speaking and Outstanding Business Potential at Shanghai University.",
       "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "OpenAI API"],
       "features": []
     }
@@ -180,11 +180,11 @@
         "category": "Development & DevOps",
         "skills": [
           { "name": "Python", "level": "Intermediate", "yearsOfExperience": 2 },
-          { "name": "TypeScript / JavaScript (fundamentals)", "level": "Intermediate", "yearsOfExperience": 1 },
-          { "name": "Next.js / React (fundamentals)", "level": "Intermediate", "yearsOfExperience": 1 },
+          { "name": "TypeScript / JavaScript", "level": "Intermediate", "yearsOfExperience": 1 },
+          { "name": "Next.js / React", "level": "Intermediate", "yearsOfExperience": 1 },
           { "name": "PostgreSQL / SQL", "level": "Intermediate", "yearsOfExperience": 1 },
           { "name": "Git, CI/CD, Vercel", "level": "Intermediate", "yearsOfExperience": 2 },
-          { "name": "Docker (fundamentals)", "level": "Beginner", "yearsOfExperience": 1 }
+          { "name": "Docker", "level": "Intermediate", "yearsOfExperience": 1 }
         ]
       }
     ],
@@ -200,7 +200,7 @@
   "certifications": [
     {
       "id": "1",
-      "name": "CCNA — Cisco Certified Network Associate",
+      "name": "CCNA (Cisco Certified Network Associate)",
       "issuer": "Cisco",
       "issueDate": "2026-06",
       "expiryDate": "2029-06",
@@ -227,7 +227,7 @@
     },
     {
       "id": "4",
-      "name": "Linguaskill — C1 and above",
+      "name": "Linguaskill, C1 and above",
       "issuer": "Cambridge",
       "issueDate": "2024",
       "expiryDate": null,

@@ -16,7 +16,7 @@ const data: Record<string, { sectionLabel: string; sectionTitle: string; intro: 
   en: {
     sectionLabel: 'At a Glance',
     sectionTitle: 'Who I Am',
-    intro: 'Builder, student, and competitor — I thrive where creativity meets ambition.',
+    intro: 'Builder, student, and competitor. I thrive where creativity meets ambition.',
     blocks: [
       {
         keyword: 'Entrepreneur',
@@ -25,7 +25,7 @@ const data: Record<string, { sectionLabel: string; sectionTitle: string; intro: 
       },
       {
         keyword: 'Student',
-        detail: 'Engineering · Networks & Telecom — UTT',
+        detail: 'Engineering · Networks & Telecom, UTT',
         color: 'var(--black-forest-400)',
       },
       {
@@ -43,7 +43,7 @@ const data: Record<string, { sectionLabel: string; sectionTitle: string; intro: 
   fr: {
     sectionLabel: 'En un coup d\'œil',
     sectionTitle: 'Qui je suis',
-    intro: 'Bâtisseur, étudiant et compétiteur — j\'avance là où créativité et ambition se rencontrent.',
+    intro: 'Bâtisseur, étudiant et compétiteur. J\'avance là où créativité et ambition se rencontrent.',
     blocks: [
       {
         keyword: 'Entrepreneur',
@@ -52,7 +52,7 @@ const data: Record<string, { sectionLabel: string; sectionTitle: string; intro: 
       },
       {
         keyword: 'Étudiant',
-        detail: 'Ingénieur · Réseaux & Télécoms — UTT',
+        detail: 'Ingénieur · Réseaux & Télécoms, UTT',
         color: 'var(--black-forest-400)',
       },
       {

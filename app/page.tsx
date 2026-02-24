@@ -28,8 +28,8 @@ export default async function Home() {
   const t = translationsResult.data;
 
   const availabilityText = lang === 'fr'
-    ? 'Disponible pour stage — Été 2026'
-    : 'Available for internship — Summer 2026';
+    ? 'Disponible pour stage | Été 2026'
+    : 'Available for internship | Summer 2026';
 
   return (
     <main className="min-h-screen">

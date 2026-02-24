@@ -1,18 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, type HTMLMotionProps } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface WordRotateProps {
   words: string[];
   duration?: number;
-  framerProps?: {
-    initial?: Record<string, unknown>;
-    animate?: Record<string, unknown>;
-    exit?: Record<string, unknown>;
-    transition?: Record<string, unknown>;
-  };
+  framerProps?: Pick<
+    HTMLMotionProps<"h1">,
+    "initial" | "animate" | "exit" | "transition"
+  >;
   className?: string;
 }
 

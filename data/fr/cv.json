@@ -1,8 +1,8 @@
 {
   "personalInfo": {
     "fullName": "Amaury Dufrenot",
-    "title": "Étudiant en Réseaux & Télécommunications",
-    "tagline": "Stage Ingénieur | Été 2026",
+    "title": "Étudiant ingénieur Réseaux & Télécommunications",
+    "tagline": "Infrastructure · Backend · Systèmes | Stage Été 2026",
     "location": "Paris, France",
     "phone": "+33 6 44 19 68 50",
     "email": "amaury.dufrenot@utt.fr",
@@ -19,12 +19,12 @@
       { "name": "Chinois", "level": "Débutant (A2)" }
     ]
   },
-  "professionalSummary": "Étudiant en 4ème année à l'UTT en Réseaux & Télécommunications. Passionné par l'entrepreneuriat et les nouvelles technologies. J'aime concevoir et développer des solutions de bout en bout. Je recherche un stage de 6 mois pour l'été 2026 pour développer mes compétences en infrastructure, développement et déploiement.",
+  "professionalSummary": "Étudiant ingénieur en 4ème année à l'UTT en Réseaux & Télécommunications. Passionné par l'entrepreneuriat et les nouvelles technologies. J'aime concevoir et développer des solutions de bout en bout. Je recherche un stage de 6 mois pour l'été 2026 pour développer mes compétences en infrastructure, développement et déploiement.",
   "education": [
     {
       "id": "1",
       "institution": "Université de Technologie de Troyes (UTT)",
-      "degree": "Diplôme d'Ingénieur — Réseaux & Télécommunications (en cours)",
+      "degree": "Diplôme d'Ingénieur, Réseaux & Télécommunications (en cours)",
       "specialization": "",
       "startDate": "2023-09",
       "endDate": "2028-06",
@@ -37,7 +37,7 @@
     {
       "id": "2",
       "institution": "UTSEUS | Shanghai University",
-      "degree": "Semestre d'échange — Innovation & Entrepreneuriat",
+      "degree": "Semestre d'échange, Innovation & Entrepreneuriat",
       "specialization": "",
       "startDate": "2025-02",
       "endDate": "2025-07",
@@ -64,7 +64,7 @@
   "experience": [
     {
       "id": "1",
-      "company": "Novad (Startup)",
+      "company": "Novad",
       "position": "Fondateur",
       "employmentType": "Temps plein",
       "startDate": "2025-12",
@@ -72,14 +72,14 @@
       "current": true,
       "location": "Paris, France",
       "website": "https://novad.app",
-      "description": "Plateforme SaaS qui recommande des villes selon les préférences utilisateur. L'utilisateur répond à des questions, ses réponses sont converties en vecteur. Chaque ville est aussi représentée par un vecteur. L'algorithme calcule la distance euclidienne pour trouver les villes les plus adaptées parmi 300+ destinations.",
+      "description": "Plateforme SaaS de recommandation de villes associant les profils utilisateurs à 300+ destinations par scoring vectoriel.",
       "responsibilities": [],
       "achievements": [
-        "Produit complet livré de l'idée à la production : frontend, backend, base de données et déploiement",
-        "Algorithme de matching développé : vectorisation des réponses et des attributs de villes, scoring par distance euclidienne",
-        "Moteur de contenu SEO générant des guides pays, profils de villes et classements basés sur les données"
+        "Conçu et déployé une plateforme SaaS complète de bout en bout : schéma BDD, couche API, frontend et infrastructure de production (Next.js, PostgreSQL, Vercel)",
+        "Implémenté un moteur de recommandation vectoriel scorant 300+ villes par calcul de distance euclidienne sur les profils utilisateurs",
+        "Développé un moteur SEO programmatique générant 700+ pages de contenu structuré (guides villes, répertoires pays, classements data-driven)"
       ],
-      "technologies": ["Next.js", "TypeScript", "PostgreSQL", "Vercel", "CI/CD", "SEO"]
+      "technologies": ["Next.js", "TypeScript", "PostgreSQL", "Vercel", "SEO"]
     },
     {
       "id": "2",
@@ -105,8 +105,8 @@
       "startDate": "2024-09",
       "endDate": "2025-01",
       "current": false,
-      "shortDescription": "Serveur d'archives et shell virtuel en Bash. Architecture client-serveur via netcat pour gérer des archives sur le réseau. Le serveur gère l'upload, le téléchargement et le listing. Le shell virtuel permet de naviguer dans une archive comme un vrai système de fichiers (ls, cd, cat, mkdir, rm).",
-      "technologies": ["Bash", "Netcat", "Linux", "Shell Scripting", "Client-Server"],
+      "shortDescription": "Implémenté un serveur d'archives TCP gérant les commandes LIST, GET et PUT avec file d'attente séquentielle et journalisation des opérations via netcat. Développé un shell virtuel client (vsh) permettant la navigation interactive sans extraction : ls, cd, cat, mkdir, rm avec résolution de chemins complète. Conçu un format d'archive personnalisé avec indexation par en-tête pour un accès aléatoire efficace au contenu.",
+      "technologies": ["Bash", "Netcat", "TCP", "Linux", "Shell Scripting", "Client-Server"],
       "features": []
     },
     {
@@ -116,7 +116,7 @@
       "startDate": "2025-01",
       "endDate": "2025-03",
       "current": false,
-      "shortDescription": "Pipeline de transcription vidéo et traduction de sous-titres. Transcription vocale avec Whisper, traduction anglais-français avec M2M100, et amélioration des sous-titres avec un modèle Mistral 7B local via llama.cpp. Frontend Streamlit et backend FastAPI.",
+      "shortDescription": "Architecturé un pipeline multi-services avec backend FastAPI (endpoints REST) et frontend Streamlit pour la gestion de fichiers. Intégré trois modèles ML dans un workflow unifié : Whisper (parole-texte), M2M100 (traduction EN→FR), Mistral 7B (raffinage via llama.cpp). Développé un module de post-traitement pour le nettoyage SRT, le découpage de segments et l'amélioration par IA.",
       "technologies": ["Python", "FastAPI", "Whisper", "M2M100", "Mistral 7B", "PyTorch"],
       "features": []
     },
@@ -127,8 +127,8 @@
       "startDate": "2024-04",
       "endDate": "2024-06",
       "current": false,
-      "shortDescription": "Version numérique du jeu de plateau stratégique Pocket Imperium en Java. Jeu de conquête spatiale pour 2 à 4 joueurs avec sélection simultanée de commandes, gestion de flottes et système de combat. Interface graphique Swing et mode console.",
-      "technologies": ["Java", "Swing/AWT", "POO", "Conception Orientée Objet"],
+      "shortDescription": "Développé un moteur de jeu de stratégie multijoueur en Java supportant 2-4 joueurs simultanés avec traitement de commandes concurrentes, gestion d'état et double interface (GUI Swing + console). Implémenté la logique de jeu : déplacement de flottes, contrôle de territoire et résolution de combat.",
+      "technologies": ["Java", "Swing/AWT", "POO", "Gestion d'état"],
       "features": []
     },
     {
@@ -138,7 +138,7 @@
       "startDate": "2025-08",
       "endDate": null,
       "current": true,
-      "shortDescription": "Plateforme de mise en relation de joueurs de tennis selon le niveau, la localisation et les disponibilités. Matching intelligent, messagerie intégrée et mode voyage. En cours de développement.",
+      "shortDescription": "MVP en cours de développement. Conception d'une plateforme de matching temps réel avec modélisation PostgreSQL, backend Supabase (auth, stockage, souscriptions temps réel) et déploiement automatisé via Vercel. Algorithme de matching multi-critères basé sur le niveau, la géolocalisation et les disponibilités.",
       "technologies": ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Vercel"],
       "features": []
     },
@@ -149,7 +149,7 @@
       "startDate": "2025-04",
       "endDate": "2025-06",
       "current": false,
-      "shortDescription": "Application de suivi financier pour étudiants avec tableau de bord personnalisable en drag-and-drop, suivi de budget par catégorie et catégorisation automatique par IA. Prix Best Public Speaking et Outstanding Business Potential à Shanghai.",
+      "shortDescription": "Développé une application de suivi financier avec tableau de bord drag-and-drop, suivi de budget par catégorie et catégorisation automatique des transactions via l'API OpenAI. Récompensé par les prix Best Public Speaking et Outstanding Business Potential à Shanghai University.",
       "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "OpenAI API"],
       "features": []
     }
@@ -180,11 +180,11 @@
         "category": "Développement & DevOps",
         "skills": [
           { "name": "Python", "level": "Intermédiaire", "yearsOfExperience": 2 },
-          { "name": "TypeScript / JavaScript (bases)", "level": "Intermédiaire", "yearsOfExperience": 1 },
-          { "name": "Next.js / React (bases)", "level": "Intermédiaire", "yearsOfExperience": 1 },
+          { "name": "TypeScript / JavaScript", "level": "Intermédiaire", "yearsOfExperience": 1 },
+          { "name": "Next.js / React", "level": "Intermédiaire", "yearsOfExperience": 1 },
           { "name": "PostgreSQL / SQL", "level": "Intermédiaire", "yearsOfExperience": 1 },
           { "name": "Git, CI/CD, Vercel", "level": "Intermédiaire", "yearsOfExperience": 2 },
-          { "name": "Docker (bases)", "level": "Débutant", "yearsOfExperience": 1 }
+          { "name": "Docker", "level": "Intermédiaire", "yearsOfExperience": 1 }
         ]
       }
     ],
@@ -200,7 +200,7 @@
   "certifications": [
     {
       "id": "1",
-      "name": "CCNA — Cisco Certified Network Associate",
+      "name": "CCNA (Cisco Certified Network Associate)",
       "issuer": "Cisco",
       "issueDate": "2026-06",
       "expiryDate": "2029-06",
@@ -227,7 +227,7 @@
     },
     {
       "id": "4",
-      "name": "Linguaskill — C1 and above",
+      "name": "Linguaskill, C1 and above",
       "issuer": "Cambridge",
       "issueDate": "2024",
       "expiryDate": null,

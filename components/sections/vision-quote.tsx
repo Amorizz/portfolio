@@ -18,7 +18,7 @@ export function VisionQuote({ quote, className }: VisionQuoteProps) {
 
           {quote.author && (
             <footer className="text-sm text-primary font-medium font-mono">
-              — {quote.author}
+              {quote.author}
             </footer>
           )}
         </div>
