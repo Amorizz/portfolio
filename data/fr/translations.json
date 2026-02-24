@@ -1,13 +1,10 @@
 {
   "navigation": {
     "home": "Accueil",
-    "about": "À propos",
     "projects": "Projets",
+    "cv": "CV",
     "openMenu": "Ouvrir le menu principal",
     "closeMenu": "Fermer le menu principal"
-  },
-  "hero": {
-    "knowMoreAboutMe": "En savoir plus sur moi"
   },
   "home": {
     "skillsTitle": "Compétences & Connaissances",

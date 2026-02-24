@@ -24,7 +24,6 @@ export interface PersonalInfo {
   avatarAlt: string;
   location?: string;
   email: string;
-  phone?: string;
 }
 
 export interface SocialLink {
@@ -108,7 +107,6 @@ export interface HeroProps {
 }
 
 export interface NavbarProps {
-  personalInfo: PersonalInfo;
   className?: string;
 }
 

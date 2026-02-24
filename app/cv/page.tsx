@@ -6,7 +6,7 @@ import CVPage from '@/components/cv/cv-page';
 
 export const metadata: Metadata = {
   title: 'Curriculum Vitae | Amaury Dufrenot',
-  description: 'Professional CV of Amaury Dufrenot - Network Engineering Student, CTO & Co-founder',
+  description: 'CV of Amaury Dufrenot — Network & Telecom Engineering Student, CTO & Co-founder, Startup Builder',
 };
 
 async function loadCVData(lang: string) {
@@ -31,9 +31,7 @@ export default async function CV() {
   const cvData = await loadCVData(lang);
 
   return (
-    <div className="min-h-screen" style={{
-      background: 'bg-background',
-    }}>
+    <div className="min-h-screen pt-24 bg-background">
       <CVPage cvData={cvData} lang={lang} />
     </div>
   );

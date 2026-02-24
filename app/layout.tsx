@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, JetBrains_Mono, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
@@ -12,6 +12,18 @@ const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-display',
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-mono',
 });
 
 export const metadata: Metadata = {
@@ -56,12 +68,7 @@ export const metadata: Metadata = {
   },
   manifest: '/manifest.json',
   icons: {
-    icon: [
-      { url: '/images/logo-icon.svg', type: 'image/svg+xml' },
-      { url: '/images/logo.png', sizes: 'any' }
-    ],
-    shortcut: '/images/logo-icon.svg',
-    apple: '/images/logo.png',
+    icon: '/favicon.ico',
   },
   viewport: {
     width: 'device-width',
@@ -88,7 +95,7 @@ export default async function RootLayout({
   const socialLinks = socialLinksResult.data;
 
   return (
-    <html lang={lang} className={`${inter.variable} dark`}>
+    <html lang={lang} className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrains.variable} dark`}>
       <head>
         <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, nocache" />
         <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
@@ -100,15 +107,19 @@ export default async function RootLayout({
       </head>
       <body className={`${inter.className} bg-background text-foreground antialiased`}>
         <div className="min-h-screen flex flex-col">
-          <Navbar personalInfo={personalInfo} />
+          <div className="print:hidden">
+            <Navbar />
+          </div>
           <main className="flex-1">
             {children}
           </main>
-          <Footer 
-            socialLinks={socialLinks} 
-            personalInfo={personalInfo}
-          />
-          <LanguageSwitcher />
+          <div className="print:hidden">
+            <Footer 
+              socialLinks={socialLinks} 
+              personalInfo={personalInfo}
+            />
+            <LanguageSwitcher />
+          </div>
         </div>
       </body>
     </html>

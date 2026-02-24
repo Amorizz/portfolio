@@ -2,12 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { ArrowUp } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
+import { ArrowUp, Github, Linkedin, Mail } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { FooterProps } from '@/lib/types';
-import { SocialLinks } from '@/components/sections/social-links';
 import { getNavigation } from '@/lib/get-navigation';
 
 export function Footer({ socialLinks, personalInfo, className }: FooterProps) {
@@ -19,97 +16,83 @@ export function Footer({ socialLinks, personalInfo, className }: FooterProps) {
   }, []);
 
   const navigation = getNavigation(lang);
-
-  const t = {
-    quickLinks: lang === 'fr' ? 'Liens Rapides' : 'Quick Links',
-    connect: lang === 'fr' ? 'Connexion' : 'Connect',
-    allRightsReserved: lang === 'fr' ? 'Tous droits réservés.' : 'All rights reserved.',
-  };
-  const scrollToTop = () => {
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
-
   const currentYear = new Date().getFullYear();
+  const linkedIn = socialLinks.find((l) => l.platform === 'linkedin');
+  const github = socialLinks.find((l) => l.platform === 'github');
+
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
-    <footer className={cn('bg-background border-t border-border', className)}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {/* Brand Section */}
-          <div className="flex flex-col items-start space-y-6">
-            <h3 className="text-2xl font-bold text-foreground">
-              {personalInfo.name}
-            </h3>
-            <div className="w-full flex justify-start">
-              <SocialLinks socialLinks={socialLinks} />
-            </div>
+    <footer className={cn('border-t border-border/15', className)}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 mb-12">
+          <div>
+            <Link href="/" className="text-xl font-bold text-foreground font-display tracking-tight">
+              ad<span className="text-gradient">.</span>
+            </Link>
+            <p className="text-sm text-muted-foreground/60 mt-3 leading-relaxed max-w-[240px]">
+              {personalInfo.title}
+            </p>
           </div>
 
-          {/* Quick Links */}
-          <div className="flex flex-col items-start space-y-6">
-            <h4 className="text-lg font-semibold text-foreground">{t.quickLinks}</h4>
-            <nav className="flex flex-col space-y-3">
+          <div>
+            <h4 className="text-xs font-mono text-muted-foreground/40 uppercase tracking-widest mb-4">
+              Pages
+            </h4>
+            <div className="space-y-3">
               {navigation.main.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-sm text-muted-foreground hover:text-accent transition-colors duration-200"
-                >
+                <Link key={item.href} href={item.href}
+                  className="block text-sm text-muted-foreground hover:text-primary transition-colors">
                   {item.name}
                 </Link>
               ))}
-            </nav>
+            </div>
           </div>
 
-          {/* Contact */}
-          <div className="flex flex-col items-start space-y-6">
-            <h4 className="text-lg font-semibold text-foreground">{t.connect}</h4>
-            <div className="flex flex-col space-y-3">
+          <div>
+            <h4 className="text-xs font-mono text-muted-foreground/40 uppercase tracking-widest mb-4">
+              Contact
+            </h4>
+            <div className="space-y-3">
               {personalInfo.email && (
-                <a
-                  href={`mailto:${personalInfo.email}`}
-                  className="text-sm text-muted-foreground hover:text-accent transition-colors duration-200"
-                >
+                <a href={`mailto:${personalInfo.email}`} className="block text-sm text-muted-foreground hover:text-primary transition-colors break-all">
                   {personalInfo.email}
                 </a>
               )}
-              {personalInfo.phone && (
-                <a
-                  href={`tel:${personalInfo.phone}`}
-                  className="text-sm text-muted-foreground hover:text-accent transition-colors duration-200"
-                >
-                  {personalInfo.phone}
-                </a>
-              )}
               {personalInfo.location && (
-                <p className="text-sm text-muted-foreground">
-                  📍 {personalInfo.location}
-                </p>
+                <span className="block text-sm text-muted-foreground/60">{personalInfo.location}</span>
               )}
             </div>
           </div>
         </div>
 
-        <Separator className="my-12 bg-border" />
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-border/10">
+          <p className="text-xs text-muted-foreground/35 font-mono">
+            &copy; {currentYear} {personalInfo.name}
+          </p>
 
-        {/* Bottom Section */}
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
-          <div className="text-xs text-muted-foreground">
-            © {currentYear} {personalInfo.name}. {t.allRightsReserved}
-          </div>
-          
-          <div className="flex items-center gap-4">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={scrollToTop}
-              className="text-muted-foreground hover:text-accent hover:bg-secondary transition-colors duration-200"
-              aria-label="Scroll to top"
-            >
+          <div className="flex items-center gap-1">
+            {linkedIn && (
+              <a href={linkedIn.url} target="_blank" rel="noopener noreferrer"
+                className="min-h-[44px] min-w-[44px] flex items-center justify-center text-muted-foreground/35 hover:text-primary transition-colors rounded-full">
+                <Linkedin className="h-4 w-4" />
+              </a>
+            )}
+            {github && (
+              <a href={github.url} target="_blank" rel="noopener noreferrer"
+                className="min-h-[44px] min-w-[44px] flex items-center justify-center text-muted-foreground/35 hover:text-foreground transition-colors rounded-full">
+                <Github className="h-4 w-4" />
+              </a>
+            )}
+            <a href={`mailto:${personalInfo.email}`}
+              className="min-h-[44px] min-w-[44px] flex items-center justify-center text-muted-foreground/35 hover:text-primary transition-colors rounded-full">
+              <Mail className="h-4 w-4" />
+            </a>
+            <div className="w-px h-4 bg-border/15 mx-1" />
+            <button onClick={scrollToTop}
+              className="min-h-[44px] min-w-[44px] flex items-center justify-center text-muted-foreground/35 hover:text-primary transition-colors rounded-full">
               <ArrowUp className="h-4 w-4" />
-            </Button>
+            </button>
           </div>
         </div>
       </div>

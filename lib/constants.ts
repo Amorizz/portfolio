@@ -1,20 +1,18 @@
-// Constants for Personal Portfolio with Obsidian Dark Theme
-
 import { ThemeConfig } from './types';
 
 /**
- * Obsidian Dark Theme Configuration
+ * Forge & Forest Theme — creativity, ambition, warmth, nature
  */
-export const OBSIDIAN_THEME: ThemeConfig = {
+export const THEME: ThemeConfig = {
   colors: {
-    primary: '#0D1117',      // GitHub dark background
-    secondary: '#161B22',    // GitHub dark surface
-    accent: '#58A6FF',       // GitHub blue
-    text: '#F0F6FC',         // GitHub light text
-    muted: '#8B949E',        // GitHub muted text
-    success: '#3FB950',      // GitHub green
-    warning: '#D29922',      // GitHub orange
-    error: '#F85149',        // GitHub red
+    primary: '#d57a2a',
+    secondary: '#1a2310',
+    accent: '#f7d708',
+    text: '#fefbe6',
+    muted: '#778745',
+    success: '#83b04f',
+    warning: '#d2852d',
+    error: '#ef4444',
   },
   fonts: {
     sans: ['Inter', 'sans-serif'],
@@ -49,8 +47,8 @@ export const APP_CONFIG = {
 export const NAVIGATION = {
   main: [
     { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
     { name: 'Projects', href: '/projects' },
+    { name: 'CV', href: '/cv' },
   ],
   mobile: {
     menuButton: 'Open main menu',
@@ -136,7 +134,7 @@ export const SEO = {
  */
 export const ACCESSIBILITY = {
   focus: {
-    ringColor: OBSIDIAN_THEME.colors.accent,
+    ringColor: THEME.colors.primary,
     ringWidth: '2px',
     ringOffset: '2px',
   },

@@ -1,59 +1,27 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, ExternalLink, Github, Calendar } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
+import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
 import { getProjectById, loadProjects, loadTranslations } from '@/lib/data-loader';
 import { getLanguage } from '@/lib/get-language';
-import { formatDate, formatTechnologies } from '@/lib/utils';
+import { formatTechnologies } from '@/lib/utils';
 import { EXTERNAL_LINKS } from '@/lib/constants';
 import { Metadata } from 'next';
 
 interface ProjectPageProps {
-  params: {
-    slug: string;
-  };
+  params: { slug: string };
 }
 
 export async function generateStaticParams() {
-  // Generate static params for English (default)
-  // At build time, we generate all possible slugs
   const projectsResult = await loadProjects('en');
-  const projects = projectsResult.data;
-
-  return projects.map((project) => ({
-    slug: project.id,
-  }));
+  return projectsResult.data.map((project) => ({ slug: project.id }));
 }
 
 export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
   const lang = await getLanguage();
   const projectResult = await getProjectById(params.slug, lang);
-  
-  if (!projectResult.data) {
-    return {
-      title: 'Project Not Found',
-    };
-  }
-
-  const project = projectResult.data;
-
-  return {
-    title: project.title,
-    description: project.shortDescription,
-    openGraph: {
-      title: `${project.title} | Amaud Portfolio`,
-      description: project.shortDescription,
-      images: [
-        {
-          url: project.image,
-          width: 1200,
-          height: 630,
-          alt: project.imageAlt,
-        },
-      ],
-    },
-  };
+  if (!projectResult.data) return { title: 'Not Found' };
+  return { title: projectResult.data.title, description: projectResult.data.shortDescription };
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
@@ -62,107 +30,91 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     getProjectById(params.slug, lang),
     loadTranslations(lang),
   ]);
-  
-  if (!projectResult.data) {
-    notFound();
-  }
+
+  if (!projectResult.data) notFound();
 
   const project = projectResult.data;
   const t = translationsResult.data;
+  const techs = formatTechnologies(project.technologies);
 
   return (
-    <main className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto">
-        {/* Back Button */}
-        <Link 
-          href="/projects" 
-          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
+    <main className="min-h-screen pt-28 sm:pt-36 pb-24 sm:pb-32 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto w-full">
+
+        <Link
+          href="/projects"
+          className="inline-flex items-center gap-2 text-sm text-muted-foreground/60 hover:text-primary transition-colors mb-12 sm:mb-16 min-h-[44px]"
         >
-          <ArrowLeft className="h-4 w-4" />
+          <ArrowLeft className="size-4" />
           {t.projects.backToProjects}
         </Link>
 
-        {/* Project Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-3">
+        <div className="mb-12">
+          {project.featured && (
+            <span className="inline-flex items-center text-xs font-mono text-primary bg-primary/10 border border-primary/15 rounded-full px-3 py-1 mb-6">
+              {t.projects.featured}
+            </span>
+          )}
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground font-display tracking-tight mb-6">
             {project.title}
           </h1>
-          
-          <p className="text-base text-muted-foreground leading-relaxed mb-4">
+          <p className="text-lg sm:text-xl text-muted-foreground/70 leading-relaxed max-w-2xl">
             {project.shortDescription}
           </p>
-
-          {/* Meta Info */}
-          <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-            {project.featured && (
-              <Badge className="bg-accent/20 text-accent border-accent/30">
-                {t.projects.featured}
-              </Badge>
-            )}
-            <span className="flex items-center gap-1.5">
-              <Calendar className="h-3.5 w-3.5" />
-              {formatDate(project.createdAt)}
-            </span>
-          </div>
         </div>
 
-        {/* Project Image - Only show if exists, no cropping */}
-        {project.image && (
-          <div className="mb-10">
-            <div className="relative rounded-lg border border-border/50 overflow-hidden bg-card/30">
-              <Image
-                src={project.image}
-                alt={project.imageAlt}
-                width={1200}
-                height={675}
-                className="w-full h-auto"
-                priority
-              />
-            </div>
-          </div>
-        )}
-
-        {/* Action Buttons */}
-        <div className="flex flex-wrap gap-3 mb-10">
-          <a
-            href={project.githubUrl}
-            target={EXTERNAL_LINKS.security.target}
-            rel={EXTERNAL_LINKS.security.rel}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-foreground text-background text-sm font-medium rounded-md hover:bg-foreground/90 transition-colors"
+        <div className="flex flex-wrap gap-3 mb-16">
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target={EXTERNAL_LINKS.security.target}
+              rel={EXTERNAL_LINKS.security.rel}
+              className="inline-flex items-center gap-2 h-11 px-6 bg-foreground text-background text-sm font-medium rounded-lg hover:bg-foreground/90 transition-colors"
             >
-              <Github className="h-4 w-4" />
+              <Github className="size-4" />
               {t.projects.viewSourceCode}
             </a>
-
+          )}
           {project.liveUrl && (
             <a
               href={project.liveUrl}
               target={EXTERNAL_LINKS.security.target}
               rel={EXTERNAL_LINKS.security.rel}
-              className="inline-flex items-center gap-2 px-4 py-2 border border-border text-foreground text-sm font-medium rounded-md hover:bg-accent/10 hover:border-accent/50 transition-colors"
+              className="inline-flex items-center gap-2 h-11 px-6 border border-border/30 text-foreground text-sm font-medium rounded-lg hover:border-primary/30 hover:text-primary transition-colors"
             >
-              <ExternalLink className="h-4 w-4" />
+              <ExternalLink className="size-4" />
               {t.projects.liveDemo}
             </a>
           )}
         </div>
 
-        {/* Project Description */}
-        <div className="mb-10">
-          <h2 className="text-xl font-semibold text-foreground mb-4">{t.projects.about}</h2>
-          <div className="text-muted-foreground leading-relaxed space-y-3 whitespace-pre-line">
+        {project.image && (
+          <div className="mb-20 rounded-2xl border border-border/20 overflow-hidden">
+            <Image
+              src={project.image}
+              alt={project.imageAlt}
+              width={1200}
+              height={675}
+              className="w-full h-auto"
+              priority
+            />
+          </div>
+        )}
+
+        <div className="mb-20">
+          <h2 className="text-xs font-mono text-primary tracking-widest uppercase mb-6">{t.projects.about}</h2>
+          <div className="text-base text-muted-foreground/80 leading-[1.8] whitespace-pre-line">
             {project.detailedDescription}
           </div>
         </div>
 
-        {/* Technologies */}
-        <div className="mb-10">
-          <h2 className="text-xl font-semibold text-foreground mb-4">{t.projects.technologies}</h2>
+        <div className="mb-20">
+          <h2 className="text-xs font-mono text-primary tracking-widest uppercase mb-6">{t.projects.technologies}</h2>
           <div className="flex flex-wrap gap-2">
-            {formatTechnologies(project.technologies).map((tech) => (
+            {techs.map((tech) => (
               <span
                 key={tech}
-                className="px-3 py-1 text-sm bg-card border border-border rounded-md text-foreground"
+                className="text-xs font-mono px-3 py-1.5 rounded-md bg-secondary/80 text-foreground/80"
               >
                 {tech}
               </span>
@@ -170,16 +122,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-border my-8"></div>
-        
-        {/* Back Link */}
-        <div className="text-center">
-          <Link 
+        <div className="border-t border-border/15 pt-10 text-center">
+          <Link
             href="/projects"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground/60 hover:text-primary transition-colors"
           >
-            ← {t.projects.viewAllProjects}
+            <ArrowLeft className="size-4" />
+            {t.projects.viewAllProjects}
           </Link>
         </div>
       </div>

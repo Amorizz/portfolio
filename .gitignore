@@ -76,3 +76,7 @@ storybook-static
 
 .prettierignore
 .prettierrc
+
+# Generated CV artifacts
+/cv-output/
+/public/cv/

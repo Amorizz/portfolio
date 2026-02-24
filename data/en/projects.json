@@ -1,5 +1,20 @@
 [
   {
+    "id": "novad",
+    "title": "Novad",
+    "shortDescription": "Emotional city matching platform for digital nomads — find your next destination based on how you want to feel, not just cost and wifi speed.",
+    "detailedDescription": "Novad is an emotional city matching platform that reimagines how digital nomads choose their next destination. Instead of filtering cities by cost of living and internet speed, Novad matches users based on how they want to feel — calm, adventurous, creative, connected.\n\nAs founder, I built the entire product from concept to launch. The matching algorithm translates feelings into measurable city attributes and scores 300+ destinations worldwide using real data and nomad testimonies. Users take a 60-second quiz and receive personalized city recommendations ranked by emotional fit.\n\nThe platform includes comprehensive city guides for 300+ destinations with detailed sections on neighborhoods, digital nomad life, culture and vibe, highlights, and practical tips. Each guide is written from a remote worker's perspective with structured data for key metrics like monthly rent, internet speed, nomad score, and safety.\n\nAdditional features include data-driven rankings (cheapest cities, fastest internet, best community), country directories, a blog on emotional travel planning and nomad burnout recovery, and comparison pages with competitors like Nomad List. Built with a focus on SEO and content quality, Novad positions itself as the feeling-first alternative to spreadsheet-based nomad tools.",
+    "image": "/images/projects/novad.png",
+    "imageAlt": "Novad platform showing emotional city matching for digital nomads",
+    "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "AI Matching", "SEO", "Vercel"],
+    "githubUrl": null,
+    "liveUrl": "https://novad.app",
+    "featured": true,
+    "order": 0,
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2026-02-23T00:00:00Z"
+  },
+  {
     "id": "play-tennis-everywhere",
     "title": "Play Tennis Everywhere",
     "shortDescription": "AI-powered tennis partner matching platform connecting players based on availability, location, and skill level.",
@@ -9,8 +24,8 @@
     "technologies": ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "Resend", "AI Matching Algorithm"],
     "githubUrl": null,
     "liveUrl": "https://play-tennis-everywhere.com",
-    "featured": true,
-    "order": 1,
+    "featured": false,
+    "order": 3,
     "createdAt": "2025-08-01T00:00:00Z",
     "updatedAt": "2025-10-04T00:00:00Z"
   },
@@ -24,10 +39,25 @@
     "technologies": ["TypeScript", "Supabase", "Tailwind CSS", "Lovable Platform"],
     "githubUrl": "https://github.com/Amorizz/fall_corp/",
     "liveUrl": "https://fall-corp.lovable.app/",
-    "featured": true,
-    "order": 2,
+    "featured": false,
+    "order": 4,
     "createdAt": "2025-04-01T00:00:00Z",
     "updatedAt": "2025-06-30T00:00:00Z"
+  },
+  {
+    "id": "archive-server",
+    "title": "Archive Server & Virtual Shell",
+    "shortDescription": "A custom archive server and virtual shell client built in Bash, enabling remote file archiving, extraction, and interactive browsing via netcat.",
+    "detailedDescription": "ArchiveServer is a systems programming project built entirely in Bash that implements a client-server architecture for managing custom file archives over the network.\n\nThe server listens on a configurable port using netcat and handles three core commands: LIST (browse available archives), GET (download an archive), and PUT (upload an archive). It stores archives in a local directory and logs all operations.\n\nThe virtual shell (vsh) is the client-side tool that communicates with the server. It supports four modes:\n- Create: Recursively traverses the current directory, builds a custom archive format with a header (metadata: paths, permissions, sizes, offsets) and body (file contents), then uploads it to the server.\n- Extract: Downloads an archive and reconstructs the full directory structure locally, restoring file permissions.\n- List: Queries the server for all available archives.\n- Browse: The most advanced mode — an interactive virtual shell that lets you navigate an archive as if it were a live file system. Supports ls (with -a, -l flags), cd (with absolute/relative paths and ..), cat, mkdir (-p for nested), touch, and rm (recursive for directories).\n\nThe browse mode works by parsing the archive's header to maintain a virtual current directory pointer, enabling full navigation without extracting. The archive format uses a custom structure with line-based offsets for efficient random access to file contents.",
+    "image": null,
+    "imageAlt": "Archive Server and Virtual Shell terminal interface",
+    "technologies": ["Bash", "Netcat", "Linux", "Shell Scripting", "Client-Server"],
+    "githubUrl": "https://github.com/Amorizz/ArchiveServer",
+    "liveUrl": null,
+    "featured": true,
+    "order": 1,
+    "createdAt": "2024-01-01T00:00:00Z",
+    "updatedAt": "2024-06-01T00:00:00Z"
   },
   {
     "id": "pocket-imperium",
@@ -40,9 +70,39 @@
     "githubUrl": "https://github.com/Amorizz/pocket-imperium/",
     "liveUrl": null,
     "featured": false,
-    "order": 3,
+    "order": 7,
     "createdAt": "2024-04-01T00:00:00Z",
     "updatedAt": "2024-06-30T00:00:00Z"
+  },
+  {
+    "id": "tiny-habits",
+    "title": "Tiny Habits",
+    "shortDescription": "A visual, mobile-first finance tracker for college students with a customizable drag-and-drop dashboard, budget tracking, and savings goals.",
+    "detailedDescription": "Tiny Habits is a finance tracking app designed specifically for college students who want to build better spending habits. Built during our exchange semester at Shanghai University (Spring 2025) as part of the Innovation Period program, it won awards for Best Public Speaking and Outstanding Business Potential.\n\nThe app features a fully customizable drag-and-drop dashboard where users can arrange, resize, and toggle widgets including balance overview, expense charts, category breakdowns, savings goals, a coffee counter, and a good financial decisions tracker.\n\nKey features include transaction management with income/expense tracking, need vs want classification, and search/filter capabilities. Budget tracking with monthly limits per category and visual progress bars. Savings goals with target amounts, deadlines, and progress visualization. AI-powered auto-categorization of transactions using the OpenAI API.\n\nThe dashboard is built with @hello-pangea/dnd for smooth drag-and-drop reordering, Recharts for data visualization, and shadcn/ui for a clean, modern interface. The app gamifies financial habits with challenges, tips, and streak tracking to keep students engaged.",
+    "image": null,
+    "imageAlt": "Tiny Habits finance tracker dashboard",
+    "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "Recharts", "OpenAI API"],
+    "githubUrl": "https://github.com/Amorizz/tiny-habits",
+    "liveUrl": null,
+    "featured": false,
+    "order": 6,
+    "createdAt": "2025-04-01T00:00:00Z",
+    "updatedAt": "2025-06-01T00:00:00Z"
+  },
+  {
+    "id": "translate-project",
+    "title": "Translate Project",
+    "shortDescription": "AI-powered video transcription and subtitle translation pipeline — transcribe speech, enhance subtitles, and translate from English to French.",
+    "detailedDescription": "Translate Project is a full-stack pipeline that converts video files into translated subtitles. It combines speech recognition, subtitle post-processing, and machine translation into a single workflow.\n\nThe backend uses FastAPI to expose two endpoints: /transcribe (powered by faster-whisper for speech-to-text) and /translate_srt (using Meta's M2M100 multilingual model for EN→FR translation). A Streamlit frontend provides an intuitive UI for uploading videos, previewing transcriptions, and downloading translated SRT files.\n\nThe translator module includes a subtitle splitter for cleaning and restructuring raw SRT segments, and an AI enhancer that uses a local Mistral 7B model (via llama.cpp) to refine subtitle phrasing for natural readability.\n\nBuilt as a university project at UTT with a team of three, combining NLP, local LLM inference, and full-stack web development.",
+    "image": null,
+    "imageAlt": "Translate Project subtitle translation interface",
+    "technologies": ["Python", "FastAPI", "Streamlit", "Whisper", "M2M100", "Mistral 7B", "llama.cpp", "PyTorch"],
+    "githubUrl": "https://github.com/Amorizz/translate-project",
+    "liveUrl": null,
+    "featured": true,
+    "order": 2,
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-03-01T00:00:00Z"
   },
   {
     "id": "portfolio-website",
@@ -54,8 +114,8 @@
     "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "Vercel"],
     "githubUrl": "https://github.com/Amorizz/portfolio",
     "liveUrl": "https://amaury-dufrenot.com",
-    "featured": true,
-    "order": 4,
+    "featured": false,
+    "order": 5,
     "createdAt": "2025-10-01T00:00:00Z",
     "updatedAt": "2025-10-04T00:00:00Z"
   }

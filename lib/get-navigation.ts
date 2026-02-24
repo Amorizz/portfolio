@@ -1,18 +1,16 @@
-// Get navigation items based on language
-
 export function getNavigation(lang: 'en' | 'fr') {
   const translations = {
     en: {
       home: 'Home',
-      about: 'About',
       projects: 'Projects',
+      cv: 'CV',
       openMenu: 'Open main menu',
       closeMenu: 'Close main menu',
     },
     fr: {
       home: 'Accueil',
-      about: 'À propos',
       projects: 'Projets',
+      cv: 'CV',
       openMenu: 'Ouvrir le menu principal',
       closeMenu: 'Fermer le menu principal',
     },
@@ -23,8 +21,8 @@ export function getNavigation(lang: 'en' | 'fr') {
   return {
     main: [
       { name: t.home, href: '/' },
-      { name: t.about, href: '/about' },
       { name: t.projects, href: '/projects' },
+      { name: t.cv, href: '/cv' },
     ],
     mobile: {
       menuButton: t.openMenu,

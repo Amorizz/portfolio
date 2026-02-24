@@ -2,8 +2,7 @@
 
 import { useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { Download, Mail, Phone, Globe, Github, Linkedin, MapPin } from 'lucide-react';
-import { useReactToPrint } from 'react-to-print';
+import { Download, Mail, Globe, Github, Linkedin, MapPin, Phone } from 'lucide-react';
 import Image from 'next/image';
 
 interface CVData {
@@ -12,8 +11,8 @@ interface CVData {
     title: string;
     tagline: string;
     location: string;
+    phone?: string;
     email: string;
-    phone: string;
     website: string;
     linkedin: string;
     github: string;
@@ -59,16 +58,11 @@ interface CVData {
   skills: {
     technical: Array<{
       category: string;
-      icon: string;
       skills: Array<{
         name: string;
         level: string;
         yearsOfExperience: number;
       }>;
-    }>;
-    softSkills?: Array<{
-      name: string;
-      icon: string;
     }>;
     soft: Array<{
       name: string;
@@ -84,7 +78,6 @@ interface CVData {
   }>;
   interests: Array<{
     name: string;
-    icon: string;
     description: string;
   }>;
   careerObjective: string;
@@ -100,24 +93,19 @@ interface CVData {
 interface CVPageProps {
   cvData: CVData;
   lang: string;
+  pdfMode?: boolean;
 }
 
-export default function CVPage({ cvData, lang }: CVPageProps) {
+export default function CVPage({ cvData, lang, pdfMode = false }: CVPageProps) {
   const cvRef = useRef<HTMLDivElement>(null);
 
-  const handlePrint = useReactToPrint({
-    contentRef: cvRef,
-    documentTitle: lang === 'fr' 
-      ? `CV_Amaury_Dufrenot_${new Date().getFullYear()}`
-      : `Resume_Amaury_Dufrenot_${new Date().getFullYear()}`,
-  });
-
-  const handleDownloadPDF = () => {
-    handlePrint();
-  };
+  const pdfUrl = `/cv/cv-${lang}.pdf`;
+  const pdfFilename = lang === 'fr'
+    ? `CV_Amaury_Dufrenot_${new Date().getFullYear()}.pdf`
+    : `Resume_Amaury_Dufrenot_${new Date().getFullYear()}.pdf`;
 
   const formatDate = (dateString: string) => {
-    if (!dateString) return lang === 'fr' ? 'Présent' : 'Present';
+    if (!dateString) return lang === 'fr' ? 'Present' : 'Present';
     const date = new Date(dateString);
     return date.toLocaleDateString(lang === 'fr' ? 'fr-FR' : 'en-US', {
       year: 'numeric',
@@ -125,330 +113,356 @@ export default function CVPage({ cvData, lang }: CVPageProps) {
     });
   };
 
-  return (
-    <div className="min-h-screen py-12 px-4 flex flex-col items-center relative print:p-0">
-      {/* Subtle background gradient circles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none print:hidden">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
-      </div>
+  const t = {
+    contact: 'Contact',
+    skills: lang === 'fr' ? 'Compétences' : 'Skills',
+    languages: lang === 'fr' ? 'Langues' : 'Languages',
+    interests: lang === 'fr' ? 'Intérêts' : 'Interests',
+    certifications: 'Certifications',
+    profile: lang === 'fr' ? 'Profil' : 'Profile',
+    experience: lang === 'fr' ? 'Expérience' : 'Experience',
+    education: lang === 'fr' ? 'Formation' : 'Education',
+    projects: lang === 'fr' ? 'Projets' : 'Projects',
+    present: lang === 'fr' ? 'Présent' : 'Present',
+    download: lang === 'fr' ? 'Télécharger le CV' : 'Download CV',
+    availability: lang === 'fr'
+      ? 'Disponible pour stage — Été 2026 — Mobilité nationale et internationale — Permis B'
+      : 'Available for internship — Summer 2026 — National & international mobility — Driving license',
+  };
 
-      {/* Download Button */}
-      <div className="mb-10 relative z-10 print:hidden">
+  const projectPriority: Record<string, number> = {
+    'archive-server': 1,
+    'translate-project': 2,
+    'pocket-imperium': 3,
+    'play-tennis-everywhere': 4,
+    'tiny-habits': 5,
+  };
+
+  const sortedProjects = [...cvData.projects].sort((a, b) => {
+    const pa = projectPriority[a.id ?? ''] ?? 999;
+    const pb = projectPriority[b.id ?? ''] ?? 999;
+    return pa - pb;
+  });
+
+  const highlightProjectKeywords = (text: string) => {
+    const keywords = [
+      'distance euclidienne', 'Euclidean distance',
+      'vecteur', 'vector', 'vectorisation', 'vectorization',
+      'client-serveur', 'client-server', 'netcat',
+      'Whisper', 'M2M100', 'Mistral 7B', 'llama.cpp', '300+',
+      'Bash', 'Java', 'Python', 'Next.js', 'TypeScript', 'PostgreSQL',
+      'FastAPI', 'Streamlit', 'Swing', 'Supabase', 'OpenAI',
+      'drag-and-drop', 'SEO', 'CI/CD',
+      'Best Public Speaking', 'Outstanding Business Potential',
+    ];
+
+    const escaped = keywords.map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+    const regex = new RegExp(`(${escaped.join('|')})`, 'gi');
+    const parts = text.split(regex);
+
+    return parts.map((part, index) => {
+      const isKeyword = keywords.some((k) => k.toLowerCase() === part.toLowerCase());
+      return isKeyword
+        ? <strong key={`kw-${index}`} className="font-semibold text-[#111827]">{part}</strong>
+        : <span key={`tx-${index}`}>{part}</span>;
+    });
+  };
+
+  return (
+    <div
+      className={`min-h-screen flex flex-col items-center relative ${
+        pdfMode ? 'py-0 px-0' : 'py-12 px-4 print:p-0'
+      }`}
+    >
+      {/* Download */}
+      <div className={`mb-8 relative z-10 print:hidden ${pdfMode ? 'hidden' : ''}`}>
         <Button
-          onClick={handleDownloadPDF}
+          asChild
           size="lg"
-          className="shadow-lg bg-white/90 backdrop-blur-sm text-slate-900 hover:bg-white hover:shadow-xl transition-all duration-300 border border-white/20 font-semibold px-8 py-3"
+          className="font-semibold px-8 py-3 rounded-full border"
+          style={{ background: '#d57a2a', color: '#fff', borderColor: 'rgba(213,122,42,0.3)' }}
         >
-          <Download className="mr-2 h-5 w-5" />
-          {lang === 'fr' ? 'Télécharger le CV' : 'Download CV'}
+          <a href={pdfUrl} download={pdfFilename}>
+            <Download className="mr-2 h-5 w-5" />
+            {t.download}
+          </a>
         </Button>
       </div>
 
-      {/* CV Container */}
+      {/* CV */}
       <div className="relative z-10 w-full max-w-[210mm] mx-auto print:max-w-full">
         <div
           ref={cvRef}
-          className="bg-white relative overflow-hidden mx-auto rounded-lg print:rounded-none"
           id="cv-content"
+          suppressHydrationWarning
+          className="bg-white mx-auto rounded-lg print:rounded-none overflow-hidden"
           style={{
             width: '210mm',
+            height: pdfMode ? '297mm' : undefined,
             minHeight: '297mm',
-            boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1)',
+            boxShadow: '0 8px 40px rgba(0,0,0,0.25)',
           }}
         >
-        <div className="flex h-full">
-          {/* LEFT SIDEBAR - 35% width */}
-          <div className="w-[35%] text-white p-6" style={{
-            background: 'linear-gradient(to bottom, #334155, #1e293b)'
-          }}>
-            {/* Photo */}
-            <div className="mb-6 flex justify-center">
-              <div className="relative">                
-                {/* Photo container */}
-                <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 shadow-xl" style={{
-                  borderColor: '#1e3a5f'
-                }}>
-                  <Image
-                    src="/images/IMG_3840.png"
-                    alt={cvData.personalInfo.fullName}
-                    fill
-                    className="object-cover"
-                    priority
-                  />
+          <div className="flex h-full" style={{ height: pdfMode ? '297mm' : undefined, minHeight: '297mm' }}>
+
+            {/* ════════ LEFT COLUMN (sidebar) ════════ */}
+            <div className="w-[34%] flex flex-col" style={{ background: '#1e2211', color: '#e8ecd8', padding: '20px 18px' }}>
+
+              {/* Photo */}
+              <div className="flex justify-center" style={{ marginBottom: '16px' }}>
+                <div className="relative w-28 h-28 rounded-full overflow-hidden" style={{ border: '3px solid #b5651d' }}>
+                  <Image src="/images/IMG_3840.png" alt={cvData.personalInfo.fullName} fill className="object-cover" priority />
                 </div>
               </div>
-            </div>
 
-            {/* Contact */}
-            <div className="mb-6">
-              <h3 className="text-sm font-bold uppercase tracking-wider mb-3 text-white border-b border-white/30 pb-1">
-                {lang === 'fr' ? 'Contact' : 'Contact'}
-              </h3>
-              <div className="space-y-2 text-xs">
-                <div className="flex items-start gap-2">
-                  <Phone className="h-3 w-3 mt-0.5 flex-shrink-0" />
-                  <span>{cvData.personalInfo.phone}</span>
+              {/* Contact */}
+              <SidebarSection title={t.contact}>
+                <div className="flex flex-col" style={{ gap: '6px' }}>
+                  <SidebarRow icon={<Mail className="h-3 w-3" />}>
+                    <a href={`mailto:${cvData.personalInfo.email}`} className="text-[10.5px]">{cvData.personalInfo.email}</a>
+                  </SidebarRow>
+                  {cvData.personalInfo.phone && (
+                    <SidebarRow icon={<Phone className="h-3 w-3" />}>
+                      <a href={`tel:${cvData.personalInfo.phone}`} className="text-[10.5px]">{cvData.personalInfo.phone}</a>
+                    </SidebarRow>
+                  )}
+                  <SidebarRow icon={<MapPin className="h-3 w-3" />}>
+                    <span className="text-[10.5px]">{cvData.personalInfo.location}</span>
+                  </SidebarRow>
+                  <SidebarRow icon={<Globe className="h-3 w-3" />}>
+                    <a href={cvData.personalInfo.website} target="_blank" rel="noopener noreferrer" className="text-[10.5px]">amaury-dufrenot.com</a>
+                  </SidebarRow>
+                  <SidebarRow icon={<Linkedin className="h-3 w-3" />}>
+                    <a href={cvData.personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="text-[10.5px]">/amaury-dufrenot</a>
+                  </SidebarRow>
+                  <SidebarRow icon={<Github className="h-3 w-3" />}>
+                    <a href={cvData.personalInfo.github} target="_blank" rel="noopener noreferrer" className="text-[10.5px]">/Amorizz</a>
+                  </SidebarRow>
                 </div>
-                <div className="flex items-start gap-2">
-                  <Mail className="h-3 w-3 mt-0.5 flex-shrink-0" />
-                  <a href={`mailto:${cvData.personalInfo.email}`} className="hover:text-blue-300 break-all">
-                    {cvData.personalInfo.email}
-                  </a>
-                </div>
-                <div className="flex items-start gap-2">
-                  <MapPin className="h-3 w-3 mt-0.5 flex-shrink-0" />
-                  <span>{cvData.personalInfo.location}</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <Globe className="h-3 w-3 mt-0.5 flex-shrink-0" />
-                  <a href={cvData.personalInfo.website} target="_blank" rel="noopener noreferrer" className="hover:text-blue-300">
-                    amaury-dufrenot.com
-                  </a>
-                </div>
-                <div className="flex items-start gap-2">
-                  <Linkedin className="h-3 w-3 mt-0.5 flex-shrink-0" />
-                  <a href={cvData.personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-blue-300">
-                    /amaury-dufrenot
-                  </a>
-                </div>
-                <div className="flex items-start gap-2">
-                  <Github className="h-3 w-3 mt-0.5 flex-shrink-0" />
-                  <a href={cvData.personalInfo.github} target="_blank" rel="noopener noreferrer" className="hover:text-blue-300">
-                    {"/Amorizz"}
-                  </a>
-                </div>
-              </div>
-            </div>
+              </SidebarSection>
 
-            {/* Technical Skills */}
-            <div className="mb-6">
-              <h3 className="text-sm font-bold uppercase tracking-wider mb-3 text-white border-b border-white/30 pb-1">
-                {lang === 'fr' ? 'Compétences Techniques' : 'Technical Skills'}
-              </h3>
-              <div className="space-y-3">
-                {cvData.skills.technical.map((category, index) => (
-                  <div key={index}>
-                    <h4 className="text-xs font-semibold mb-1.5 text-blue-300">
-                      {category.category}
-                    </h4>
-                    <p className="text-[10px] leading-relaxed">
-                      {category.skills.map(skill => skill.name).join(' • ')}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Soft Skills */}
-            {cvData.skills.softSkills && (
-              <div className="mb-6">
-                <h3 className="text-sm font-bold uppercase tracking-wider mb-3 text-white border-b border-white/30 pb-1">
-                  {lang === 'fr' ? 'Qualités' : 'Soft Skills'}
-                </h3>
-                <div className="grid grid-cols-2 gap-2">
-                  {cvData.skills.softSkills.map((skill, index) => (
-                    <div key={index} className="flex items-center gap-1.5">
-                      <span className="text-sm">{skill.icon}</span>
-                      <span className="text-[10px]">{skill.name}</span>
+              {/* Skills */}
+              <SidebarSection title={t.skills}>
+                <div className="flex flex-col" style={{ gap: '8px' }}>
+                  {cvData.skills.technical.map((cat, i) => (
+                    <div key={i}>
+                      <p className="text-[10.5px] font-semibold text-white" style={{ marginBottom: '2px' }}>{cat.category}</p>
+                      <p className="text-[9.5px] leading-[1.45]" style={{ color: '#cdd4b8' }}>
+                        {cat.skills.map(s => s.name).join(', ')}
+                      </p>
                     </div>
                   ))}
                 </div>
-              </div>
-            )}
+              </SidebarSection>
 
-            {/* Languages */}
-            <div className="mb-6">
-              <h3 className="text-sm font-bold uppercase tracking-wider mb-3 text-white border-b border-white/30 pb-1">
-                {lang === 'fr' ? 'Langues' : 'Languages'}
-              </h3>
-              <div className="space-y-1.5 text-xs">
-                {cvData.personalInfo.languages.map((language, index) => (
-                  <div key={index} className="flex justify-between items-center">
-                    <span>{language.name}</span>
-                    <span className="text-[10px] text-blue-300">{language.level}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Interests */}
-            <div>
-              <h3 className="text-sm font-bold uppercase tracking-wider mb-3 text-white border-b border-white/30 pb-1">
-                {lang === 'fr' ? 'Centres d\'Intérêt' : 'Interests'}
-              </h3>
-              <div className="space-y-1.5 text-xs">
-                {cvData.interests.map((interest, index) => (
-                  <div key={index} className="text-[10px] leading-relaxed">
-                    • {interest.name}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* RIGHT MAIN CONTENT - 65% width */}
-          <div className="w-[65%] p-8">
-            {/* Header */}
-            <div className="mb-6">
-              <h1 className="text-3xl font-bold text-gray-900 uppercase tracking-wide mb-1">
-                {cvData.personalInfo.fullName}
-              </h1>
-              <h2 className="text-base text-blue-700 font-semibold mb-3">
-                {cvData.personalInfo.title}
-              </h2>
-            </div>
-
-            <div className="space-y-5">
-            {/* Profile */}
-            <section className="mb-5">
-              <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-2 pb-1 border-b-2 border-blue-700">
-                {lang === 'fr' ? 'Profil' : 'Profile'}
-              </h2>
-              <p className="text-xs text-gray-700 leading-relaxed">
-                {cvData.professionalSummary}
-              </p>
-            </section>
-
-            {/* Experience */}
-            <section className="mb-5">
-              <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-2 pb-1 border-b-2 border-blue-700">
-                {lang === 'fr' ? 'Expérience' : 'Experience'}
-              </h2>
-              <div className="space-y-3">
-                {/* Main experience only */}
-                {cvData.experience.slice(0, 1).map((exp, index) => (
-                  <div key={index}>
-                    <div className="flex justify-between items-baseline mb-0.5">
-                      <h3 className="text-xs font-bold text-gray-900">{exp.position}</h3>
-                      <span className="text-[10px] text-gray-600 italic">
-                        {formatDate(exp.startDate)} - {exp.current ? (lang === 'fr' ? 'Présent' : 'Present') : formatDate(exp.endDate!)}
-                      </span>
+              {/* Languages */}
+              <SidebarSection title={t.languages}>
+                <div className="flex flex-col" style={{ gap: '4px' }}>
+                  {cvData.personalInfo.languages.map((l, i) => (
+                    <div key={i} className="flex justify-between text-[10.5px]">
+                      <span>{l.name}</span>
+                      <span style={{ color: '#cdd4b8' }}>{l.level}</span>
                     </div>
-                    <p className="text-xs text-blue-700 font-semibold mb-1">{exp.company}</p>
-                    <ul className="list-disc list-inside text-[11px] text-gray-700 ml-1 space-y-0.5">
-                      <li>{exp.description}</li>
-                      <li>{exp.achievements[0]}</li>
-                    </ul>
-                  </div>
-                ))}
-                
-                {/* Stage Robert-Paysage */}
-                <div>
-                  <div className="flex justify-between items-baseline mb-0.5">
-                    <h3 className="text-xs font-bold text-gray-900">
-                      {lang === 'fr' ? 'Stage Ouvrier' : 'Worker Internship'}
-                    </h3>
-                    <span className="text-[10px] text-gray-600 italic">
-                      {lang === 'fr' ? 'Été 2023' : 'Summer 2023'}
-                    </span>
-                  </div>
-                  <p className="text-xs text-blue-700 font-semibold mb-1">Robert-Paysage</p>
-                  <p className="text-[11px] text-gray-700">
-                    {lang === 'fr'
-                      ? 'Travail en équipe sur chantiers, respect des consignes et délais. Prime de stage pour qualité du travail.'
-                      : 'Teamwork on sites, compliance with instructions. Internship bonus for quality work.'}
-                  </p>
+                  ))}
                 </div>
-              </div>
-            </section>
+              </SidebarSection>
 
-            {/* Education */}
-            <section className="mb-5">
-              <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-2 pb-1 border-b-2 border-blue-700">
-                {lang === 'fr' ? 'Formation' : 'Education'}
-              </h2>
-              <div className="space-y-2.5">
-                {cvData.education.map((edu, index) => (
-                  <div key={index}>
-                    <div className="flex justify-between items-baseline mb-0.5">
-                      <h3 className="text-xs font-bold text-gray-900">{edu.degree}</h3>
-                      <span className="text-[10px] text-gray-600 italic">
-                        {formatDate(edu.startDate)} - {edu.current ? (lang === 'fr' ? 'En cours' : 'Present') : formatDate(edu.endDate)}
-                      </span>
+              {/* Certifications */}
+              <SidebarSection title={t.certifications}>
+                <div className="flex flex-col" style={{ gap: '6px' }}>
+                  {cvData.certifications.map((cert, i) => (
+                    <div key={i} className="text-[9.5px]">
+                      <p className="font-semibold text-white leading-snug">{cert.name}</p>
+                      <p style={{ color: '#cdd4b8' }}>{cert.issuer} — {cert.status}</p>
                     </div>
-                    <p className="text-xs text-blue-700 font-semibold">{edu.institution}</p>
-                    {edu.specialization && (
-                      <p className="text-[11px] text-gray-700 mt-0.5">
-                        {edu.specialization}
+                  ))}
+                </div>
+              </SidebarSection>
+
+              {/* Interests */}
+              <SidebarSection title={t.interests}>
+                <div className="flex flex-col" style={{ gap: '4px' }}>
+                  {cvData.interests.map((interest, i) => (
+                    <p key={i} className="text-[9.5px] leading-[1.45]" style={{ color: '#cdd4b8' }}>{interest.name}</p>
+                  ))}
+                </div>
+              </SidebarSection>
+            </div>
+
+            {/* ════════ RIGHT COLUMN (main content) ════════ */}
+            <div className="w-[66%] flex flex-col" style={{ fontFamily: 'Inter, system-ui, sans-serif', color: '#1f2937', padding: '20px 22px 16px 22px' }}>
+
+              {/* Header */}
+              <div style={{ paddingBottom: '8px', borderBottom: '2px solid #b5651d' }}>
+                <h1 className="text-[40px] font-bold tracking-tight leading-none" style={{
+                  color: '#111827',
+                  fontFamily: 'Space Grotesk, system-ui, sans-serif',
+                }}>
+                  {cvData.personalInfo.fullName}
+                </h1>
+                <p className="text-[12px] font-semibold" style={{ color: '#92400e', marginTop: '6px' }}>
+                  {cvData.personalInfo.title}
+                </p>
+                <p className="text-[10.5px]" style={{ color: '#6b7280', marginTop: '2px' }}>
+                  {cvData.personalInfo.tagline}
+                </p>
+              </div>
+
+              {/* Profile */}
+              <section style={{ marginTop: '10px' }}>
+                <h2 className="text-[12px] font-bold uppercase tracking-wider" style={{
+                  color: '#111827',
+                  fontFamily: 'Space Grotesk, system-ui, sans-serif',
+                  marginBottom: '4px',
+                }}>
+                  {t.profile}
+                </h2>
+                <p className="text-[10.5px] leading-[1.5]" style={{ color: '#374151' }}>
+                  {cvData.professionalSummary}
+                </p>
+              </section>
+
+              {/* Experience */}
+              <MainSection title={t.experience}>
+                <div className="flex flex-col" style={{ gap: '8px' }}>
+                  {cvData.experience.map((exp, i) => (
+                    <div key={i}>
+                      <div className="flex justify-between items-baseline">
+                        <h3 className="text-[11px] font-bold" style={{ color: '#111827' }}>{exp.position}</h3>
+                        <span className="text-[9px] shrink-0 ml-2" style={{ color: '#6b7280' }}>
+                          {formatDate(exp.startDate)} – {exp.current ? t.present : formatDate(exp.endDate!)}
+                        </span>
+                      </div>
+                      <p className="text-[10.5px] font-semibold" style={{ color: '#92400e' }}>{exp.company}</p>
+                      {exp.description && (
+                        <p className="text-[10px] leading-[1.45]" style={{ color: '#374151', marginTop: '2px' }}>
+                          {highlightProjectKeywords(exp.description)}
+                        </p>
+                      )}
+                      {exp.achievements && exp.achievements.length > 0 && (
+                        <ul style={{ marginTop: '2px' }}>
+                          {exp.achievements.map((a, j) => (
+                            <li key={j} className="text-[10px] pl-3 relative leading-[1.4]" style={{ color: '#374151' }}>
+                              <span className="absolute left-0">-</span>{a}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                      {exp.technologies && exp.technologies.length > 0 && (
+                        <p className="text-[8.5px] font-mono" style={{ color: '#6b7280', marginTop: '3px' }}>
+                          {exp.technologies.join(' · ')}
+                        </p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </MainSection>
+
+              {/* Education */}
+              <MainSection title={t.education}>
+                <div className="flex flex-col" style={{ gap: '8px' }}>
+                  {cvData.education.map((edu, i) => (
+                    <div key={i}>
+                      <div className="flex justify-between items-baseline">
+                        <h3 className="text-[11px] font-bold" style={{ color: '#111827' }}>{edu.degree}</h3>
+                        <span className="text-[9px] shrink-0 ml-2" style={{ color: '#6b7280' }}>
+                          {edu.startDate ? `${formatDate(edu.startDate)} – ${edu.current ? t.present : formatDate(edu.endDate)}` : formatDate(edu.endDate)}
+                        </span>
+                      </div>
+                      <p className="text-[10.5px] font-semibold" style={{ color: '#92400e' }}>
+                        {edu.institution} — {edu.location}
                       </p>
-                    )}
-                    {edu.achievements.length > 0 && (
-                      <p className="text-[11px] text-gray-700 mt-0.5">
-                        • {edu.achievements.slice(0, 2).join(' • ')}
+                      {edu.specialization && (
+                        <p className="text-[10px] leading-[1.45]" style={{ color: '#374151', marginTop: '2px' }}>{edu.specialization}</p>
+                      )}
+                      {edu.achievements.length > 0 && (
+                        <ul style={{ marginTop: '2px' }}>
+                          {edu.achievements.map((a, j) => (
+                            <li key={j} className="text-[10px] pl-3 relative leading-[1.4]" style={{ color: '#374151' }}>
+                              <span className="absolute left-0">-</span>{a}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </MainSection>
+
+              {/* Projects */}
+              <MainSection title={t.projects}>
+                <div className="flex flex-col" style={{ gap: '8px' }}>
+                  {sortedProjects.map((project, i) => (
+                    <div key={i}>
+                      <div className="flex justify-between items-baseline">
+                        <h3 className="text-[11px] font-bold" style={{ color: '#92400e' }}>
+                          {project.name}
+                          {project.role && <span className="font-normal" style={{ color: '#6b7280' }}> — {project.role}</span>}
+                        </h3>
+                        <span className="text-[9px] shrink-0 ml-2" style={{ color: '#6b7280' }}>
+                          {formatDate(project.startDate)} – {project.current ? t.present : formatDate(project.endDate!)}
+                        </span>
+                      </div>
+                      <p className="text-[10px] leading-[1.45]" style={{ color: '#374151', marginTop: '2px' }}>
+                        {highlightProjectKeywords(project.shortDescription)}
                       </p>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {/* Projects */}
-            <section className="mb-5">
-              <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-2 pb-1 border-b-2 border-blue-700">
-                {lang === 'fr' ? 'Projets Clés' : 'Key Projects'}
-              </h2>
-              <div className="space-y-2.5">
-                {cvData.projects.filter(p => p.id === 'tiny-habits' || p.id === 'ai-video-translator').map((project, index) => (
-                  <div key={index}>
-                    <div className="flex justify-between items-baseline mb-0.5">
-                      <h3 className="text-xs font-bold text-gray-900">
-                        {project.name}
-                      </h3>
-                      <span className="text-[10px] text-gray-600 italic">
-                        {formatDate(project.startDate)}
-                      </span>
+                      <p className="text-[8.5px] font-mono" style={{ color: '#6b7280', marginTop: '3px' }}>
+                        {project.technologies.join(' · ')}
+                      </p>
                     </div>
-                    <p className="text-xs text-blue-700 font-semibold mb-1">
-                      {project.role}
-                    </p>
-                    <p className="text-[11px] text-gray-700 mb-1">
-                      {project.shortDescription}
-                    </p>
-                    <p className="text-[10px] text-gray-600">
-                      {project.technologies.slice(0, 4).join(' • ')}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </section>
+                  ))}
+                </div>
+              </MainSection>
 
-            {/* Certifications */}
-            <section>
-              <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-2 pb-1 border-b-2 border-blue-700">
-                {lang === 'fr' ? 'Certifications' : 'Certifications'}
-              </h2>
-              <div className="space-y-1">
-                {cvData.certifications.map((cert, index) => (
-                  <div key={index} className="flex justify-between items-baseline">
-                    <div>
-                      <span className="text-xs font-bold text-gray-900">{cert.name}</span>
-                      <span className="text-[11px] text-gray-600"> - {cert.issuer}</span>
-                    </div>
-                    <span className="text-[10px] text-blue-700 font-semibold italic">
-                      {cert.status}
-                    </span>
-                  </div>
-                ))}
+              {/* Footer */}
+              <div className="mt-auto text-center text-[8.5px]" style={{ borderTop: '1px solid #e5e7eb', color: '#6b7280', paddingTop: '8px' }}>
+                {t.availability}
               </div>
-            </section>
             </div>
           </div>
-        </div>
-
-        {/* Footer */}
-        <div 
-          className="absolute bottom-0 left-0 right-0 text-white text-center py-2" 
-          style={{ backgroundColor: '#1e293b' }}
-        >
-          <p className="text-[10px] italic">
-            {lang === 'fr'
-              ? 'Disponible pour stage de 6 mois • Septembre 2026 • Mobilité nationale et internationale • Permis B'
-              : 'Available for 6-month internship • September 2026 • National and international mobility • Driving license'}
-          </p>
-        </div>
         </div>
       </div>
     </div>
+  );
+}
+
+function SidebarSection({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div style={{ marginTop: '12px' }}>
+      <h3 className="text-[10.5px] font-bold uppercase tracking-wider" style={{
+        color: '#eecaaa',
+        borderBottom: '1px solid rgba(238, 202, 170, 0.2)',
+        fontFamily: 'Space Grotesk, system-ui, sans-serif',
+        paddingBottom: '3px',
+        marginBottom: '6px',
+      }}>
+        {title}
+      </h3>
+      {children}
+    </div>
+  );
+}
+
+function SidebarRow({ icon, children }: { icon: React.ReactNode; children: React.ReactNode }) {
+  return (
+    <div className="flex items-center gap-1.5" style={{ color: '#e8ecd8' }}>
+      <span className="shrink-0" style={{ color: '#b5651d' }}>{icon}</span>
+      <span>{children}</span>
+    </div>
+  );
+}
+
+function MainSection({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <section style={{ marginTop: '10px', paddingTop: '8px', borderTop: '1px solid #e5e7eb' }}>
+      <h2 className="text-[12px] font-bold uppercase tracking-wider" style={{
+        color: '#111827',
+        fontFamily: 'Space Grotesk, system-ui, sans-serif',
+        marginBottom: '6px',
+      }}>
+        {title}
+      </h2>
+      {children}
+    </section>
   );
 }

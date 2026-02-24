@@ -1,59 +1,79 @@
 'use client';
 
 import Link from 'next/link';
-import { ProjectCard } from '@/components/project/project-card';
+import { ArrowRight } from 'lucide-react';
+import { ProjectCard, ProjectHeroCard } from '@/components/project/project-card';
+import { BlurFade } from '@/components/magicui/blur-fade';
 import { cn } from '@/lib/utils';
 import { ProjectGridProps } from '@/lib/types';
 
 export function ProjectGrid({ projects, featured = false, lang, className }: ProjectGridProps) {
-  // Filter projects based on featured status
-  const filteredProjects = featured 
-    ? projects.filter(project => project.featured)
+  const filteredProjects = featured
+    ? projects.filter((p) => p.featured)
     : projects;
 
-  // Sort projects by order
   const sortedProjects = filteredProjects.sort((a, b) => a.order - b.order);
 
-  // Translations
   const t = {
-    noFeaturedProjects: lang === 'fr' ? 'Aucun projet disponible.' : 'No featured projects available.',
-    noProjects: lang === 'fr' ? 'Aucun projet disponible.' : 'No projects available.',
-    viewAllProjects: lang === 'fr' ? 'Voir Tous les Projets' : 'View All Projects',
+    empty: lang === 'fr' ? 'Aucun projet disponible.' : 'No projects available.',
+    viewAll: lang === 'fr' ? 'Voir tous les projets' : 'View all projects',
   };
 
   if (sortedProjects.length === 0) {
     return (
       <div className={cn('text-center py-12', className)}>
-        <p className="text-muted-foreground text-lg">
-          {featured ? t.noFeaturedProjects : t.noProjects}
-        </p>
+        <p className="text-muted-foreground text-sm">{t.empty}</p>
+      </div>
+    );
+  }
+
+  const heroProject = featured ? sortedProjects[0] : null;
+  const restProjects = featured ? sortedProjects.slice(1) : sortedProjects;
+
+  if (!featured) {
+    return (
+      <div className={cn('space-y-10', className)}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+          {restProjects.map((project, i) => (
+            <BlurFade key={project.id} delay={0.1 + i * 0.08} inView>
+              <ProjectCard project={project} index={i} className="h-full" />
+            </BlurFade>
+          ))}
+        </div>
       </div>
     );
   }
 
   return (
-    <div className={cn('grid gap-6', className)}>
-      {/* Grid Layout */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {sortedProjects.map((project) => (
-          <ProjectCard
-            key={project.id}
-            project={project}
-            className="h-full"
-          />
-        ))}
-      </div>
+    <div className={cn('space-y-5', className)}>
+      {heroProject && (
+        <BlurFade delay={0.1} inView>
+          <ProjectHeroCard project={heroProject} lang={lang} />
+        </BlurFade>
+      )}
 
-      {/* Show More Button (if not showing all projects) */}
-      {featured && projects.length > sortedProjects.length && (
-        <div className="text-center mt-8">
-          <Link
-            href="/projects"
-            className="inline-flex items-center px-6 py-3 border border-accent text-accent hover:bg-accent hover:text-accent-foreground transition-colors duration-200 rounded-lg font-medium"
-          >
-            {t.viewAllProjects}
-          </Link>
+      {restProjects.length > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {restProjects.map((project, i) => (
+            <BlurFade key={project.id} delay={0.15 + i * 0.06} inView>
+              <ProjectCard project={project} className="h-full" />
+            </BlurFade>
+          ))}
         </div>
+      )}
+
+      {featured && (
+        <BlurFade delay={0.35} inView>
+          <div className="text-center pt-6">
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 text-sm font-medium text-primary/80 hover:text-primary transition-colors group"
+            >
+              {t.viewAll}
+              <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+          </div>
+        </BlurFade>
       )}
     </div>
   );

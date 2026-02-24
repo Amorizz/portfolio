@@ -6,7 +6,6 @@ import { getSocialIcon } from '@/lib/utils';
 import { SocialLinksProps } from '@/lib/types';
 import { EXTERNAL_LINKS } from '@/lib/constants';
 
-// Custom minimalist SVG icons
 const LinkedInIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
@@ -21,8 +20,6 @@ const GitHubIcon = () => (
   </svg>
 );
 
-
-
 const iconMap = {
   linkedin: LinkedInIcon,
   github: GitHubIcon
@@ -34,14 +31,12 @@ export function SocialLinks({ socialLinks, className }: SocialLinksProps) {
     return iconMap[iconName as keyof typeof iconMap] || null;
   };
 
-  // Filter to only show LinkedIn, GitHub  with valid icons
   const filteredSocialLinks = socialLinks.filter(link => {
     const platform = link.platform.toLowerCase();
     return ['linkedin', 'github'].includes(platform) && 
            iconMap[platform as keyof typeof iconMap];
   });
 
-  // Determine if a link is external based on the platform - make this consistent
   const isExternalLink = (platform: string) => {
     return platform !== 'email';
   };
@@ -58,7 +53,7 @@ export function SocialLinks({ socialLinks, className }: SocialLinksProps) {
             asChild
             variant="ghost"
             size="sm"
-            className="group h-12 w-12 rounded-full bg-muted/30 hover:bg-accent/20 text-muted-foreground hover:text-accent transition-all duration-200 space-hover border border-border/50"
+            className="group h-12 w-12 rounded-full bg-card border border-border/30 hover:bg-primary/10 text-muted-foreground hover:text-primary transition-colors duration-200"
           >
             <a
               href={link.url}
