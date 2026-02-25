@@ -1,9 +1,10 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter, JetBrains_Mono, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
 import { LanguageSwitcher } from '@/components/language-switcher';
+import { SmoothScroll } from '@/components/smooth-scroll';
 import { SEO, APP_CONFIG } from '@/lib/constants';
 import { loadPersonalInfo, loadSocialLinks } from '@/lib/data-loader';
 import { getLanguage } from '@/lib/get-language';
@@ -70,11 +71,12 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.ico',
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-  },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default async function RootLayout({
@@ -106,6 +108,7 @@ export default async function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className={`${inter.className} bg-background text-foreground antialiased`}>
+        <SmoothScroll />
         <div className="min-h-screen flex flex-col">
           <div className="print:hidden">
             <Navbar />

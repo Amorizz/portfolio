@@ -2,7 +2,7 @@
   "personalInfo": {
     "fullName": "Amaury Dufrenot",
     "title": "Networks & Telecommunications Engineering Student",
-    "tagline": "Infrastructure · Backend · Systems | Internship Summer 2026",
+    "tagline": "Internship Summer 2026",
     "location": "Paris, France",
     "phone": "+33 6 44 19 68 50",
     "email": "amaury.dufrenot@utt.fr",
@@ -180,8 +180,8 @@
         "category": "Development & DevOps",
         "skills": [
           { "name": "Python", "level": "Intermediate", "yearsOfExperience": 2 },
-          { "name": "TypeScript / JavaScript", "level": "Intermediate", "yearsOfExperience": 1 },
-          { "name": "Next.js / React", "level": "Intermediate", "yearsOfExperience": 1 },
+          { "name": "TypeScript / JavaScript", "level": "Basic", "yearsOfExperience": 1 },
+          { "name": "Next.js / React", "level": "Basic", "yearsOfExperience": 1 },
           { "name": "PostgreSQL / SQL", "level": "Intermediate", "yearsOfExperience": 1 },
           { "name": "Git, CI/CD, Vercel", "level": "Intermediate", "yearsOfExperience": 2 },
           { "name": "Docker", "level": "Intermediate", "yearsOfExperience": 1 }

@@ -134,7 +134,9 @@
   ::-webkit-scrollbar-thumb:hover { background: hsl(var(--primary) / 0.5); }
 
   *:focus-visible { outline: 2px solid hsl(var(--ring)); outline-offset: 2px; }
-  html { scroll-behavior: smooth; }
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto; }
+  .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
   ::selection { background-color: hsl(var(--primary) / 0.2); color: hsl(var(--foreground)); }
 
   h1, h2, h3, h4, h5, h6 {

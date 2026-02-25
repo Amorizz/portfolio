@@ -248,9 +248,13 @@ export default function CVPage({ cvData, lang, pdfMode = false }: CVPageProps) {
                   {cvData.skills.technical.map((cat, i) => (
                     <div key={i}>
                       <p className="text-[10.5px] font-semibold text-white" style={{ marginBottom: '2px' }}>{cat.category}</p>
-                      <p className="text-[9.5px] leading-[1.45]" style={{ color: '#cdd4b8' }}>
-                        {cat.skills.map(s => s.name).join(', ')}
-                      </p>
+                      <div className="flex flex-col" style={{ gap: '2px' }}>
+                        {cat.skills.map((s, j) => (
+                          <p key={j} className="text-[9.5px] leading-[1.45]" style={{ color: '#cdd4b8' }}>
+                            {s.name}{(s.level === 'Base' || s.level === 'Basic') && <span style={{ color: '#9ca3af' }}> ({s.level})</span>}
+                          </p>
+                        ))}
+                      </div>
                     </div>
                   ))}
                 </div>
