@@ -79,4 +79,4 @@ storybook-static
 
 # Generated CV artifacts
 /cv-output/
-/public/cv/
+# /public/cv/
