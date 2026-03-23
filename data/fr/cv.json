@@ -162,10 +162,11 @@
           { "name": "TCP/IP", "level": "Intermédiaire", "yearsOfExperience": 2 },
           { "name": "Routage & Commutation (OSPF, VLAN, STP)", "level": "Intermédiaire", "yearsOfExperience": 2 },
           { "name": "Administration Linux (Debian, Ubuntu)", "level": "Intermédiaire", "yearsOfExperience": 2 },
-          { "name": "Configuration & Dépannage réseau", "level": "Intermédiaire", "yearsOfExperience": 2 },
           { "name": "Cisco Packet Tracer", "level": "Intermédiaire", "yearsOfExperience": 2 },
           { "name": "Wireshark", "level": "Intermédiaire", "yearsOfExperience": 2 },
-          { "name": "DNS, DHCP, HTTP/S, SSH", "level": "Intermédiaire", "yearsOfExperience": 2 }
+          { "name": "DNS, DHCP, HTTP/S, SSH", "level": "Intermédiaire", "yearsOfExperience": 2 },
+          { "name": "MPLS", "level": "Intermédiaire", "yearsOfExperience": 2 },
+          { "name": "BGP", "level": "Intermédiaire", "yearsOfExperience": 2 }
         ]
       },
       {
@@ -184,7 +185,9 @@
           { "name": "Next.js / React", "level": "Base", "yearsOfExperience": 1 },
           { "name": "PostgreSQL / SQL", "level": "Intermédiaire", "yearsOfExperience": 1 },
           { "name": "Git, CI/CD, Vercel", "level": "Intermédiaire", "yearsOfExperience": 2 },
-          { "name": "Docker", "level": "Intermédiaire", "yearsOfExperience": 1 }
+          { "name": "Java", "level": "Intermédiaire", "yearsOfExperience": 2 },
+          { "name": "Docker", "level": "Intermédiaire", "yearsOfExperience": 1 },
+          { "name": "Kubernetes", "level": "Intermédiaire", "yearsOfExperience": 1 }
         ]
       }
     ],

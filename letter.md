@@ -1,20 +1,17 @@
-Hello,
+Bonjour,
 
-My name is Amaury and I am an incoming fourth-year student in Network and Telecommunications Engineering at UTT. I have been hearing about Mistral AI for some time now. Initially seen as a small French startup, Mistral has established itself as the leader in AI in Europe.
+Quand j'ai découvert que FlixBus faisait tourner des millions de calculs temps réel chaque jour — optimisation de sièges, pricing dynamique, prédiction de demande via SnaR, PlaNet et SoothSayR — sur des clusters Kubernetes provisionnés avec Terraform sur AWS, j'ai compris que derrière la plateforme de mobilité se cachait un vrai défi d'infrastructure à grande échelle. C'est exactement ce type de défi que je veux relever.
 
-As someone who is passionate about entrepreneurship, Mistral is, for me, a true example of a startup that has been able to iterate very quickly to become what it is today. I continue to admire all your advances, particularly the recent release of Voxtral, Mistral Vibe 2.0, and the acquisition of Koyeb.
-I have had the opportunity to test your products, such as Voxtral and Mistral 7B (locally via llama.cpp), during a translation project to improve the syntax of AI-generated subtitles. Identifying a problem, finding a technical solution, and presenting it to users is a process that fascinates me, and one that I have been able to put into practice by developing my own SaaS project.
+Je suis étudiant ingénieur en 4ème année Réseaux & Télécommunications à l'UTT, et je recherche un stage de 6 mois à partir de l'été 2026. Mon parcours m'a donné des bases solides en administration Linux, TCP/IP, routage (OSPF, VLAN, STP), Docker et monitoring réseau (Wireshark, Nmap). J'ai conçu un serveur d'archives TCP client-serveur en Bash avec gestion de requêtes séquentielles et journalisation, et j'ai architecturé un pipeline multi-services (FastAPI, Whisper, Mistral 7B) déployé de bout en bout — des projets où j'ai touché à l'infrastructure autant qu'au code.
 
+Au-delà de la technique, j'ai un profil orienté action : j'ai fondé Novad, une plateforme SaaS déployée en production (Next.js, PostgreSQL, Vercel) avec moteur de recommandation vectoriel et 700+ pages générées. Concevoir, déployer et maintenir un service de A à Z dans des délais serrés, c'est ce que je fais au quotidien. Cette rigueur vient aussi de 15 ans de tennis en compétition (classé 15/4), qui m'ont appris la discipline et la constance dans l'effort.
 
-To give you an idea of who I am on a daily basis: I am curious by nature and love learning and facing real problems to solve them. I also played competitive tennis for 15 years (up to 15/4) and work out every day. This has given me the discipline and determination to achieve my goals. To relax, I enjoy playing music, reading, or spending time with my friends.
+Ce qui m'attire chez Flix, c'est la dimension plateforme : un Data Mesh Kafka servant 50+ équipes, une migration cloud qui a libéré 60% du temps d'ingénierie vers l'innovation, et des systèmes temps réel critiques à maintenir fiables à l'échelle mondiale. Que ce soit sur de l'infrastructure cloud, du DevOps, de l'AIOps ou de l'architecture plateforme, je suis convaincu de pouvoir apporter une vraie contribution à vos équipes.
 
-As a network engineering student, it is the challenges related to your infrastructure that interest me the most. I would love to join one of your teams to contribute to the development of Mistral AI.
+Je serais ravi d'en discuter avec vous. Vous trouverez mon CV ci-joint et mon portfolio en ligne pour un aperçu complet de mes réalisations.
 
-Please find attached my resume for a more detailed overview of my skills. I hope to have the opportunity to discuss this further with your teams soon.
-
-Thank you for taking the time to read my letter.
-Sincerely,
+Cordialement,
 
 Amaury DUFRENOT
-My portfolio: amaury-dufrenot.com
+Portfolio : amaury-dufrenot.com
 +33 6 44 19 68 50
