@@ -95,7 +95,7 @@ function generateLatex(cvData, lang, avatarAbsPath) {
   const contactRows = [
     `\\contactrow{\\iconEnvelope}{\\href{mailto:${info.email}}{${tex(info.email)}}}`,
     `\\contactrow{\\iconPin}{${tex(info.location)}}`,
-    `\\contactrow{\\iconGlobe}{\\href{${info.website}}{amaury-dufrenot.com}}`,
+    `\\contactrow{\\iconGlobe}{\\href{${info.website}}{amaury-dufrenot.me}}`,
     `\\contactrow{\\iconLinkedin}{\\href{${info.linkedin}}{/amaury-dufrenot}}`,
     `\\contactrow{\\iconGithub}{\\href{${info.github}}{/Amorizz}}`,
   ].join('\n');

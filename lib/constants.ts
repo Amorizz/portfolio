@@ -31,7 +31,7 @@ export const THEME: ThemeConfig = {
 export const APP_CONFIG = {
   name: 'Amaud Portfolio',
   description: 'Personal portfolio showcasing authentic personality, ambition, passion, and obsession',
-  url: 'https://amaury-dufrenot.com', // Update with your actual domain
+  url: 'https://amaury-dufrenot.me', // Update with your actual domain
   author: 'Amaury DUFRENOT',
   keywords: [
     'portfolio',

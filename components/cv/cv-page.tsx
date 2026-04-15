@@ -231,7 +231,7 @@ export default function CVPage({ cvData, lang, pdfMode = false }: CVPageProps) {
                     <span className="text-[10.5px]">{cvData.personalInfo.location}</span>
                   </SidebarRow>
                   <SidebarRow icon={<Globe className="h-3 w-3" />}>
-                    <a href={cvData.personalInfo.website} target="_blank" rel="noopener noreferrer" className="text-[10.5px]">amaury-dufrenot.com</a>
+                    <a href={cvData.personalInfo.website} target="_blank" rel="noopener noreferrer" className="text-[10.5px]">amaury-dufrenot.me</a>
                   </SidebarRow>
                   <SidebarRow icon={<Linkedin className="h-3 w-3" />}>
                     <a href={cvData.personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="text-[10.5px]">/amaury-dufrenot</a>

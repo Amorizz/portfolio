@@ -10,7 +10,7 @@ I have hands-on experience with Linux, TCP/IP, routing (OSPF, VLAN, STP), Docker
 
 Qovery abstracts the complexity of Kubernetes for dev teams while running on their own cloud accounts. That is a product where infrastructure reliability is the product itself. As someone studying networks and learning how distributed systems break, I find that genuinely exciting to work on.
 
-I have attached my resume. My portfolio is at amaury-dufrenot.com.
+I have attached my resume. My portfolio is at amaury-dufrenot.me.
 
 Happy to chat whenever works for you.
 

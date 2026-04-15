@@ -7,7 +7,7 @@ Côté projets personnels, j'ai construit un serveur d'archives TCP en Bash avec
 
 Que ce soit sur de l'analyse CTI, de la détection, ou du travail plus proche de l'infrastructure de votre plateforme, je cherche un environnement où je peux apprendre vite au contact d'ingénieurs expérimentés. Sekoia construit un vrai produit de cybersécurité en France, et c'est le genre d'endroit où j'ai envie de faire mon stage.
 
-Je vous joins mon CV. Mon portfolio est disponible sur amaury-dufrenot.com.
+Je vous joins mon CV. Mon portfolio est disponible sur amaury-dufrenot.me.
 
 Cordialement,
 

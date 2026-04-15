@@ -113,7 +113,7 @@
     "imageAlt": "Site portfolio moderne présentant des projets avec un design à thème sombre",
     "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "Vercel"],
     "githubUrl": "https://github.com/Amorizz/portfolio",
-    "liveUrl": "https://amaury-dufrenot.com",
+    "liveUrl": "https://amaury-dufrenot.me",
     "featured": false,
     "order": 5,
     "createdAt": "2025-10-01T00:00:00Z",

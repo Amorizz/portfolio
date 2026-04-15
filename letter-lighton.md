@@ -10,7 +10,7 @@ En dehors des cours, j'ai fondé Novad, une plateforme SaaS que j'ai déployée 
 
 Je ne suis pas un profil ML, et je ne prétends pas l'être. Mais je pense qu'une plateforme qui se déploie chez des clients en on-premise et en air-gapped a besoin de gens qui comprennent le réseau, la sécurité, et l'infra. Si ce type de profil peut être utile à vos équipes, je serais ravi d'en discuter.
 
-Je vous joins mon CV. Mon portfolio est sur amaury-dufrenot.com.
+Je vous joins mon CV. Mon portfolio est sur amaury-dufrenot.me.
 
 Cordialement,
 

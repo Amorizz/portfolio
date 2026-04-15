@@ -8,7 +8,7 @@ On the VPN and connectivity side, I built a small project creating hackable lab 
 
 What makes Skynopy stand out to me is that the infrastructure is not abstract. It is physical racks, real antennas, and real satellite data flowing through systems you build and secure. The recent Airbus partnership on Pleiades Neo and the SkyFortress experiment with the French Defense Innovation Agency show that what you ship actually matters. I want to learn in that kind of environment.
 
-I am available for 6 months starting summer 2026. You will find my resume attached and my portfolio at amaury-dufrenot.com.
+I am available for 6 months starting summer 2026. You will find my resume attached and my portfolio at amaury-dufrenot.me.
 
 Best regards,
 

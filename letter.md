@@ -13,5 +13,5 @@ Je serais ravi d'en discuter avec vous. Vous trouverez mon CV ci-joint et mon po
 Cordialement,
 
 Amaury DUFRENOT
-Portfolio : amaury-dufrenot.com
+Portfolio : amaury-dufrenot.me
 +33 6 44 19 68 50

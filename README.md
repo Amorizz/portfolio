@@ -237,7 +237,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Amaury Dufrenot**
 
-- Website: [amaury-dufrenot.com](https://amaury-dufrenot.com)
+- Website: [amaury-dufrenot.me](https://amaury-dufrenot.me)
 - GitHub: [@Amorizz](https://github.com/Amorizz)
 - LinkedIn: [amaury-dufrenot](https://linkedin.com/in/amaury-dufrenot)
 

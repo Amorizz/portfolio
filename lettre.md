@@ -16,5 +16,5 @@ Merci d'avoir pris le temps de me lire.
 Cordialement,
 
 Amaury DUFRENOT
-Mon portfolio : amaury-dufrenot.com
+Mon portfolio : amaury-dufrenot.me
 +33 6 44 19 68 50
