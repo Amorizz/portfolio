@@ -19,7 +19,7 @@
       { "name": "Chinese", "level": "Basic (A2)" }
     ]
   },
-  "professionalSummary": "Incoming 4th-year engineering student at UTT in Networks & Telecommunications. Passionate about entrepreneurship and new technologies. Enjoys designing and building end-to-end solutions. Seeking a 6-month internship for summer 2026 to develop skills in infrastructure, development, and deployment.",
+  "professionalSummary": "Networks & Telecom engineering student at UTT. Founded and shipped a SaaS platform in production (250+ users, 3k daily impressions). Hands-on with Linux, TCP/IP, Docker, Python, and cybersecurity tools. Seeking a 6-month infrastructure internship starting summer 2026.",
   "education": [
     {
       "id": "1",
@@ -75,9 +75,9 @@
       "description": "City recommendation SaaS platform matching user profiles to 300+ destinations using vector-based scoring.",
       "responsibilities": [],
       "achievements": [
-        "Designed and deployed a full-stack SaaS platform end-to-end: database schema, API layer, frontend, and production infrastructure (Next.js, PostgreSQL, Vercel)",
-        "Implemented a vector-based recommendation engine scoring 300+ cities against user profiles using Euclidean distance computation",
-        "Built a programmatic SEO engine generating 700+ structured content pages (city guides, country directories, data-driven rankings)"
+        "Shipped a full-stack SaaS platform from idea to production, reaching 250+ users and ~5 signups/day within 2 months (Next.js, PostgreSQL, Vercel)",
+        "Built a vector-based recommendation engine scoring 300+ cities against user profiles using Euclidean distance computation",
+        "Grew organic traffic to 3,000+ daily impressions through a programmatic SEO engine generating 700+ structured content pages"
       ],
       "technologies": ["Next.js", "TypeScript", "PostgreSQL", "Vercel", "SEO"]
     },
@@ -121,14 +121,14 @@
       "features": []
     },
     {
-      "id": "pocket-imperium",
-      "name": "Pocket Imperium",
+      "id": "security-labs",
+      "name": "Hackable Security Labs",
       "role": "Developer",
-      "startDate": "2024-04",
-      "endDate": "2024-06",
+      "startDate": "2025-09",
+      "endDate": "2025-12",
       "current": false,
-      "shortDescription": "Developed a multiplayer strategy game engine in Java supporting 2-4 concurrent players with simultaneous command processing, state management, and a dual-interface system (Swing GUI + console). Implemented game logic for fleet movement, territory control, and combat resolution.",
-      "technologies": ["Java", "Swing/AWT", "OOP", "State Management"],
+      "shortDescription": "Built isolated penetration testing environments using OpenVPN with full PKI certificate management (CA setup, certificate generation and distribution). Configured secure tunnel infrastructure with importable Docker images for reproducible lab deployment. Used for hands-on security training scenarios including network reconnaissance and vulnerability testing.",
+      "technologies": ["OpenVPN", "PKI", "Docker", "Linux", "Bash", "Kali Linux"],
       "features": []
     },
     {
@@ -149,7 +149,7 @@
       "startDate": "2025-04",
       "endDate": "2025-06",
       "current": false,
-      "shortDescription": "Built a finance tracking app with drag-and-drop dashboard, per-category budget tracking, and OpenAI-powered transaction auto-categorization. Awarded Best Public Speaking and Outstanding Business Potential at Shanghai University.",
+      "shortDescription": "Built a finance tracking app with drag-and-drop dashboard, per-category budget tracking, and OpenAI-powered transaction auto-categorization. Pitched to 50+ participants at Shanghai University and awarded Best Public Speaking and Outstanding Business Potential.",
       "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "OpenAI API"],
       "features": []
     }
@@ -165,8 +165,8 @@
           { "name": "Cisco Packet Tracer", "level": "Intermediate", "yearsOfExperience": 2 },
           { "name": "Wireshark", "level": "Intermediate", "yearsOfExperience": 2 },
           { "name": "DNS, DHCP, HTTP/S, SSH", "level": "Intermediate", "yearsOfExperience": 2 },
-          { "name": "MPLS", "level": "Intermediate", "yearsOfExperience": 2 },
-          { "name": "BGP", "level": "Intermediate", "yearsOfExperience": 2 }
+          { "name": "MPLS", "level": "Basic", "yearsOfExperience": 1 },
+          { "name": "BGP", "level": "Basic", "yearsOfExperience": 1 }
         ]
       },
       {
@@ -181,13 +181,13 @@
         "category": "Development & DevOps",
         "skills": [
           { "name": "Python", "level": "Intermediate", "yearsOfExperience": 2 },
-          { "name": "TypeScript / JavaScript", "level": "Basic", "yearsOfExperience": 1 },
-          { "name": "Next.js / React", "level": "Basic", "yearsOfExperience": 1 },
+          { "name": "TypeScript / JavaScript", "level": "Intermediate", "yearsOfExperience": 1 },
+          { "name": "Next.js / React", "level": "Intermediate", "yearsOfExperience": 1 },
           { "name": "PostgreSQL / SQL", "level": "Intermediate", "yearsOfExperience": 1 },
           { "name": "Git, CI/CD, Vercel", "level": "Intermediate", "yearsOfExperience": 2 },
           { "name": "Java", "level": "Intermediate", "yearsOfExperience": 2 },
           { "name": "Docker", "level": "Intermediate", "yearsOfExperience": 1 },
-          { "name": "Kubernetes", "level": "Intermediate", "yearsOfExperience": 1 }
+          { "name": "Kubernetes", "level": "Basic", "yearsOfExperience": 1 }
         ]
       }
     ],
@@ -214,15 +214,6 @@
       "id": "2",
       "name": "American Dual Diploma",
       "issuer": "Dual Diploma Program",
-      "issueDate": "2022-06",
-      "expiryDate": null,
-      "status": "Obtained",
-      "description": ""
-    },
-    {
-      "id": "3",
-      "name": "Baccalaureat Mention Bien",
-      "issuer": "Lycee Sophie Barat",
       "issueDate": "2022-06",
       "expiryDate": null,
       "status": "Obtained",

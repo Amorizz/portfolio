@@ -1,11 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { CheckCircle, Clock, ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Certification } from '@/lib/types';
 import { BlurFade } from '@/components/magicui/blur-fade';
 import { MagicCard } from '@/components/magicui/magic-card';
+import { useLanguage } from '@/lib/use-language';
 import Link from 'next/link';
 
 interface CertificationsStackProps {
@@ -37,12 +37,7 @@ const statusConfig = {
 };
 
 export function CertificationsStack({ certifications, title, subtitle, className }: CertificationsStackProps) {
-  const [lang, setLang] = useState<'en' | 'fr'>('en');
-
-  useEffect(() => {
-    const saved = localStorage.getItem('preferred-language');
-    setLang(saved === 'fr' ? 'fr' : 'en');
-  }, []);
+  const { language: lang } = useLanguage();
 
   const viewLabel = lang === 'fr' ? 'Voir' : 'View';
 

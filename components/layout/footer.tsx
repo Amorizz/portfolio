@@ -1,21 +1,16 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowUp, Github, Linkedin, Mail } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { FooterProps } from '@/lib/types';
 import { getNavigation } from '@/lib/get-navigation';
+import { useLanguage } from '@/lib/use-language';
 
 export function Footer({ socialLinks, personalInfo, className }: FooterProps) {
-  const [lang, setLang] = useState<'en' | 'fr'>('en');
+  const { language } = useLanguage();
 
-  useEffect(() => {
-    const saved = localStorage.getItem('preferred-language');
-    setLang((saved === 'fr' ? 'fr' : 'en'));
-  }, []);
-
-  const navigation = getNavigation(lang);
+  const navigation = getNavigation(language);
   const currentYear = new Date().getFullYear();
   const linkedIn = socialLinks.find((l) => l.platform === 'linkedin');
   const github = socialLinks.find((l) => l.platform === 'github');

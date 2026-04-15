@@ -6,18 +6,15 @@ import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { getNavigation } from '@/lib/get-navigation';
+import { useLanguage } from '@/lib/use-language';
+import { FrFlag, GbFlag } from '@/components/ui/flags';
 import { NavbarProps } from '@/lib/types';
 
 export function Navbar({ className }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [lang, setLang] = useState<'en' | 'fr'>('en');
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-
-  useEffect(() => {
-    const saved = localStorage.getItem('preferred-language');
-    setLang(saved === 'fr' ? 'fr' : 'en');
-  }, []);
+  const { language, toggleLanguage } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 30);
@@ -34,15 +31,10 @@ export function Navbar({ className }: NavbarProps) {
     return () => { document.body.style.overflow = ''; };
   }, [isOpen]);
 
-  const NAVIGATION = getNavigation(lang);
+  const NAVIGATION = getNavigation(language);
   const closeMenu = () => setIsOpen(false);
 
-  const toggleLang = () => {
-    const next = lang === 'en' ? 'fr' : 'en';
-    setLang(next);
-    localStorage.setItem('preferred-language', next);
-    window.location.reload();
-  };
+  const CurrentFlag = language === 'en' ? GbFlag : FrFlag;
 
   return (
     <header className={cn('fixed top-0 left-0 right-0 z-50', className)}>
@@ -76,25 +68,13 @@ export function Navbar({ className }: NavbarProps) {
           <div className="hidden md:block w-px h-5 bg-border/30 mx-1" />
 
           <button
-            onClick={toggleLang}
-            className="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-full hover:bg-secondary/60 transition-colors leading-none"
-            aria-label={lang === 'en' ? 'Switch to French' : 'Switch to English'}
+            onClick={toggleLanguage}
+            className="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-full hover:bg-secondary/60 transition-all duration-200 group"
+            aria-label={language === 'en' ? 'Switch to French' : 'Switch to English'}
           >
-            {lang === 'en' ? (
-              <svg viewBox="0 0 640 480" className="size-5 rounded-sm" aria-hidden="true">
-                <path fill="#012169" d="M0 0h640v480H0z" />
-                <path fill="#FFF" d="m75 0 244 181L562 0h78v62L400 241l240 178v61h-80L320 301 81 480H0v-60l239-178L0 64V0z" />
-                <path fill="#C8102E" d="m424 281 216 159v40L369 281zm-184 20 6 35L54 480H0zM640 0v3L391 191l2-44L590 0zM0 0l239 176h-60L0 42z" />
-                <path fill="#FFF" d="M241 0v480h160V0zM0 160v160h640V160z" />
-                <path fill="#C8102E" d="M0 193v96h640v-96zM273 0v480h96V0z" />
-              </svg>
-            ) : (
-              <svg viewBox="0 0 640 480" className="size-5 rounded-sm" aria-hidden="true">
-                <path fill="#002395" d="M0 0h213.3v480H0z" />
-                <path fill="#fff" d="M213.3 0h213.4v480H213.3z" />
-                <path fill="#ed2939" d="M426.7 0H640v480H426.7z" />
-              </svg>
-            )}
+            <div className="relative w-5 h-3.5 rounded-[3px] overflow-hidden ring-1 ring-black/10 group-hover:ring-black/20 transition-all">
+              <CurrentFlag className="w-full h-full" />
+            </div>
           </button>
 
           <button
@@ -134,24 +114,15 @@ export function Navbar({ className }: NavbarProps) {
             })}
             <div className="mt-6">
               <button
-                onClick={() => { toggleLang(); closeMenu(); }}
-                className="transition-opacity hover:opacity-70"
+                onClick={() => { toggleLanguage(); closeMenu(); }}
+                className="flex items-center gap-3 px-5 py-3 rounded-full bg-secondary/40 hover:bg-secondary/60 transition-all duration-200"
               >
-                {lang === 'en' ? (
-                  <svg viewBox="0 0 640 480" className="w-10 h-7 rounded" aria-hidden="true">
-                    <path fill="#012169" d="M0 0h640v480H0z" />
-                    <path fill="#FFF" d="m75 0 244 181L562 0h78v62L400 241l240 178v61h-80L320 301 81 480H0v-60l239-178L0 64V0z" />
-                    <path fill="#C8102E" d="m424 281 216 159v40L369 281zm-184 20 6 35L54 480H0zM640 0v3L391 191l2-44L590 0zM0 0l239 176h-60L0 42z" />
-                    <path fill="#FFF" d="M241 0v480h160V0zM0 160v160h640V160z" />
-                    <path fill="#C8102E" d="M0 193v96h640v-96zM273 0v480h96V0z" />
-                  </svg>
-                ) : (
-                  <svg viewBox="0 0 640 480" className="w-10 h-7 rounded" aria-hidden="true">
-                    <path fill="#002395" d="M0 0h213.3v480H0z" />
-                    <path fill="#fff" d="M213.3 0h213.4v480H213.3z" />
-                    <path fill="#C8102E" d="M0 193v96h640v-96zM273 0v480h96V0z" />
-                  </svg>
-                )}
+                <div className="relative w-8 h-5.5 rounded overflow-hidden ring-1 ring-black/10">
+                  <CurrentFlag className="w-full h-full" />
+                </div>
+                <span className="text-sm font-medium text-muted-foreground">
+                  {language === 'en' ? 'Passer en Francais' : 'Switch to English'}
+                </span>
               </button>
             </div>
           </div>

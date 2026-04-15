@@ -8,6 +8,7 @@ import { ProjectCardProps } from '@/lib/types';
 import { EXTERNAL_LINKS } from '@/lib/constants';
 import { MagicCard } from '@/components/magicui/magic-card';
 import { BorderBeam } from '@/components/magicui/border-beam';
+import { useLanguage } from '@/lib/use-language';
 
 const TECH_COLORS: Record<string, string> = {
   'Next.js': 'bg-foreground/10 text-foreground/90',
@@ -34,12 +35,7 @@ interface ExtendedProjectCardProps extends ProjectCardProps {
 }
 
 export function ProjectCard({ project, index, className }: ExtendedProjectCardProps) {
-  const [lang, setLang] = useState<'en' | 'fr'>('en');
-
-  useEffect(() => {
-    const saved = localStorage.getItem('preferred-language');
-    setLang(saved === 'fr' ? 'fr' : 'en');
-  }, []);
+  const { language: lang } = useLanguage();
 
   const techs = formatTechnologies(project.technologies);
 
@@ -131,14 +127,8 @@ interface ProjectHeroCardProps extends ProjectCardProps {
 }
 
 export function ProjectHeroCard({ project, className, lang: langProp }: ProjectHeroCardProps) {
-  const [lang, setLang] = useState<'en' | 'fr'>(langProp === 'fr' ? 'fr' : 'en');
-
-  useEffect(() => {
-    if (!langProp) {
-      const saved = localStorage.getItem('preferred-language');
-      setLang(saved === 'fr' ? 'fr' : 'en');
-    }
-  }, [langProp]);
+  const { language: hookLang } = useLanguage();
+  const lang = langProp === 'fr' ? 'fr' : langProp === 'en' ? 'en' : hookLang;
 
   const techs = formatTechnologies(project.technologies);
 

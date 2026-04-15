@@ -133,7 +133,7 @@ export default function CVPage({ cvData, lang, pdfMode = false }: CVPageProps) {
   const projectPriority: Record<string, number> = {
     'archive-server': 1,
     'translate-project': 2,
-    'pocket-imperium': 3,
+    'security-labs': 3,
     'play-tennis-everywhere': 4,
     'tiny-habits': 5,
   };
@@ -152,8 +152,9 @@ export default function CVPage({ cvData, lang, pdfMode = false }: CVPageProps) {
       'drag-and-drop', 'Mistral 7B', 'llama.cpp',
       'PostgreSQL', 'TypeScript', 'Streamlit', 'Supabase',
       'Next.js', 'FastAPI', 'Whisper', 'M2M100', 'OpenAI',
+      'OpenVPN', 'PKI', 'Docker', 'Kali Linux',
       'netcat', 'Python', 'Bash', 'Java', 'Swing',
-      'TCP', 'SEO', '700+', '300+',
+      'TCP', 'SEO', '700+', '300+', '250+', '3,000+', '3 000+', '50+',
     ];
 
     const escaped = keywords.map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));

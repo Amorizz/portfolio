@@ -19,7 +19,7 @@
       { "name": "Chinois", "level": "Débutant (A2)" }
     ]
   },
-  "professionalSummary": "Étudiant ingénieur entrant en 4ème année à l'UTT en Réseaux & Télécommunications. Passionné par l'entrepreneuriat et les nouvelles technologies. J'aime concevoir et développer des solutions de bout en bout. Je recherche un stage de 6 mois pour l'été 2026 pour développer mes compétences en infrastructure, développement et déploiement.",
+  "professionalSummary": "Étudiant ingénieur Réseaux & Télécommunications à l'UTT. Fondateur d'une plateforme SaaS en production (250+ utilisateurs, 3k impressions/jour). Maitrise de Linux, TCP/IP, Docker, Python et outils de cybersécurité. Recherche un stage de 6 mois en infrastructure à partir de l'été 2026.",
   "education": [
     {
       "id": "1",
@@ -75,9 +75,9 @@
       "description": "Plateforme SaaS de recommandation de villes associant les profils utilisateurs à 300+ destinations par scoring vectoriel.",
       "responsibilities": [],
       "achievements": [
-        "Conçu et déployé une plateforme SaaS complète de bout en bout : schéma BDD, couche API, frontend et infrastructure de production (Next.js, PostgreSQL, Vercel)",
-        "Implémenté un moteur de recommandation vectoriel scorant 300+ villes par calcul de distance euclidienne sur les profils utilisateurs",
-        "Développé un moteur SEO programmatique générant 700+ pages de contenu structuré (guides villes, répertoires pays, classements data-driven)"
+        "Livré une plateforme SaaS complète de l'idée à la production, atteignant 250+ utilisateurs et ~5 inscriptions/jour en 2 mois (Next.js, PostgreSQL, Vercel)",
+        "Conçu un moteur de recommandation vectoriel scorant 300+ villes par calcul de distance euclidienne sur les profils utilisateurs",
+        "Généré 3 000+ impressions quotidiennes grâce à un moteur SEO programmatique produisant 700+ pages de contenu structuré"
       ],
       "technologies": ["Next.js", "TypeScript", "PostgreSQL", "Vercel", "SEO"]
     },
@@ -121,14 +121,14 @@
       "features": []
     },
     {
-      "id": "pocket-imperium",
-      "name": "Pocket Imperium",
+      "id": "security-labs",
+      "name": "Labs de sécurité",
       "role": "Développeur",
-      "startDate": "2024-04",
-      "endDate": "2024-06",
+      "startDate": "2025-09",
+      "endDate": "2025-12",
       "current": false,
-      "shortDescription": "Développé un moteur de jeu de stratégie multijoueur en Java supportant 2-4 joueurs simultanés avec traitement de commandes concurrentes, gestion d'état et double interface (GUI Swing + console). Implémenté la logique de jeu : déplacement de flottes, contrôle de territoire et résolution de combat.",
-      "technologies": ["Java", "Swing/AWT", "POO", "Gestion d'état"],
+      "shortDescription": "Construit des environnements isolés de pentesting avec OpenVPN et gestion complète de PKI (création de CA, génération et distribution de certificats). Configuré une infrastructure de tunnels sécurisés avec images Docker importables pour un déploiement reproductible. Utilisé pour des scénarios de formation en sécurité incluant reconnaissance réseau et tests de vulnérabilité.",
+      "technologies": ["OpenVPN", "PKI", "Docker", "Linux", "Bash", "Kali Linux"],
       "features": []
     },
     {
@@ -149,7 +149,7 @@
       "startDate": "2025-04",
       "endDate": "2025-06",
       "current": false,
-      "shortDescription": "Développé une application de suivi financier avec tableau de bord drag-and-drop, suivi de budget par catégorie et catégorisation automatique des transactions via l'API OpenAI. Récompensé par les prix Best Public Speaking et Outstanding Business Potential à Shanghai University.",
+      "shortDescription": "Développé une application de suivi financier avec tableau de bord drag-and-drop, suivi de budget par catégorie et catégorisation automatique des transactions via l'API OpenAI. Pitché devant 50+ participants à Shanghai University, récompensé par les prix Best Public Speaking et Outstanding Business Potential.",
       "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "OpenAI API"],
       "features": []
     }
@@ -165,8 +165,8 @@
           { "name": "Cisco Packet Tracer", "level": "Intermédiaire", "yearsOfExperience": 2 },
           { "name": "Wireshark", "level": "Intermédiaire", "yearsOfExperience": 2 },
           { "name": "DNS, DHCP, HTTP/S, SSH", "level": "Intermédiaire", "yearsOfExperience": 2 },
-          { "name": "MPLS", "level": "Intermédiaire", "yearsOfExperience": 2 },
-          { "name": "BGP", "level": "Intermédiaire", "yearsOfExperience": 2 }
+          { "name": "MPLS", "level": "Base", "yearsOfExperience": 1 },
+          { "name": "BGP", "level": "Base", "yearsOfExperience": 1 }
         ]
       },
       {
@@ -181,13 +181,13 @@
         "category": "Développement & DevOps",
         "skills": [
           { "name": "Python", "level": "Intermédiaire", "yearsOfExperience": 2 },
-          { "name": "TypeScript / JavaScript", "level": "Base", "yearsOfExperience": 1 },
-          { "name": "Next.js / React", "level": "Base", "yearsOfExperience": 1 },
+          { "name": "TypeScript / JavaScript", "level": "Intermédiaire", "yearsOfExperience": 1 },
+          { "name": "Next.js / React", "level": "Intermédiaire", "yearsOfExperience": 1 },
           { "name": "PostgreSQL / SQL", "level": "Intermédiaire", "yearsOfExperience": 1 },
           { "name": "Git, CI/CD, Vercel", "level": "Intermédiaire", "yearsOfExperience": 2 },
           { "name": "Java", "level": "Intermédiaire", "yearsOfExperience": 2 },
           { "name": "Docker", "level": "Intermédiaire", "yearsOfExperience": 1 },
-          { "name": "Kubernetes", "level": "Intermédiaire", "yearsOfExperience": 1 }
+          { "name": "Kubernetes", "level": "Base", "yearsOfExperience": 1 }
         ]
       }
     ],
@@ -214,15 +214,6 @@
       "id": "2",
       "name": "Dual Diploma américain",
       "issuer": "Programme Dual Diploma",
-      "issueDate": "2022-06",
-      "expiryDate": null,
-      "status": "Obtenu",
-      "description": ""
-    },
-    {
-      "id": "3",
-      "name": "Baccalauréat Mention Bien",
-      "issuer": "Lycée Sophie Barat",
       "issueDate": "2022-06",
       "expiryDate": null,
       "status": "Obtenu",
