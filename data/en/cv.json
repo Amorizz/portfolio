@@ -110,14 +110,14 @@
       "features": []
     },
     {
-      "id": "translate-project",
-      "name": "Translate Project",
-      "role": "Developer",
-      "startDate": "2025-01",
-      "endDate": "2025-03",
+      "id": "mini-datacenter",
+      "name": "Mini Green Datacenter",
+      "role": "Infra Architect",
+      "startDate": "2026-01",
+      "endDate": "2026-01",
       "current": false,
-      "shortDescription": "Architected a multi-service pipeline with FastAPI backend exposing REST endpoints and Streamlit frontend for file management. Integrated three ML models in a single workflow: Whisper (speech-to-text), M2M100 (EN→FR translation), and Mistral 7B (subtitle refinement via llama.cpp). Built subtitle post-processing module for SRT cleanup, segment splitting, and AI-enhanced phrasing.",
-      "technologies": ["Python", "FastAPI", "Whisper", "M2M100", "Mistral 7B", "PyTorch"],
+      "shortDescription": "Designed a hybrid eco-friendly hosting architecture during CRUNCH hackathon (UTT, 3 days). Segmented network infrastructure (WAN/DMZ/LAN) with Cisco firewall, secured VPN to external provider, reverse proxy and DNS. Deployed containerized web services (Docker/LXC) on Dell R710 server and Raspberry Pi, with energy consumption measurement and comparison via smart plugs.",
+      "technologies": ["Docker", "LXC", "Cisco", "VPN", "DNS", "Reverse Proxy", "Raspberry Pi", "Linux"],
       "features": []
     },
     {

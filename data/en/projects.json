@@ -90,19 +90,19 @@
     "updatedAt": "2025-06-01T00:00:00Z"
   },
   {
-    "id": "translate-project",
-    "title": "Translate Project",
-    "shortDescription": "AI-powered video transcription and subtitle translation pipeline. Transcribe speech, enhance subtitles, and translate from English to French.",
-    "detailedDescription": "Translate Project is a full-stack pipeline that converts video files into translated subtitles. It combines speech recognition, subtitle post-processing, and machine translation into a single workflow.\n\nThe backend uses FastAPI to expose two endpoints: /transcribe (powered by faster-whisper for speech-to-text) and /translate_srt (using Meta's M2M100 multilingual model for EN→FR translation). A Streamlit frontend provides an intuitive UI for uploading videos, previewing transcriptions, and downloading translated SRT files.\n\nThe translator module includes a subtitle splitter for cleaning and restructuring raw SRT segments, and an AI enhancer that uses a local Mistral 7B model (via llama.cpp) to refine subtitle phrasing for natural readability.\n\nBuilt as a university project at UTT with a team of three, combining NLP, local LLM inference, and full-stack web development.",
+    "id": "mini-datacenter",
+    "title": "Mini Green Datacenter",
+    "shortDescription": "Eco-friendly hybrid hosting architecture designed during CRUNCH hackathon (UTT). Segmented network infrastructure, containerized services and energy consumption measurement.",
+    "detailedDescription": "Project built during CRUNCH, a 3-day hackathon at UTT focused on AI and Green technologies for IT systems. The goal was to design a hybrid, performant and eco-responsible hosting architecture for a company looking to internalize its infrastructure.\n\nSet up a segmented network infrastructure (WAN/DMZ/LAN) with Cisco firewall, NAT and filtering. Configured a secured VPN to an external provider via L2 link, deployed reverse proxy and DNS to expose client web services.\n\nDeployed containerized web services (Docker/LXC) on a Dell R710 server and Raspberry Pi. Measured and compared energy consumption between both platforms using smart plugs, with technical justification of hosting choices (VM vs containers vs LXC).\n\nTeam project with 6 students, with final deliverables including network and system architecture diagrams, technical choices presentation and live demonstration.",
     "image": null,
-    "imageAlt": "Translate Project subtitle translation interface",
-    "technologies": ["Python", "FastAPI", "Streamlit", "Whisper", "M2M100", "Mistral 7B", "llama.cpp", "PyTorch"],
-    "githubUrl": "https://github.com/Amorizz/translate-project",
+    "imageAlt": "Mini Green Datacenter architecture with network segmentation",
+    "technologies": ["Docker", "LXC", "Cisco", "VPN", "DNS", "Reverse Proxy", "Raspberry Pi", "Linux"],
+    "githubUrl": null,
     "liveUrl": null,
     "featured": true,
     "order": 2,
-    "createdAt": "2025-01-01T00:00:00Z",
-    "updatedAt": "2025-03-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "updatedAt": "2026-01-03T00:00:00Z"
   },
   {
     "id": "portfolio-website",

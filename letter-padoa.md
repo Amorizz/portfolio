@@ -1,16 +1,16 @@
-Bonjour,
+Bonjour Madame, Monsieur,
 
-Je suis étudiant ingénieur en Réseaux & Télécoms à l'UTT et je cherche un stage de 6 mois à partir de l'été 2026. Votre offre de stage DevOps SRE m'a tout de suite intéressé car c'est exactement le type d'environnement dans lequel je veux progresser : un environnement de production avec de réels enjeux de fiabilité et de sécurité.
+Je suis étudiant en Réseaux & Télécommunications à l'UTT et cette offre de stage DevOps SRE m'intéresse particulièrement. J'ai toujours adoré la tech et plus particulièrement les startups tech. C'est un environnement que je souhaite découvrir et dans lequel j'aspire à évoluer.
 
-Grâce à mon parcours académique et à travers mes projets personnels, j'ai des bases solides en Linux, Kubernetes, Docker, Bash ainsi que les principaux protocoles réseau TCP/IP. J'ai construit un serveur TCP en Bash (gestion de requêtes, journalisation), monté des labs OpenVPN avec PKI complète, et déployé un pipeline multi-services de bout en bout avec FastAPI et plusieurs modèles ML. Ce sont des projets qui m'ont permis de comprendre l'importance de la fiabilité et de la sécurité dans un environnement de production.
+Grâce à ma formation, j'ai appris à maîtriser Linux, Docker, Kubernetes, Python ainsi que l'ensemble des principes fondamentaux du réseau (TCP/IP, routage, MPLS, BGP). Je dirais que mes compétences les plus précieuses sont ma curiosité, ma volonté d'apprendre et ma capacité à mettre en place une solution rapidement, que j'ai développées à travers des projets personnels tels qu'une application novad.app (+1000 users), un pipeline de traduction de vidéo (Mistral, Llama.cpp), des labs OpenVPN avec PKI complète ou encore un serveur d'archive en bash pur.
 
-À côté de ça, j'ai fondé Novad, un SaaS en production avec 900+ utilisateurs (Next.js, PostgreSQL, Vercel). Gérer un service en prod m'a appris des choses qu'on n'apprend pas en cours : les déploiements qui cassent, le debugging à chaud, la disponibilité. C'est à une autre échelle que ce que vous gérez, mais l'état d'esprit reste le même.
+Je vous incite grandement à consulter mon portfolio où se trouve l'ensemble de mes projets, pour vous permettre de mieux comprendre ce que je peux apporter au sein de vos équipes.
 
-Je ne connais pas encore ArgoCD ni Terraform en conditions réelles. Mais j'ai les bases Linux et réseau pour monter vite, et surtout l'envie d'apprendre au contact d'une équipe SRE qui gère de la vraie charge. L'aspect sécurité et conformité du poste m'intéresse aussi, vu mon expérience avec la PKI et mes expériences en cybersécurité.
-
-Je serais ravi de discuter avec vous de ce poste et de mes expériences lors d'un entretien.
-Merci d'avoir pris le temps de me lire.
+Je vous remercie pour le temps consacré à me lire.
+En espérant pouvoir en discuter prochainement.
 
 Cordialement,
 
 Amaury DUFRENOT
+Portfolio : amaury-dufrenot.me
+amaury.dufrenot@utt.fr | +33 6 44 19 68 50

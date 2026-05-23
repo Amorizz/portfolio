@@ -132,7 +132,7 @@ export default function CVPage({ cvData, lang, pdfMode = false }: CVPageProps) {
 
   const projectPriority: Record<string, number> = {
     'archive-server': 1,
-    'translate-project': 2,
+    'mini-datacenter': 2,
     'security-labs': 3,
     'play-tennis-everywhere': 4,
     'tiny-habits': 5,
@@ -150,8 +150,9 @@ export default function CVPage({ cvData, lang, pdfMode = false }: CVPageProps) {
       'distance euclidienne', 'Euclidean distance',
       'vector-based', 'vectoriel', 'client-serveur', 'client-server',
       'drag-and-drop', 'Mistral 7B', 'llama.cpp',
-      'PostgreSQL', 'TypeScript', 'Streamlit', 'Supabase',
+      'PostgreSQL', 'TypeScript', 'Supabase',
       'Next.js', 'FastAPI', 'Whisper', 'M2M100', 'OpenAI',
+      'LXC', 'Cisco', 'Reverse Proxy', 'Raspberry Pi', 'WAN', 'DMZ', 'LAN',
       'OpenVPN', 'PKI', 'Docker', 'Kali Linux',
       'netcat', 'Python', 'Bash', 'Java', 'Swing',
       'TCP', 'SEO', '700+', '300+', '250+', '3,000+', '3 000+', '50+',
