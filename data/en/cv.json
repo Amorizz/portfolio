@@ -19,7 +19,7 @@
       { "name": "Chinese", "level": "Basic (A2)" }
     ]
   },
-  "professionalSummary": "Networks & Telecom engineering student at UTT. Founded and shipped a SaaS platform in production (250+ users, 3k daily impressions). Hands-on with Linux, TCP/IP, Docker, Python, and cybersecurity tools. Seeking a 6-month infrastructure internship starting summer 2026.",
+  "professionalSummary": "Networks & Telecom engineering student at UTT. Founded and shipped a SaaS platform in production (900+ users, 3k daily impressions). Hands-on with Linux, TCP/IP, Docker, Python, and cybersecurity tools. Seeking a 6-month infrastructure internship starting summer 2026.",
   "education": [
     {
       "id": "1",
@@ -75,7 +75,7 @@
       "description": "City recommendation SaaS platform matching user profiles to 300+ destinations using vector-based scoring.",
       "responsibilities": [],
       "achievements": [
-        "Shipped a full-stack SaaS platform from idea to production, reaching 250+ users and ~5 signups/day within 2 months (Next.js, PostgreSQL, Vercel)",
+        "Shipped a full-stack SaaS platform from idea to production, reaching 900+ users and ~5 signups/day within 2 months (Next.js, PostgreSQL, Vercel)",
         "Built a vector-based recommendation engine scoring 300+ cities against user profiles using Euclidean distance computation",
         "Grew organic traffic to 3,000+ daily impressions through a programmatic SEO engine generating 700+ structured content pages"
       ],
@@ -159,14 +159,10 @@
       {
         "category": "Network & Infrastructure",
         "skills": [
-          { "name": "TCP/IP", "level": "Intermediate", "yearsOfExperience": 2 },
-          { "name": "Routing & Switching (OSPF, VLAN, STP)", "level": "Intermediate", "yearsOfExperience": 2 },
-          { "name": "Linux Administration (Debian, Ubuntu)", "level": "Intermediate", "yearsOfExperience": 2 },
-          { "name": "Cisco Packet Tracer", "level": "Intermediate", "yearsOfExperience": 2 },
-          { "name": "Wireshark", "level": "Intermediate", "yearsOfExperience": 2 },
-          { "name": "DNS, DHCP, HTTP/S, SSH", "level": "Intermediate", "yearsOfExperience": 2 },
-          { "name": "MPLS", "level": "Basic", "yearsOfExperience": 1 },
-          { "name": "BGP", "level": "Basic", "yearsOfExperience": 1 }
+          { "name": "TCP/IP, DNS, DHCP, MPLS, BGP", "level": "", "yearsOfExperience": 2 },
+          { "name": "Routing & Switching (OSPF, VLAN, STP)", "level": "", "yearsOfExperience": 2 },
+          { "name": "Linux Administration (Debian, Ubuntu)", "level": "", "yearsOfExperience": 2 },
+          { "name": "Wireshark, Cisco Packet Tracer", "level": "", "yearsOfExperience": 2 }
         ]
       },
       {
@@ -180,14 +176,10 @@
       {
         "category": "Development & DevOps",
         "skills": [
-          { "name": "Python", "level": "Intermediate", "yearsOfExperience": 2 },
-          { "name": "TypeScript / JavaScript", "level": "Intermediate", "yearsOfExperience": 1 },
-          { "name": "Next.js / React", "level": "Intermediate", "yearsOfExperience": 1 },
-          { "name": "PostgreSQL / SQL", "level": "Intermediate", "yearsOfExperience": 1 },
-          { "name": "Git, CI/CD, Vercel", "level": "Intermediate", "yearsOfExperience": 2 },
-          { "name": "Java", "level": "Intermediate", "yearsOfExperience": 2 },
-          { "name": "Docker", "level": "Intermediate", "yearsOfExperience": 1 },
-          { "name": "Kubernetes", "level": "Basic", "yearsOfExperience": 1 }
+          { "name": "Python, Java, JavaScript, Next.js", "level": "", "yearsOfExperience": 2 },
+          { "name": "Docker, Kubernetes", "level": "", "yearsOfExperience": 1 },
+          { "name": "PostgreSQL / SQL", "level": "", "yearsOfExperience": 1 },
+          { "name": "Git, CI/CD, Vercel", "level": "", "yearsOfExperience": 2 }
         ]
       }
     ],

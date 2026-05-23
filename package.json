@@ -14,7 +14,8 @@
     "generate-cv": "node scripts/generate-cv-browser.mjs",
     "generate-cv:en": "node scripts/generate-cv-browser.mjs en",
     "generate-cv:fr": "node scripts/generate-cv-browser.mjs fr",
-    "generate-cv:latex": "node scripts/generate-cv.mjs"
+    "generate-cv:latex": "node scripts/generate-cv.mjs",
+    "generate-letter": "node scripts/generate-letter.mjs"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.10",
