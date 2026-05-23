@@ -176,10 +176,10 @@
       {
         "category": "Development & DevOps",
         "skills": [
-          { "name": "Python, Java, JavaScript, Next.js", "level": "", "yearsOfExperience": 2 },
+          { "name": "Python, Java, JavaScript, Node.js, Next.js", "level": "", "yearsOfExperience": 2 },
           { "name": "Docker, Kubernetes", "level": "", "yearsOfExperience": 1 },
           { "name": "PostgreSQL / SQL", "level": "", "yearsOfExperience": 1 },
-          { "name": "Git, CI/CD, Vercel", "level": "", "yearsOfExperience": 2 }
+          { "name": "Git, GitHub Actions, CI/CD, Vercel", "level": "", "yearsOfExperience": 2 }
         ]
       }
     ],
